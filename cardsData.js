@@ -8,7 +8,7 @@ const cardsData = [
         coreEssence: "The embodiment of fearless exploration, embracing new beginnings with optimism and an open heart.",
         strengths: ["Embraces new ventures and uncharted territory.", "Radiates an optimistic and hopeful outlook.", "Naturally adaptable and spontaneous in response to change.", "Unafraid to take calculated risks for potential growth."],
         shadows: ["Can overlook practical details or potential pitfalls (naivety).", "Impulsiveness may lead to recklessness if not tempered with foresight.", "May struggle with sustained focus or long-term follow-through."],
-        imagePlaceholder: "./img/archetype_pioneer.png"
+        imagePlaceholder: "img/archetype_pioneer.png"
     },
     {
         id: "arch02", type: "archetype", title: "THE ALCHEMIST", traditionalReference: "Inspired by The Magician",
@@ -165,7 +165,7 @@ const cardsData = [
         iAm: "The initial burst of inspiration, the courage to begin something new, the raw spark of creative potential.",
         underplayed: "The system experiences stagnation; innovative ideas are missed or unvoiced. Enthusiasm for new directions is low, missing crucial 'Signals' for emergence.",
         overplayed: "Too many initiatives start without adequate resources or follow-through, leading to system burnout. Impulsive action without broader system 'Alignment' can create confusion.",
-        imagePlaceholder: "./img/fire.png"
+        imagePlaceholder: "img/fire.png"
     },
     {
         id: "fire02", type: "trait", suit: "fire", number: "2", title: "BOLD PLANNING",
