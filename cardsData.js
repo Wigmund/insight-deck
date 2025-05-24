@@ -158,73 +158,73 @@ const cardsData = [
         imagePlaceholder: "img/archetype_integrator.png"
     },
 
-    // --- Traits (Full Set - 10 per suit) ---
+    // --- Actions (Full Set - 10 per suit) ---
     // Fire (Continuing from previous 3)
     {
-        id: "fire01", type: "trait", suit: "fire", number: "ace", title: "SPARKING IDEAS",
+        id: "fire01", type: "action", suit: "fire", number: "ace", title: "SPARKING IDEAS",
         iAm: "The initial burst of inspiration, the courage to begin something new, the raw spark of creative potential.",
         underplayed: "The system experiences stagnation; innovative ideas are missed or unvoiced. Enthusiasm for new directions is low, missing crucial 'Signals' for emergence.",
         overplayed: "Too many initiatives start without adequate resources or follow-through, leading to system burnout. Impulsive action without broader system 'Alignment' can create confusion.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire02", type: "trait", suit: "fire", number: "2", title: "BOLD PLANNING",
+        id: "fire02", type: "action", suit: "fire", number: "2", title: "BOLD PLANNING",
         iAm: "I confidently map out the initial steps of a new venture or direction, leaning into the system's desire for change.",
         underplayed: "Hesitation, lack of clear direction despite ideas, fear of commitment. System remains 'stuck'.",
         overplayed: "Overconfidence in early plans, ignoring potential obstacles, rushing the planning phase which can trigger 'Defensiveness'.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire03", type: "trait", suit: "fire", number: "3", title: "PIONEERING ACTION",
+        id: "fire03", type: "action", suit: "fire", number: "3", title: "PIONEERING ACTION",
         iAm: "I take the first tangible steps, exploring new territory and anticipating growth for the system.",
         underplayed: "Ideas remain theoretical, fear of the unknown halts progress, system inertia prevails.",
         overplayed: "Expanding too quickly without securing foundations, neglecting current system needs, impatience for results.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire04", type: "trait", suit: "fire", number: "4", title: "CELEBRATING MILESTONES",
+        id: "fire04", type: "action", suit: "fire", number: "4", title: "CELEBRATING MILESTONES",
         iAm: "I acknowledge and celebrate initial successes, building team spirit and stabilizing system morale.",
         underplayed: "Lack of recognition leads to demotivation. Burnout from constant push without pause for positive reinforcement.",
         overplayed: "Complacency after minor wins. Resting on laurels too soon, losing forward momentum for the system.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire05", type: "trait", suit: "fire", number: "5", title: "NAVIGATING CREATIVE TENSION",
+        id: "fire05", type: "action", suit: "fire", number: "5", title: "NAVIGATING CREATIVE TENSION",
         iAm: "I engage with diverse perspectives and constructive conflict to refine ideas and strengthen system outcomes.",
         underplayed: "Avoidance of necessary debate leads to groupthink. Suppressed innovation and unresolved 'Relationship Edges'.",
         overplayed: "Constant arguments and unproductive conflict. System energy drained, leading to 'Blaming' or 'Contempt'.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire06", type: "trait", suit: "fire", number: "6", title: "LEADING WITH VISION",
+        id: "fire06", type: "action", suit: "fire", number: "6", title: "LEADING WITH VISION",
         iAm: "I inspire and lead others towards a shared goal, celebrating collective achievement and system success.",
         underplayed: "Lack of clear leadership or direction. Demotivated team, unrecognized efforts, system feels adrift.",
         overplayed: "Taking all the credit, overshadowing team contributions. Becoming dictatorial, stifling 'Deep Democracy'.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire07", type: "trait", suit: "fire", number: "7", title: "DEFENDING A POSITION",
+        id: "fire07", type: "action", suit: "fire", number: "7", title: "DEFENDING A POSITION",
         iAm: "I stand firm for my convictions or a system's necessary stance, even amidst challenges or competition.",
         underplayed: "Giving up too easily on important system values. Easily swayed, lack of resilience, system integrity compromised.",
         overplayed: "Stubbornness and inability to compromise. Fighting unnecessary battles, system becomes overly rigid.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire08", type: "trait", suit: "fire", number: "8", title: "RAPID EXECUTION",
+        id: "fire08", type: "action", suit: "fire", number: "8", title: "RAPID EXECUTION",
         iAm: "I move quickly and decisively, bringing projects to a swift conclusion or propelling the system to its next phase.",
         underplayed: "Sluggish progress, missed deadlines. Loss of momentum, system opportunities are lost.",
         overplayed: "Rushing, overlooking details, potential for errors. System burnout from unsustainable pace.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire09", type: "trait", suit: "fire", number: "9", title: "RESILIENT PERSEVERANCE",
+        id: "fire09", type: "action", suit: "fire", number: "9", title: "RESILIENT PERSEVERANCE",
         iAm: "I maintain strength and determination even when the system is weary, guarding past achievements and pushing through.",
         underplayed: "Giving up before the final push. System succumbs to fatigue or doubt, goals unachieved.",
         overplayed: "System burnout, paranoia about threats. Inability to delegate or ask for help, resistance to necessary change.",
         imagePlaceholder: "img/fire.png"
     },
     {
-        id: "fire10", type: "trait", suit: "fire", number: "10", title: "CARRYING THE LOAD",
+        id: "fire10", type: "action", suit: "fire", number: "10", title: "CARRYING THE LOAD",
         iAm: "I take on significant responsibility, often completing a major cycle of effort for the system.",
         underplayed: "Shying away from system responsibility. Leaving tasks unfinished, burdening others, system falters.",
         overplayed: "Taking on too much individually, leading to burnout. Inability to delegate, becoming a system bottleneck.",
@@ -233,70 +233,70 @@ const cardsData = [
 
     // Water (Continuing from previous 3)
     {
-        id: "water01", type: "trait", suit: "water", number: "ace", title: "EMOTIONAL CONNECTION",
+        id: "water01", type: "action", suit: "water", number: "ace", title: "EMOTIONAL CONNECTION",
         iAm: "I am the wellspring of empathy, intuition, and authentic relationship, sensing the 'Emotional Field'.",
         underplayed: "Detachment, lack of empathy, impersonal interactions. 'Ghost Roles' of unmet needs may appear.",
         overplayed: "Overly emotional, porous boundaries, taking on others' feelings, losing 'Self-Management'.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water02", type: "trait", suit: "water", number: "2", title: "BUILDING RAPPORT",
+        id: "water02", type: "action", suit: "water", number: "2", title: "BUILDING RAPPORT",
         iAm: "I focus on creating strong, respectful one-on-one connections and partnerships within the system.",
         underplayed: "Isolation, weak alliances, transactional rather than relational approach, poor 'Team Alliance'.",
         overplayed: "Over-reliance on one person, exclusivity, neglecting broader team dynamics or 'Deep Democracy'.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water03", type: "trait", suit: "water", number: "3", title: "COLLABORATIVE CELEBRATION",
+        id: "water03", type: "action", suit: "water", number: "3", title: "COLLABORATIVE CELEBRATION",
         iAm: "I foster joy and camaraderie within a group, celebrating shared successes and support for the '3rd Entity'.",
         underplayed: "Lack of team cohesion, poor morale, unacknowledged contributions, weak system 'Heart'.",
         overplayed: "Prioritizing socializing over work, avoiding difficult conversations ('Team Toxins') for harmony's sake.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water04", type: "trait", suit: "water", number: "4", title: "REFLECTIVE RE-EVALUATION",
+        id: "water04", type: "action", suit: "water", number: "4", title: "REFLECTIVE RE-EVALUATION",
         iAm: "I encourage pausing to consider feelings and current offerings, discerning what is truly valuable for the system.",
         underplayed: "Missing opportunities for improvement by not reviewing 'Emotional Field'. Emotional burnout, taking relationships for granted.",
         overplayed: "Apathy, withdrawal from system engagement. Becoming stuck in contemplation and missing new relational chances.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water05", type: "trait", suit: "water", number: "5", title: "PROCESSING DISAPPOINTMENT",
+        id: "water05", type: "action", suit: "water", number: "5", title: "PROCESSING DISAPPOINTMENT",
         iAm: "I acknowledge and learn from relational setbacks or emotional losses, seeking what remains valuable for system healing.",
         underplayed: "Suppressing emotions, repeating mistakes in relationships. Inability to move on, 'Ghost Roles' of past hurts linger.",
         overplayed: "Dwelling on negativity, system adopts victim mentality. Overlooking positive aspects or opportunities for repair.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water06", type: "trait", suit: "water", number: "6", title: "SUPPORTIVE NOSTALGIA",
+        id: "water06", type: "action", suit: "water", number: "6", title: "SUPPORTIVE NOSTALGIA",
         iAm: "I draw on positive past experiences and simple kindness to build trust and goodwill within the system.",
         underplayed: "Forgetting lessons learned from past system interactions. Lack of warmth or appreciation for relationship history.",
         overplayed: "System living in the past, resistance to new ways of relating. Idealizing what was, hindering 'Myth Change'.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water07", type: "trait", suit: "water", number: "7", title: "DISCERNING CHOICES",
+        id: "water07", type: "action", suit: "water", number: "7", title: "DISCERNING CHOICES",
         iAm: "I navigate multiple emotional options or imaginative ideas for the system, seeking clarity before committing.",
         underplayed: "Impulsive emotional decisions impacting the system. Lack of foresight in relational commitments.",
         overplayed: "System indecision due to too many options. Wishful thinking, lack of practical action in relationships.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water08", type: "trait", suit: "water", number: "8", title: "MOVING ON EMOTIONALLY",
+        id: "water08", type: "action", suit: "water", number: "8", title: "MOVING ON EMOTIONALLY",
         iAm: "I recognize when it's time for the system to leave a situation or emotional state that no longer serves, seeking deeper fulfillment.",
         underplayed: "System staying stuck in unsatisfying situations. Fear of change, avoiding necessary 'Relationship Edges'.",
         overplayed: "Restlessness within the system, inability to commit. Constantly seeking something 'better' without appreciating the present relational state.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water09", type: "trait", suit: "water", number: "9", title: "CONTENTED FULFILLMENT",
+        id: "water09", type: "action", suit: "water", number: "9", title: "CONTENTED FULFILLMENT",
         iAm: "I appreciate and enjoy the emotional and relational abundance the system has achieved; a sense of collective well-being.",
         underplayed: "System never feeling satisfied, constant striving without appreciation for current connections.",
         overplayed: "Smugness or complacency within the system. Taking good relational fortune for granted, ignoring 'Signals' for growth.",
         imagePlaceholder: "img/water.png"
     },
     {
-        id: "water10", type: "trait", suit: "water", number: "10", title: "SUSTAINED HARMONY",
+        id: "water10", type: "action", suit: "water", number: "10", title: "SUSTAINED HARMONY",
         iAm: "I cultivate lasting emotional well-being, strong team bonds, and overall fulfillment within the system.",
         underplayed: "Unstable relationships within the system. Lack of deep connection, collective emotional dissatisfaction.",
         overplayed: "Resistance to any change that might disrupt system harmony. Potentially ignoring individual needs for group peace, stifling 'Deep Democracy'.",
@@ -305,70 +305,70 @@ const cardsData = [
 
     // Air (Continuing from previous 3)
     {
-        id: "air01", type: "trait", suit: "air", number: "ace", title: "BREAKTHROUGH INSIGHT",
+        id: "air01", type: "action", suit: "air", number: "ace", title: "BREAKTHROUGH INSIGHT",
         iAm: "I am the moment of pure clarity, the new idea, the truth revealed, encouraging open 'Ventilation'.",
         underplayed: "Confusion, lack of clear thought, inability to see the core issue. 'Marginalized Voices' remain unheard.",
         overplayed: "Overly intellectualizing, harsh truths delivered without tact (triggering 'Contempt'), analysis paralysis.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air02", type: "trait", suit: "air", number: "2", title: "BALANCED DECISION-MAKING",
+        id: "air02", type: "action", suit: "air", number: "2", title: "BALANCED DECISION-MAKING",
         iAm: "I carefully weigh options, seeking a balanced perspective before making a difficult choice for the system.",
         underplayed: "Impulsive decisions, avoiding choices, emotional bias in decision-making, lack of 'Inquiry/Awareness'.",
         overplayed: "Indecision, paralysis by analysis, avoiding commitment by staying 'neutral' when action is needed.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air03", type: "trait", suit: "air", number: "3", title: "FACING DIFFICULT TRUTHS",
+        id: "air03", type: "action", suit: "air", number: "3", title: "FACING DIFFICULT TRUTHS",
         iAm: "I confront painful realities or necessary feedback to enable clarity and healing within the system.",
         underplayed: "Avoiding conflict, allowing misunderstandings to fester, lack of honest communication, 'Stonewalling' occurs.",
         overplayed: "Brutal honesty without compassion, dwelling on negative communication, creating unnecessary pain or 'Relationship Edges'.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air04", type: "trait", suit: "air", number: "4", title: "STRATEGIC PAUSE",
+        id: "air04", type: "action", suit: "air", number: "4", title: "STRATEGIC PAUSE",
         iAm: "I advocate for rest and mental recuperation to regain clarity and strategic perspective for the system.",
         underplayed: "System mental burnout, reactive thinking. Poor decision-making due to collective fatigue.",
         overplayed: "Procrastination disguised as rest for the system. Avoidance of necessary action or difficult 'Alignment Work'.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air05", type: "trait", suit: "air", number: "5", title: "LEARNING FROM CONFLICT",
+        id: "air05", type: "action", suit: "air", number: "5", title: "LEARNING FROM CONFLICT",
         iAm: "I analyze system conflict to understand different viewpoints, even if it means acknowledging a 'loss' to gain insight.",
         underplayed: "System adopts win-at-all-costs mentality. Inability to see other perspectives, repeating conflict patterns.",
         overplayed: "System focuses on being 'right' over resolution. Creating discord, self-sabotage through intellectual battles.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air06", type: "trait", suit: "air", number: "6", title: "STRATEGIC TRANSITION",
+        id: "air06", type: "action", suit: "air", number: "6", title: "STRATEGIC TRANSITION",
         iAm: "I guide system movement from a difficult mental space or situation towards a clearer, more promising future.",
         underplayed: "System staying stuck in negative thinking patterns or difficult situations. Inability to envision new 'Myths'.",
         overplayed: "System escapism, avoiding dealing with the root cause. Moving on superficially without true 'Myth Change'.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air07", type: "trait", suit: "air", number: "7", title: "CUNNING STRATEGY",
+        id: "air07", type: "action", suit: "air", number: "7", title: "CUNNING STRATEGY",
         iAm: "I employ clever thinking and sometimes indirect approaches to navigate complex system situations or achieve goals.",
         underplayed: "System naivety, being easily outmaneuvered. Lack of strategic thinking in achieving system objectives.",
         overplayed: "Deception or manipulation within the system. Lack of transparency, fostering untrustworthiness and 'Team Toxins'.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air08", type: "trait", suit: "air", number: "8", title: "BREAKING FREE FROM LIMITATIONS",
+        id: "air08", type: "action", suit: "air", number: "8", title: "BREAKING FREE FROM LIMITATIONS",
         iAm: "I identify and challenge self-imposed mental restrictions or limiting beliefs within the system.",
         underplayed: "System feeling trapped by its own narratives. Victim mentality, inability to see options or cross 'Edges'.",
         overplayed: "Reckless challenging of all system boundaries without discernment. Creating instability or unnecessary disruption.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air09", type: "trait", suit: "air", number: "9", title: "OVERCOMING ANXIETY",
+        id: "air09", type: "action", suit: "air", number: "9", title: "OVERCOMING ANXIETY",
         iAm: "I confront and process system anxieties and worries, seeking collective mental peace and resilience.",
         underplayed: "System suppresses fears, allowing anxiety to dictate actions. Lack of self-awareness regarding collective 'Emotional Field'.",
         overplayed: "System becomes overwhelmed by anxiety. Catastrophizing, collective mental anguish impacting productivity.",
         imagePlaceholder: "img/air.png"
     },
     {
-        id: "air10", type: "trait", suit: "air", number: "10", title: "FINALITY AND NEW AWARENESS",
+        id: "air10", type: "action", suit: "air", number: "10", title: "FINALITY AND NEW AWARENESS",
         iAm: "I represent the definitive end of a system's thought process or difficult situation, bringing painful but necessary clarity for a new start.",
         underplayed: "System's inability to let go of old ideas. Repeating painful cycles, avoiding closure or 'Myth Change'.",
         overplayed: "Excessive drama around system endings. Focusing on ruin rather than rebirth, destructive finality hindering 'Emergence'.",
@@ -377,70 +377,70 @@ const cardsData = [
 
     // Earth (Continuing from previous 3)
     {
-        id: "earth01", type: "trait", suit: "earth", number: "ace", title: "TANGIBLE OPPORTUNITY",
+        id: "earth01", type: "action", suit: "earth", number: "ace", title: "TANGIBLE OPPORTUNITY",
         iAm: "I am the seed of a practical venture, a new resource, or a grounded opportunity for system growth.",
         underplayed: "Missed practical opportunities, ideas without grounding, lack of material support or 'Execution'.",
         overplayed: "Over-emphasis on material gain, neglecting other aspects (e.g., 'Heart') for purely practical pursuits.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth02", type: "trait", suit: "earth", number: "2", title: "AGILE RESOURCE MANAGEMENT",
+        id: "earth02", type: "action", suit: "earth", number: "2", title: "AGILE RESOURCE MANAGEMENT",
         iAm: "I skillfully juggle multiple priorities or resources, adapting to changing demands for system efficiency.",
         underplayed: "Overwhelm, dropping tasks, poor time/resource management, system becomes unstable.",
         overplayed: "Constant busyness without progress, lack of focus, spreading system resources too thin.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth03", type: "trait", suit: "earth", number: "3", title: "SKILLED CRAFTSMANSHIP",
+        id: "earth03", type: "action", suit: "earth", number: "3", title: "SKILLED CRAFTSMANSHIP",
         iAm: "I focus on quality work, collaboration with other skilled individuals, and building a strong reputation for the system.",
         underplayed: "Shoddy work, lack of attention to detail, working in isolation when collaboration is needed, weak 'Role' performance.",
         overplayed: "Perfectionism leading to delays, inability to delegate, micromanagement, stifling system 'Playfulness'.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth04", type: "trait", suit: "earth", number: "4", title: "RESOURCE STEWARDSHIP",
+        id: "earth04", type: "action", suit: "earth", number: "4", title: "RESOURCE STEWARDSHIP",
         iAm: "I prudently manage and conserve system resources, ensuring stability and security for its future.",
         underplayed: "Wastefulness, financial instability within the system. Lack of foresight in resource use, no 'Ground Conditions' for success.",
         overplayed: "Hoarding resources, fear of scarcity pervades the system. Resistance to investing or sharing, hindering growth.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth05", type: "trait", suit: "earth", number: "5", title: "NAVIGATING SCARCITY",
+        id: "earth05", type: "action", suit: "earth", number: "5", title: "NAVIGATING SCARCITY",
         iAm: "I help the system face periods of material lack or exclusion, seeking support and opportunities for recovery.",
         underplayed: "System ignoring warning signs of scarcity. Isolation when support is needed, 'Team Toxins' may arise.",
         overplayed: "System adopts victim mentality around lack. Inability to see available resources, fear-driven decisions.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth06", type: "trait", suit: "earth", number: "6", title: "GENEROUS EXCHANGE",
+        id: "earth06", type: "action", suit: "earth", number: "6", title: "GENEROUS EXCHANGE",
         iAm: "I facilitate fair and balanced giving and receiving of resources, mentorship, or support within the system.",
         underplayed: "System takes without giving back. Inability to ask for or receive help graciously, weak 'Collaboration'.",
         overplayed: "System gives to the point of depletion. Creating dependency, using generosity to control rather than empower.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth07", type: "trait", suit: "earth", number: "7", title: "PATIENT CULTIVATION",
+        id: "earth07", type: "action", suit: "earth", number: "7", title: "PATIENT CULTIVATION",
         iAm: "I assess progress on long-term system investments of time or resources, patiently awaiting results.",
         underplayed: "Impatience within the system, abandoning projects too soon. Lack of perseverance for long-term goals or 'Myths'.",
         overplayed: "Procrastination disguised as patience in the system. Fear of harvesting results, endless tweaking without 'Execution'.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth08", type: "trait", suit: "earth", number: "8", title: "DEDICATED MASTERY",
+        id: "earth08", type: "action", suit: "earth", number: "8", title: "DEDICATED MASTERY",
         iAm: "I commit to diligent work, honing skills, and taking pride in detailed craftsmanship for system excellence.",
         underplayed: "Lack of skill development within the system. Mediocre output, avoiding effort, poor 'Role' fulfillment.",
         overplayed: "Obsessive focus on one skill to the detriment of system needs. Workaholism, losing sight of the bigger picture/ '3rd Entity'.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth09", type: "trait", suit: "earth", number: "9", title: "EARNED INDEPENDENCE",
+        id: "earth09", type: "action", suit: "earth", number: "9", title: "EARNED INDEPENDENCE",
         iAm: "I encourage the system to enjoy the fruits of its labor, self-reliance, and disciplined effort, appreciating material comfort and security.",
         underplayed: "Lack of system self-sufficiency. Inability to appreciate collective achievements, financial dependence.",
         overplayed: "System isolation, excessive materialism. Reluctance to share success or collaborate, hindering 'Emergence'.",
         imagePlaceholder: "img/earth.png"
     },
     {
-        id: "earth10", type: "trait", suit: "earth", number: "10", title: "ENDURING LEGACY",
+        id: "earth10", type: "action", suit: "earth", number: "10", title: "ENDURING LEGACY",
         iAm: "I help build and maintain lasting structures, wealth, or traditions that provide security and continuity for the system's future.",
         underplayed: "System engages in short-term thinking. Lack of succession planning, unstable foundations, weak 'Myths'.",
         overplayed: "Resistance to change for the sake of tradition. Burdening future generations, focus on material legacy alone, ignoring 'Heart'.",
