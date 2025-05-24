@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Insight Deck Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>The Insight Deck</h1>
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#archetypes">Archetypes</a>
+            <a href="#traits">Traits</a>
+            <a href="#heroes">Heroes</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="introduction">
+            <h2>Welcome to The Insight Deck Explorer</h2>
+            <p>The Insight Deck is a unique 78-card system designed to illuminate individual and team strengths, reveal potential shadows, and spark meaningful conversations for growth. Inspired by the timeless wisdom of Tarot, this deck translates archetypal energies and everyday dynamics into actionable insights.</p>
+            <p>Explore the three core categories of cards:</p>
+            <ul>
+                <li><strong>The Archetypes:</strong> Powerful personas representing core strengths and their inherent shadows.</li>
+                <li><strong>The Trait Cards:</strong> Everyday behaviors and approaches, highlighting the impact of their expression.</li>
+                <li><strong>The Hero Cards:</strong> Actionable tools and mindsets to navigate challenges and leverage strengths.</li>
+            </ul>
+            <p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
+        </section>
+
+        <section id="archetypes">
+            <h2>The Archetypes (22 Cards)</h2>
+            <p>The 22 Archetype cards represent fundamental patterns of being, core strengths, and significant approaches one might embody. Each Archetype carries inherent wisdom and power, but also potential 'shadows'.</p>
+            <div class="card-gallery" id="archetype-gallery">
+                <!-- Archetype cards will be populated here by JavaScript -->
+            </div>
+        </section>
+
+        <section id="traits">
+            <h2>The Trait Cards (40 Cards)</h2>
+            <p>The 40 Trait cards are divided into four suits, each representing a fundamental element of experience and action. They delve into specific behaviors, skills, and approaches.</p>
+
+            <h3 class="suit-title fire">FIRE: Action & Initiative</h3>
+            <div class="card-gallery" id="fire-trait-gallery">
+                <!-- Fire Trait cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title water">WATER: Connection & Culture</h3>
+            <div class="card-gallery" id="water-trait-gallery">
+                <!-- Water Trait cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title air">AIR: Clarity & Strategy</h3>
+            <div class="card-gallery" id="air-trait-gallery">
+                <!-- Air Trait cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title earth">EARTH: Execution & Resources</h3>
+            <div class="card-gallery" id="earth-trait-gallery">
+                <!-- Earth Trait cards will be populated here -->
+            </div>
+        </section>
+
+        <section id="heroes">
+            <h2>The Hero Cards (16 Cards)</h2>
+            <p>The 16 Hero cards offer powerful tools, methods, and mindsets to help individuals and teams navigate challenges, leverage their Traits, and embody their Archetypal strengths more effectively.</p>
+
+            <h3 class="suit-title fire">FIRE: Action & Initiative</h3>
+            <div class="card-gallery" id="fire-hero-gallery">
+                <!-- Fire Hero cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title water">WATER: Connection & Culture</h3>
+            <div class="card-gallery" id="water-hero-gallery">
+                <!-- Water Hero cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title air">AIR: Clarity & Strategy</h3>
+            <div class="card-gallery" id="air-hero-gallery">
+                <!-- Air Hero cards will be populated here -->
+            </div>
+
+            <h3 class="suit-title earth">EARTH: Execution & Resources</h3>
+            <div class="card-gallery" id="earth-hero-gallery">
+                <!-- Earth Hero cards will be populated here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 The Insight Deck. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Modal for Card Details -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <p id="card-detail-number"></p>
+            <h1 id="card-detail-title"></h1>
+            <p id="card-detail-subtitle"></p>
+            <div id="card-detail-content">
+                <!-- Card specific content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+<script src="cardsData.js"></script>
+<script>
+
+// --- SCRIPT LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const archetypeGallery = document.getElementById('archetype-gallery');
+    const fireTraitGallery = document.getElementById('fire-trait-gallery');
+    const waterTraitGallery = document.getElementById('water-trait-gallery');
+    const airTraitGallery = document.getElementById('air-trait-gallery');
+    const earthTraitGallery = document.getElementById('earth-trait-gallery');
+    const heroGallery = document.getElementById('hero-gallery');
+    const fireHeroGallery = document.getElementById('fire-hero-gallery');
+    const waterHeroGallery = document.getElementById('water-hero-gallery');
+    const airHeroGallery = document.getElementById('air-hero-gallery');
+    const earthHeroGallery = document.getElementById('earth-hero-gallery');
+
+    const modal = document.getElementById('cardModal');
+    const modalNumber = document.getElementById('card-detail-number');
+    const modalTitle = document.getElementById('card-detail-title');
+    const modalSubtitle = document.getElementById('card-detail-subtitle');
+    const modalContent = document.getElementById('card-detail-content');
+    const closeButton = document.querySelector('.close-button');
+
+    const suitFocus = [
+        { suit: 'fire', focus: 'proactivity, energy, creativity and leadership.' },
+        { suit: 'water', focus: 'relationships, emotional intelligence, collaboration and team environment' },
+        { suit: 'air', focus: 'critical thinking, planning, communication, decision-making and facing challenges' },
+        { suit: 'earth', focus: 'practical application, skills, resources and tangible outcomes' }
+    ];
+
+    function createCardPreview(card) {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card-preview');
+        cardDiv.setAttribute('data-id', card.id);
+        cardDiv.setAttribute('data-type', card.type);
+        if (card.suit) {
+            cardDiv.setAttribute('data-suit', card.suit);
+        }
+        cardDiv.style.backgroundImage = `url(${card.imagePlaceholder})`;
+        cardDiv.style.backgroundSize = '20% 20%';
+        cardDiv.style.backgroundPosition = '90% 90%';
+        cardDiv.style.backgroundRepeat = 'no-repeat';
+
+        const titleEl = document.createElement('div');
+        titleEl.classList.add('card-title-preview');
+        titleEl.textContent = card.title;
+        cardDiv.appendChild(titleEl);
+
+        if (card.type === 'trait' || card.type === 'hero') {
+            const infoRow = document.createElement('div');
+            infoRow.style.display = 'flex';
+            infoRow.style.justifyContent = 'space-between';
+            infoRow.style.width = '100%';
+            infoRow.style.fontSize = '1.2rem';
+            infoRow.style.fontWeight = 'bold';
+            infoRow.style.opacity = '0.7';
+
+            const numberEl = document.createElement('div');
+            numberEl.textContent = card.number ? card.number.toUpperCase() : '';
+            infoRow.appendChild(numberEl);
+
+            cardDiv.appendChild(infoRow);
+        }
+
+        cardDiv.addEventListener('click', () => displayCardDetails(card.id));
+        return cardDiv;
+    }
+
+    function displayCardDetails(cardId) {
+        const card = cardsData.find(c => c.id === cardId);
+        if (!card) return;
+
+        modalTitle.textContent = card.title;
+        let numberText = "";
+        let subtitleText = "";
+        let contentHTML = "";
+
+        if (card.type === "archetype") {
+            subtitleText = card.traditionalReference || "";
+            contentHTML += `<h3>Core Essence:</h3><p>${card.coreEssence}</p>`;
+            contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
+            contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
+        } else if (card.type === "trait" || card.type === "hero") {
+            numberText = card.number ? `${card.number.toUpperCase()} OF ${card.suit.toUpperCase()}` : "";
+            const suitFocusEntry = suitFocus.find(s => s.suit === card.suit);
+            subtitleText = suitFocusEntry ? `Embodies ${suitFocusEntry.focus})` : `${card.type.toUpperCase()} (${card.suit.toUpperCase()})`;
+            if (card.type === "trait") {
+                contentHTML += `<h3>I am...</h3><p>${card.iAm}</p>`;
+                contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
+                contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
+            } else if (card.type === "hero") {
+                contentHTML += `<h3>Core Principle/Method:</h3><p>${card.corePrinciple}</p>`;
+                if (card.howItHelps && card.howItHelps.length > 0) {
+                    contentHTML += `<h3>How it Helps:</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                }
+                if (card.whenToDeploy && card.whenToDeploy.length > 0) {
+                    contentHTML += `<h3>When to Deploy:</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                }
+            }
+        }
+        modalNumber.textContent = numberText;
+        modalSubtitle.textContent = subtitleText;
+        modalContent.innerHTML = contentHTML;
+        modal.style.display = 'block';
+    }
+
+    // Populate galleries
+    cardsData.forEach(card => {
+        const cardPreview = createCardPreview(card);
+        if (card.type === 'archetype') {
+            archetypeGallery.appendChild(cardPreview);
+        } else if (card.type === 'trait') {
+            if (card.suit === 'fire') fireTraitGallery.appendChild(cardPreview);
+            else if (card.suit === 'water') waterTraitGallery.appendChild(cardPreview);
+            else if (card.suit === 'air') airTraitGallery.appendChild(cardPreview);
+            else if (card.suit === 'earth') earthTraitGallery.appendChild(cardPreview);
+        } else if (card.type === 'hero') {
+            if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
+            else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
+            else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
+            else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
+        }
+    });
+
+    // Modal close functionality
+    closeButton.onclick = () => {
+        modal.style.display = 'none';
+    }
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === "Escape" && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
