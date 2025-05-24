@@ -88,7 +88,7 @@ section h2 {
 
 section .suit-title {
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     font-size: 1.5rem;
 }
 .suit-title.fire { border-bottom-color: var(--fire-accent); }
@@ -97,6 +97,13 @@ section .suit-title {
 .suit-title.earth { border-bottom-color: var(--earth-accent); }
 
 /* --- Card Gallery Styles --- */
+.card-group-subtitle {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
 .card-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -134,6 +141,7 @@ section .suit-title {
     min-height: 100px;
     font-size: 1.25rem;
 }
+
 .card-preview .card-suit-preview {
     font-size: 0.8rem;
     opacity: 0.7;
