@@ -18,14 +18,14 @@ const cardsData = [
         imagePlaceholder: "img/archetype_alchemist.png"
     },
     {
-        id: "arch03", type: "archetype", title: "THE INTUITIVE SAGE", traditionalReference: "Inspired by The High Priestess",
+        id: "arch03", type: "archetype", title: "THE SAGE", traditionalReference: "Inspired by The High Priestess",
         coreEssence: "The guardian of inner wisdom, perceiving underlying currents and unspoken truths with profound insight.",
         strengths: ["Deeply insightful, often seeing what others miss.", "Trusts inner wisdom and intuition implicitly.", "Excellent listener, capable of hearing subtle nuances.", "Understands unspoken needs and hidden dynamics."],
         shadows: ["Can be overly passive or withdrawn, hesitant to share insights.", "May appear mysterious or unapproachable to others.", "Risk of becoming lost in introspection without action."],
         imagePlaceholder: "img/archetype_sage.png"
     },
     {
-        id: "arch04", type: "archetype", title: "THE VISIONARY LEADER", traditionalReference: "Inspired by The Empress",
+        id: "arch04", type: "archetype", title: "THE VISIONARY", traditionalReference: "Inspired by The Empress",
         coreEssence: "The nurturer of growth and abundance, fostering creativity and creating harmonious, supportive environments.",
         strengths: ["Nurturing and supportive of others' potential.", "Fosters growth, creativity, and new life in projects/teams.", "Abundant in ideas, resources, and generative energy.", "Creates harmonious and aesthetically pleasing environments."],
         shadows: ["Can become overbearing or smothering if not balanced.", "May struggle with setting firm boundaries.", "Potential for possessiveness over creations or relationships."],
@@ -60,14 +60,14 @@ const cardsData = [
         imagePlaceholder: "img/archetype_driver.png"
     },
     {
-        id: "arch09", type: "archetype", title: "THE INNER WARRIOR", traditionalReference: "Inspired by Strength",
+        id: "arch09", type: "archetype", title: "THE WARRIOR", traditionalReference: "Inspired by Strength",
         coreEssence: "The embodiment of courage, resilience, and compassionate influence, taming challenges with inner fortitude.",
         strengths: ["Exhibits courage, resilience, and inner strength.", "Manages challenges with patience and calm persistence.", "Persuades and influences with compassion rather than force.", "Possesses deep inner fortitude and self-control."],
         shadows: ["Can misapply strength as brute force if not balanced with wisdom.", "Impatience with perceived weakness in self or others.", "May underestimate the power of subtle approaches."],
         imagePlaceholder: "img/archetype_inner_warrior.png"
     },
     {
-        id: "arch10", type: "archetype", title: "THE DEEP THINKER", traditionalReference: "Inspired by The Hermit",
+        id: "arch10", type: "archetype", title: "THE THINKER", traditionalReference: "Inspired by The Hermit",
         coreEssence: "The seeker of knowledge and profound understanding, offering insights gleaned from introspection and analysis.",
         strengths: ["Analytical and introspective, capable of deep thought.", "Seeks knowledge, truth, and understanding diligently.", "Offers profound insights and well-considered advice.", "Works effectively independently, valuing solitude for reflection."],
         shadows: ["Can become isolated, detached, or socially withdrawn.", "Prone to overthinking, leading to inaction or analysis paralysis.", "May appear aloof, critical, or disconnected from practical matters."],
