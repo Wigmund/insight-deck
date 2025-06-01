@@ -30,6 +30,8 @@
             <p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
         </section>
 
+        <button id="saveCardButton">Save Card</button>
+
         <section id="archetypes">
             <h2>The Archetypes (22 Cards)</h2>
             <p>The 22 Archetype cards represent fundamental patterns of being, core strengths, and significant approaches one might embody. Each Archetype carries inherent wisdom and power, but also potential 'shadows'.</p>
@@ -115,9 +117,16 @@
     </div>
 
 <script src="cardsData.js?v=2"></script>
+<script type="module">
+    import { saveCardToFirebase } from './firebase.js';
+    // Your script logic here
+</script>
 <script>
-
 // --- SCRIPT LOGIC ---
+document.getElementById('saveCardButton').addEventListener('click', () => {
+    saveCardToFirebase(cardsData[0]); // Example: Save the first card
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const archetypeGallery = document.getElementById('archetype-gallery');
     const fireActionGallery = document.getElementById('fire-action-gallery');
