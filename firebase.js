@@ -6,6 +6,7 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.1
 const firebaseConfig = {
     apiKey: "AIzaSyDe6HCXAiBYHKpiP7wjB-SVlL58wWxSJUg",
     authDomain: "insight-deck.firebaseapp.com",
+    databaseURL: "https://insight-deck-default-rtdb.firebaseio.com", // Add this line
     projectId: "insight-deck",
     storageBucket: "insight-deck.firebasestorage.app",
     messagingSenderId: "504717994160",
