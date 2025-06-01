@@ -23,3 +23,6 @@ export function saveCardToFirebase(card) {
         .then(() => console.log('Card saved successfully!'))
         .catch(error => console.error('Error saving card:', error));
 }
+
+// Ensure this file uses named exports for clarity
+export { saveCardToFirebase };
