@@ -116,23 +116,14 @@
 
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
-
-    let cardsData = [];
-
-    async function loadCardsFromFirebase() {
-        try {
-            cardsData = await getCardsFromFirebase();
-            console.log('Cards loaded from Firebase:', cardsData);
-            populateGalleries();
-        } catch (error) {
-            console.error('Error loading cards from Firebase:', error);
-        }
-    }
 </script>
 <script>
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadCardsFromFirebase();
+    let cardsData = [];
+
+    // Load Cards from Firebase
+    loadCards();
 
     // const archetypeGallery = document.getElementById('archetype-gallery');
     // const fireActionGallery = document.getElementById('fire-action-gallery');
@@ -151,6 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalSubtitle = document.getElementById('card-detail-subtitle');
     const modalContent = document.getElementById('card-detail-content');
     const closeButton = document.querySelector('.close-button');
+
+    async function loadCards() {
+        try {
+            cardsData = await getCardsFromFirebase();
+            console.log('Cards loaded from Firebase:', cardsData);
+            populateGalleries();
+        } catch (error) {
+            console.error('Error loading cards from Firebase:', error);
+        }
+    }
 
     function populateGalleries() {
         const archetypeGallery = document.getElementById('archetype-gallery');
