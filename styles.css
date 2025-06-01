@@ -207,7 +207,7 @@ section .suit-title {
 .modal-buttons {
     display: flex;
     float: right;
-    gap: 10px;
+    gap: 15px;
     position: absolute;
     top: 10px;
     right: 20px;
@@ -229,17 +229,19 @@ section .suit-title {
 /* Style for editable fields in the modal */
 .editable-field {
     width: 100%;
-    min-height: 0px;
-    padding: 2px;
+    min-height: 1rem; /* Force the minimum height to be very small */
+    padding: 0; /* Remove padding to avoid height inflation */
     font-size: 1rem;
     font-family: inherit;
     color: var(--text-color);
     background-color: var(--secondary-bg);
     border: none;
-    resize: none;
+    resize: none; /* Prevent manual resizing */
     outline: none;
-    box-sizing: border-box; /* Include padding in height calculation */
+    box-sizing: content-box; /* Exclude padding and border from height calculation */
+    line-height: 1.2; /* Match the line height to the font size */
     transition: height 0.2s ease; /* Smooth height adjustment */
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 .editable-field:focus {
