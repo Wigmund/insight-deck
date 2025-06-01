@@ -1,12 +1,11 @@
 // Import the functions you need from the Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDe6HCXAiBYHKpiP7wjB-SVlL58wWxSJUg",
     authDomain: "insight-deck.firebaseapp.com",
-    databaseURL: "https://insight-deck-default-rtdb.firebaseio.com", // Add this line
     projectId: "insight-deck",
     storageBucket: "insight-deck.firebasestorage.app",
     messagingSenderId: "504717994160",
@@ -15,16 +14,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const db = getFirestore(app);
 
-// Function to save a card to Firebase
-function saveCardToFirebase(card) {
-    console.log('Saving card to Firebase:', card.id);
+// Function to save a card to Firestore
+async function saveCardToFirebase(card) {
+    console.log('Saving card to Firestore:', card.id);
 
-    const cardRef = ref(database, 'cards/' + card.id);
-    set(cardRef, card)
-        .then(() => console.log('Card saved successfully!'))
-        .catch(error => console.error('Error saving card:', error));
+    try {
+        const cardRef = doc(db, 'cards', card.id); // Reference to the document
+        await setDoc(cardRef, card); // Save the card data
+        console.log('Card saved successfully!');
+    } catch (error) {
+        console.error('Error saving card:', error);
+    }
 }
 
 // Ensure this file uses named exports for clarity
