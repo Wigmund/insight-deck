@@ -105,7 +105,8 @@
     <div id="cardModal" class="modal">
         <div id="cardContent" class="modal-content">
             <p id="card-detail-type"></p>
-            <span class="close-button">×</span>
+            <span id="save-button" class="modal-button">s</span>
+            <span id="close-button" class="modal-button">×</span>
             <h1 id="card-detail-title"></h1>
             <p id="card-detail-subtitle"></p>
             <div id="card-detail-content">
@@ -114,9 +115,6 @@
         </div>
     </div>
 
-<!-- <script type="module">
-    import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
-</script> -->
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
 
@@ -131,13 +129,13 @@
         const modalTitle = document.getElementById('card-detail-title');
         const modalSubtitle = document.getElementById('card-detail-subtitle');
         const modalContent = document.getElementById('card-detail-content');
-        const closeButton = document.querySelector('.close-button');
+        const saveButton = document.getElementById('save-button');
+        const closeButton = document.getElementById('close-button');
 
         // Function to load cards from Firebase
         async function loadCards() {
             try {
                 cardsData = await getCardsFromFirebase();
-                console.log('Cards loaded from Firebase:', cardsData);
                 populateGalleries();
             } catch (error) {
                 console.error('Error loading cards from Firebase:', error);
@@ -265,7 +263,10 @@
             modal.style.display = 'block';
         }
 
-        // Modal close functionality
+        // Modal functionality
+        saveButton.onclick = () => {
+            console.log('Save button clicked');
+        }
         closeButton.onclick = () => {
             modal.style.display = 'none';
         }

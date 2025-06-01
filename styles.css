@@ -204,7 +204,7 @@ section .suit-title {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.close-button {
+.model-button {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -214,8 +214,8 @@ section .suit-title {
     right: 20px;
 }
 
-.close-button:hover,
-.close-button:focus {
+.model-button:hover,
+.model-button:focus {
     color: var(--text-color);
     text-decoration: none;
     cursor: pointer;
