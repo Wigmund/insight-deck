@@ -229,7 +229,7 @@ section .suit-title {
 /* Style for editable fields in the modal */
 .editable-field {
     width: 100%;
-    min-height: 20px;
+    min-height: 0px;
     padding: 2px;
     font-size: 1rem;
     font-family: inherit;
@@ -238,6 +238,8 @@ section .suit-title {
     border: none;
     resize: none;
     outline: none;
+    box-sizing: border-box; /* Include padding in height calculation */
+    line-height: 1.2; /* Match the line height to the font size */
     transition: height 0.2s ease; /* Smooth height adjustment */
 }
 
