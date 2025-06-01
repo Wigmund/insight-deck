@@ -230,6 +230,7 @@
             const card = cardsData.find(c => c.id === cardId);
             if (!card) return;
 
+            modal.setAttribute('data-id', card.id);
             modal.setAttribute('data-type', card.type);
             modal.setAttribute('data-suit', card.suit);
 
