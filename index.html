@@ -30,8 +30,6 @@
             <p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
         </section>
 
-        <button id="saveCardButton">Save Card</button>
-
         <section id="archetypes">
             <h2>The Archetypes (22 Cards)</h2>
             <p>The 22 Archetype cards represent fundamental patterns of being, core strengths, and significant approaches one might embody. Each Archetype carries inherent wisdom and power, but also potential 'shadows'.</p>
@@ -116,29 +114,36 @@
         </div>
     </div>
 
-<script src="cardsData.js?v=4"></script>
 <script type="module">
-    import { saveCardToFirebase } from './firebase.js';
+    import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
 
-    document.getElementById('saveCardButton').addEventListener('click', () => {
-        cardsData.forEach(card => {
-            saveCardToFirebase(card); // Save each card to Firebase
-        });
-    });
+    let cardsData = [];
+
+    async function loadCardsFromFirebase() {
+        try {
+            cardsData = await getCardsFromFirebase();
+            console.log('Cards loaded from Firebase:', cardsData);
+            populateGalleries();
+        } catch (error) {
+            console.error('Error loading cards from Firebase:', error);
+        }
+    }
 </script>
 <script>
 
 document.addEventListener('DOMContentLoaded', () => {
-    const archetypeGallery = document.getElementById('archetype-gallery');
-    const fireActionGallery = document.getElementById('fire-action-gallery');
-    const waterActionGallery = document.getElementById('water-action-gallery');
-    const airActionGallery = document.getElementById('air-action-gallery');
-    const earthActionGallery = document.getElementById('earth-action-gallery');
-    const heroGallery = document.getElementById('hero-gallery');
-    const fireHeroGallery = document.getElementById('fire-hero-gallery');
-    const waterHeroGallery = document.getElementById('water-hero-gallery');
-    const airHeroGallery = document.getElementById('air-hero-gallery');
-    const earthHeroGallery = document.getElementById('earth-hero-gallery');
+    loadCardsFromFirebase();
+
+    // const archetypeGallery = document.getElementById('archetype-gallery');
+    // const fireActionGallery = document.getElementById('fire-action-gallery');
+    // const waterActionGallery = document.getElementById('water-action-gallery');
+    // const airActionGallery = document.getElementById('air-action-gallery');
+    // const earthActionGallery = document.getElementById('earth-action-gallery');
+    // const heroGallery = document.getElementById('hero-gallery');
+    // const fireHeroGallery = document.getElementById('fire-hero-gallery');
+    // const waterHeroGallery = document.getElementById('water-hero-gallery');
+    // const airHeroGallery = document.getElementById('air-hero-gallery');
+    // const earthHeroGallery = document.getElementById('earth-hero-gallery');
 
     const modal = document.getElementById('cardModal');
     const modalType = document.getElementById('card-detail-type');
@@ -146,6 +151,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalSubtitle = document.getElementById('card-detail-subtitle');
     const modalContent = document.getElementById('card-detail-content');
     const closeButton = document.querySelector('.close-button');
+
+    function populateGalleries() {
+        const archetypeGallery = document.getElementById('archetype-gallery');
+        const fireActionGallery = document.getElementById('fire-action-gallery');
+        const waterActionGallery = document.getElementById('water-action-gallery');
+        const airActionGallery = document.getElementById('air-action-gallery');
+        const earthActionGallery = document.getElementById('earth-action-gallery');
+        const fireHeroGallery = document.getElementById('fire-hero-gallery');
+        const waterHeroGallery = document.getElementById('water-hero-gallery');
+        const airHeroGallery = document.getElementById('air-hero-gallery');
+        const earthHeroGallery = document.getElementById('earth-hero-gallery');
+
+        // Clear existing galleries
+        archetypeGallery.innerHTML = '';
+        fireActionGallery.innerHTML = '';
+        waterActionGallery.innerHTML = '';
+        airActionGallery.innerHTML = '';
+        earthActionGallery.innerHTML = '';
+        fireHeroGallery.innerHTML = '';
+        waterHeroGallery.innerHTML = '';
+        airHeroGallery.innerHTML = '';
+        earthHeroGallery.innerHTML = '';
+
+        // Populate galleries with cards
+        cardsData.forEach(card => {
+            const cardPreview = createCardPreview(card);
+            if (card.type === 'archetype') {
+                archetypeGallery.appendChild(cardPreview);
+            } else if (card.type === 'action') {
+                if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
+                else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
+                else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
+                else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
+            } else if (card.type === 'hero') {
+                if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
+                else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
+                else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
+                else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
+            }
+        });
+    }
 
     function createCardPreview(card) {
         const cardDiv = document.createElement('div');
@@ -225,22 +271,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Populate galleries
-    cardsData.forEach(card => {
-        const cardPreview = createCardPreview(card);
-        if (card.type === 'archetype') {
-            archetypeGallery.appendChild(cardPreview);
-        } else if (card.type === 'action') {
-            if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
-            else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
-            else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
-            else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
-        } else if (card.type === 'hero') {
-            if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
-            else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
-            else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
-            else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
-        }
-    });
+    // cardsData.forEach(card => {
+    //     const cardPreview = createCardPreview(card);
+    //     if (card.type === 'archetype') {
+    //         archetypeGallery.appendChild(cardPreview);
+    //     } else if (card.type === 'action') {
+    //         if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
+    //     } else if (card.type === 'hero') {
+    //         if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
+    //         else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
+    //     }
+    // });
 
     // Modal close functionality
     closeButton.onclick = () => {

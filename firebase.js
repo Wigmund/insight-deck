@@ -1,6 +1,6 @@
 // Import the functions you need from the Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -26,5 +26,12 @@ async function saveCardToFirebase(card) {
     }
 }
 
+// Function to fetch card data from Firebase
+async function getCardsFromFirebase() {
+    const cardsCollection = collection(db, 'cards');
+    const snapshot = await getDocs(cardsCollection);
+    return snapshot.docs.map(doc => doc.data());
+}
+
 // Ensure this file uses named exports for clarity
-export { saveCardToFirebase };
+export { saveCardToFirebase, getCardsFromFirebase };
