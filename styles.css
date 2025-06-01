@@ -229,6 +229,7 @@ section .suit-title {
 /* Style for editable fields in the modal */
 .editable-field {
     width: 100%;
+    min-height: 20px;
     padding: 2px;
     font-size: 1rem;
     font-family: inherit;
