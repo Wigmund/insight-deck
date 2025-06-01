@@ -240,9 +240,6 @@
             modalTitle.textContent = card.title.toUpperCase();
             modalDescription.value = card.description || '';
             
-            // Adjust the height of the textarea to fit the content
-            autoResizeTextarea(modalDescription);
-
             let subtitleText = "";
             let contentHTML = ""; // `<p>${card.description}</p>`;
 
@@ -267,6 +264,9 @@
             modalSubtitle.textContent = subtitleText;
             modalContent.innerHTML = contentHTML;
             modal.style.display = 'block';
+
+            // Adjust the height of the textarea to fit the content
+            autoResizeTextarea(modalDescription);
         }
 
         // Function to adjust the height of a textarea to fit its content
