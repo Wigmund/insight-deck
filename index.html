@@ -119,13 +119,12 @@
 <script src="cardsData.js?v=2"></script>
 <script type="module">
     import { saveCardToFirebase } from './firebase.js';
-    // Your script logic here
+
+    document.getElementById('saveCardButton').addEventListener('click', () => {
+        saveCardToFirebase(cardsData[0]); // Example: Save the first card
+    });
 </script>
 <script>
-// --- SCRIPT LOGIC ---
-document.getElementById('saveCardButton').addEventListener('click', () => {
-    saveCardToFirebase(cardsData[0]); // Example: Save the first card
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     const archetypeGallery = document.getElementById('archetype-gallery');
