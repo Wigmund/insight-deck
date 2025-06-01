@@ -116,7 +116,7 @@
         </div>
     </div>
 
-<script src="cardsData.js?v=3"></script>
+<script src="cardsData.js?v=4"></script>
 <script type="module">
     import { saveCardToFirebase } from './firebase.js';
 
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const titleEl = document.createElement('div');
         titleEl.classList.add('card-title-preview');
-        titleEl.textContent = card.title;
+        titleEl.textContent = card.title.toUpperCase();
         cardDiv.appendChild(titleEl);
 
         if (card.type === 'action' || card.type === 'hero') {
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.setAttribute('data-suit', card.suit);
 
         modalType.textContent = card.type.toUpperCase();
-        modalTitle.textContent = card.title;
+        modalTitle.textContent = card.title.toUpperCase();
 
         let subtitleText = "";
         let contentHTML = "";
