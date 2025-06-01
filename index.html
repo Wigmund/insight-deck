@@ -265,18 +265,35 @@
             modal.style.display = 'block';
         }
 
-        // Modal functionality
-        saveButton.onclick = () => {
-            console.log('Save button clicked');
+        // Modal Save button functionality
+        saveButton.onclick = async () => {
+            const cardId = modal.getAttribute('data-id'); // Get the card ID from the modal
+            const card = cardsData.find(c => c.id === cardId); // Find the card data by ID
+
+            if (card) {
+                try {
+                    await saveCardToFirebase(card); // Call the saveCardToFirebase function
+                    console.log('Card saved successfully:', card);
+                } catch (error) {
+                    console.error('Error saving card:', error);
+                }
+            } else {
+                console.error('Card not found.');
+            }
         }
+
+        // Modal close button functionality
         closeButton.onclick = () => {
             modal.style.display = 'none';
         }
+
+        // Close modal when clicking outside of it
         window.onclick = (event) => {
             if (event.target == modal) {
                 modal.style.display = 'none';
             }
         }
+
         // Close modal with Escape key
         document.addEventListener('keydown', (event) => {
             if (event.key === "Escape" && modal.style.display === 'block') {
