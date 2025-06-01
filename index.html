@@ -114,197 +114,173 @@
         </div>
     </div>
 
+<!-- <script type="module">
+    import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
+</script> -->
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
-</script>
-<script>
 
-document.addEventListener('DOMContentLoaded', () => {
-    let cardsData = [];
+    document.addEventListener('DOMContentLoaded', () => {
+        let cardsData = [];
 
-    // Load Cards from Firebase
-    loadCards();
+        // Load Cards from Firebase
+        loadCards();
 
-    // const archetypeGallery = document.getElementById('archetype-gallery');
-    // const fireActionGallery = document.getElementById('fire-action-gallery');
-    // const waterActionGallery = document.getElementById('water-action-gallery');
-    // const airActionGallery = document.getElementById('air-action-gallery');
-    // const earthActionGallery = document.getElementById('earth-action-gallery');
-    // const heroGallery = document.getElementById('hero-gallery');
-    // const fireHeroGallery = document.getElementById('fire-hero-gallery');
-    // const waterHeroGallery = document.getElementById('water-hero-gallery');
-    // const airHeroGallery = document.getElementById('air-hero-gallery');
-    // const earthHeroGallery = document.getElementById('earth-hero-gallery');
+        const modal = document.getElementById('cardModal');
+        const modalType = document.getElementById('card-detail-type');
+        const modalTitle = document.getElementById('card-detail-title');
+        const modalSubtitle = document.getElementById('card-detail-subtitle');
+        const modalContent = document.getElementById('card-detail-content');
+        const closeButton = document.querySelector('.close-button');
 
-    const modal = document.getElementById('cardModal');
-    const modalType = document.getElementById('card-detail-type');
-    const modalTitle = document.getElementById('card-detail-title');
-    const modalSubtitle = document.getElementById('card-detail-subtitle');
-    const modalContent = document.getElementById('card-detail-content');
-    const closeButton = document.querySelector('.close-button');
-
-    async function loadCards() {
-        try {
-            cardsData = await getCardsFromFirebase();
-            console.log('Cards loaded from Firebase:', cardsData);
-            populateGalleries();
-        } catch (error) {
-            console.error('Error loading cards from Firebase:', error);
+        // Function to load cards from Firebase
+        async function loadCards() {
+            try {
+                cardsData = await getCardsFromFirebase();
+                console.log('Cards loaded from Firebase:', cardsData);
+                populateGalleries();
+            } catch (error) {
+                console.error('Error loading cards from Firebase:', error);
+            }
         }
-    }
 
-    function populateGalleries() {
-        const archetypeGallery = document.getElementById('archetype-gallery');
-        const fireActionGallery = document.getElementById('fire-action-gallery');
-        const waterActionGallery = document.getElementById('water-action-gallery');
-        const airActionGallery = document.getElementById('air-action-gallery');
-        const earthActionGallery = document.getElementById('earth-action-gallery');
-        const fireHeroGallery = document.getElementById('fire-hero-gallery');
-        const waterHeroGallery = document.getElementById('water-hero-gallery');
-        const airHeroGallery = document.getElementById('air-hero-gallery');
-        const earthHeroGallery = document.getElementById('earth-hero-gallery');
+        // Function to populate galleries with card previews
+        function populateGalleries() {
+            const archetypeGallery = document.getElementById('archetype-gallery');
+            const fireActionGallery = document.getElementById('fire-action-gallery');
+            const waterActionGallery = document.getElementById('water-action-gallery');
+            const airActionGallery = document.getElementById('air-action-gallery');
+            const earthActionGallery = document.getElementById('earth-action-gallery');
+            const fireHeroGallery = document.getElementById('fire-hero-gallery');
+            const waterHeroGallery = document.getElementById('water-hero-gallery');
+            const airHeroGallery = document.getElementById('air-hero-gallery');
+            const earthHeroGallery = document.getElementById('earth-hero-gallery');
 
-        // Clear existing galleries
-        archetypeGallery.innerHTML = '';
-        fireActionGallery.innerHTML = '';
-        waterActionGallery.innerHTML = '';
-        airActionGallery.innerHTML = '';
-        earthActionGallery.innerHTML = '';
-        fireHeroGallery.innerHTML = '';
-        waterHeroGallery.innerHTML = '';
-        airHeroGallery.innerHTML = '';
-        earthHeroGallery.innerHTML = '';
+            // Clear existing galleries
+            archetypeGallery.innerHTML = '';
+            fireActionGallery.innerHTML = '';
+            waterActionGallery.innerHTML = '';
+            airActionGallery.innerHTML = '';
+            earthActionGallery.innerHTML = '';
+            fireHeroGallery.innerHTML = '';
+            waterHeroGallery.innerHTML = '';
+            airHeroGallery.innerHTML = '';
+            earthHeroGallery.innerHTML = '';
 
-        // Populate galleries with cards
-        cardsData.forEach(card => {
-            const cardPreview = createCardPreview(card);
-            if (card.type === 'archetype') {
-                archetypeGallery.appendChild(cardPreview);
-            } else if (card.type === 'action') {
-                if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
-                else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
-                else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
-                else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
-            } else if (card.type === 'hero') {
-                if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
-                else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
-                else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
-                else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
+            // Populate galleries with cards
+            cardsData.forEach(card => {
+                const cardPreview = createCardPreview(card);
+                if (card.type === 'archetype') {
+                    archetypeGallery.appendChild(cardPreview);
+                } else if (card.type === 'action') {
+                    if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
+                    else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
+                    else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
+                    else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
+                } else if (card.type === 'hero') {
+                    if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
+                    else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
+                    else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
+                    else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
+                }
+            });
+        }
+
+        // Function to create a card preview element
+        function createCardPreview(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card-preview');
+            cardDiv.setAttribute('data-id', card.id);
+            cardDiv.setAttribute('data-type', card.type);
+            if (card.suit) {
+                cardDiv.setAttribute('data-suit', card.suit);
+            }
+            cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
+            cardDiv.style.backgroundSize = '32px 32px';
+            cardDiv.style.backgroundPosition = '90% 90%';
+            cardDiv.style.backgroundRepeat = 'no-repeat';
+
+            const titleEl = document.createElement('div');
+            titleEl.classList.add('card-title-preview');
+            titleEl.textContent = card.title.toUpperCase();
+            cardDiv.appendChild(titleEl);
+
+            if (card.type === 'action' || card.type === 'hero') {
+                const infoRow = document.createElement('div');
+                infoRow.style.display = 'flex';
+                infoRow.style.justifyContent = 'space-between';
+                infoRow.style.width = '100%';
+                infoRow.style.fontSize = '1.2rem';
+                infoRow.style.fontWeight = 'bold';
+                infoRow.style.opacity = '0.7';
+
+                const numberEl = document.createElement('div');
+                numberEl.textContent = card.number ? card.number.toUpperCase() : '';
+                infoRow.appendChild(numberEl);
+
+                cardDiv.appendChild(infoRow);
+            }
+
+            cardDiv.addEventListener('click', () => displayCardDetails(card.id));
+            return cardDiv;
+        }
+
+        // Function to display card details in modal popup
+        function displayCardDetails(cardId) {
+            const card = cardsData.find(c => c.id === cardId);
+            if (!card) return;
+
+            modal.setAttribute('data-type', card.type);
+            modal.setAttribute('data-suit', card.suit);
+
+            modalType.textContent = card.type.toUpperCase();
+            modalTitle.textContent = card.title.toUpperCase();
+
+            let subtitleText = "";
+            let contentHTML = "";
+
+            if (card.type === "archetype") {
+                subtitleText = `Inspired by ${card.traditional}`;
+                contentHTML += `<p>${card.essence}</p>`;
+                contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
+            } else if (card.type === "action" || card.type === "hero") {
+                subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                if (card.type === "action") {
+                    contentHTML += `<p>${card.description}</p>`;
+                    contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
+                    contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
+                } else if (card.type === "hero") {
+                    contentHTML += `<p>${card.principle}</p>`;
+                    if (card.howItHelps && card.howItHelps.length > 0) {
+                        contentHTML += `<h3>How it Helps:</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                    }
+                    if (card.whenToDeploy && card.whenToDeploy.length > 0) {
+                        contentHTML += `<h3>When to Deploy:</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                    }
+                }
+            }
+            modalSubtitle.textContent = subtitleText;
+            modalContent.innerHTML = contentHTML;
+            modal.style.display = 'block';
+        }
+
+        // Modal close functionality
+        closeButton.onclick = () => {
+            modal.style.display = 'none';
+        }
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape" && modal.style.display === 'block') {
+                modal.style.display = 'none';
             }
         });
-    }
-
-    function createCardPreview(card) {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card-preview');
-        cardDiv.setAttribute('data-id', card.id);
-        cardDiv.setAttribute('data-type', card.type);
-        if (card.suit) {
-            cardDiv.setAttribute('data-suit', card.suit);
-        }
-        cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
-        cardDiv.style.backgroundSize = '32px 32px';
-        cardDiv.style.backgroundPosition = '90% 90%';
-        cardDiv.style.backgroundRepeat = 'no-repeat';
-
-        const titleEl = document.createElement('div');
-        titleEl.classList.add('card-title-preview');
-        titleEl.textContent = card.title.toUpperCase();
-        cardDiv.appendChild(titleEl);
-
-        if (card.type === 'action' || card.type === 'hero') {
-            const infoRow = document.createElement('div');
-            infoRow.style.display = 'flex';
-            infoRow.style.justifyContent = 'space-between';
-            infoRow.style.width = '100%';
-            infoRow.style.fontSize = '1.2rem';
-            infoRow.style.fontWeight = 'bold';
-            infoRow.style.opacity = '0.7';
-
-            const numberEl = document.createElement('div');
-            numberEl.textContent = card.number ? card.number.toUpperCase() : '';
-            infoRow.appendChild(numberEl);
-
-            cardDiv.appendChild(infoRow);
-        }
-
-        cardDiv.addEventListener('click', () => displayCardDetails(card.id));
-        return cardDiv;
-    }
-
-    function displayCardDetails(cardId) {
-        const card = cardsData.find(c => c.id === cardId);
-        if (!card) return;
-
-        modal.setAttribute('data-type', card.type);
-        modal.setAttribute('data-suit', card.suit);
-
-        modalType.textContent = card.type.toUpperCase();
-        modalTitle.textContent = card.title.toUpperCase();
-
-        let subtitleText = "";
-        let contentHTML = "";
-
-        if (card.type === "archetype") {
-            subtitleText = `Inspired by ${card.traditional}`;
-            contentHTML += `<p>${card.essence}</p>`;
-            contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
-            contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
-        } else if (card.type === "action" || card.type === "hero") {
-            subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-            if (card.type === "action") {
-                contentHTML += `<p>${card.description}</p>`;
-                contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
-                contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
-            } else if (card.type === "hero") {
-                contentHTML += `<p>${card.principle}</p>`;
-                if (card.howItHelps && card.howItHelps.length > 0) {
-                    contentHTML += `<h3>How it Helps:</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                }
-                if (card.whenToDeploy && card.whenToDeploy.length > 0) {
-                    contentHTML += `<h3>When to Deploy:</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                }
-            }
-        }
-        modalSubtitle.textContent = subtitleText;
-        modalContent.innerHTML = contentHTML;
-        modal.style.display = 'block';
-    }
-
-    // Populate galleries
-    // cardsData.forEach(card => {
-    //     const cardPreview = createCardPreview(card);
-    //     if (card.type === 'archetype') {
-    //         archetypeGallery.appendChild(cardPreview);
-    //     } else if (card.type === 'action') {
-    //         if (card.suit === 'fire') fireActionGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'water') waterActionGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'air') airActionGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'earth') earthActionGallery.appendChild(cardPreview);
-    //     } else if (card.type === 'hero') {
-    //         if (card.suit === 'fire') fireHeroGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'water') waterHeroGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'air') airHeroGallery.appendChild(cardPreview);
-    //         else if (card.suit === 'earth') earthHeroGallery.appendChild(cardPreview);
-    //     }
-    // });
-
-    // Modal close functionality
-    closeButton.onclick = () => {
-        modal.style.display = 'none';
-    }
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-    // Close modal with Escape key
-    document.addEventListener('keydown', (event) => {
-        if (event.key === "Escape" && modal.style.display === 'block') {
-            modal.style.display = 'none';
-        }
     });
-});
 </script>
 
 </body>
