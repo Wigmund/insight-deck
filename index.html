@@ -111,9 +111,9 @@
             </div>
             <h1 id="card-detail-title"></h1>
             <p id="card-detail-subtitle"></p>
+            <textarea id="card-detail-description" class="editable-field" data-field="description"></textarea>
             <div id="card-detail-content">
-                <textarea id="card-description" class="editable-field" data-field="description"></textarea>
-                <!-- Other Card specific content will be injected here -->
+                <!-- Card specific content will be injected here -->
             </div>
         </div>
     </div>
@@ -131,6 +131,7 @@
         const modalType = document.getElementById('card-detail-type');
         const modalTitle = document.getElementById('card-detail-title');
         const modalSubtitle = document.getElementById('card-detail-subtitle');
+        const modalDescription = document.getElementById('card-detail-description');
         const modalContent = document.getElementById('card-detail-content');
         const saveButton = document.getElementById('save-button');
         const closeButton = document.getElementById('close-button');
@@ -237,11 +238,7 @@
 
             modalType.textContent = card.type.toUpperCase();
             modalTitle.textContent = card.title.toUpperCase();
-
-            // Populate the description field
-            const descriptionField = document.querySelector('#card-description');
-            descriptionField.value = card.description || ''; // Set the description value
-            //descriptionField.setAttribute('data-field', 'description'); // Set the field name for saving
+            modalDescription.value = card.description || ''; // Set the description value
 
             let subtitleText = "";
             let contentHTML = `<p>${card.description}</p>`;
