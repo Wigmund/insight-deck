@@ -197,18 +197,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let contentHTML = "";
 
         if (card.type === "archetype") {
-            subtitleText = `Inspired by ${card.traditionalReference}`;
-            contentHTML += `<p>${card.coreEssence}</p>`;
+            subtitleText = `Inspired by ${card.traditional}`;
+            contentHTML += `<p>${card.essence}</p>`;
             contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
             contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
         } else if (card.type === "action" || card.type === "hero") {
             subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
             if (card.type === "action") {
-                contentHTML += `<p>${card.iAm}</p>`;
+                contentHTML += `<p>${card.description}</p>`;
                 contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
                 contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
             } else if (card.type === "hero") {
-                contentHTML += `<p>${card.corePrinciple}</p>`;
+                contentHTML += `<p>${card.principle}</p>`;
                 if (card.howItHelps && card.howItHelps.length > 0) {
                     contentHTML += `<h3>How it Helps:</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
                 }
