@@ -230,17 +230,14 @@ section .suit-title {
 .editable-field {
     width: 100%;
     min-height: 100px;
-    padding: 10px;
+    padding: 0px;
     font-size: 1rem;
     font-family: inherit;
     color: var(--text-color);
     background-color: var(--secondary-bg);
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    border: 0px;
     resize: none; /* Prevent resizing */
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .editable-field:focus {

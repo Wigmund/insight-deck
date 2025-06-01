@@ -241,7 +241,7 @@
             modalDescription.value = card.description || ''; // Set the description value
 
             let subtitleText = "";
-            let contentHTML = `<p>${card.description}</p>`;
+            let contentHTML = ""; // `<p>${card.description}</p>`;
 
             if (card.type === "archetype") {
                 subtitleText = `Inspired by ${card.traditional}`;
@@ -273,8 +273,27 @@
 
             if (card) {
                 try {
-                    await saveCardToFirebase(card); // Call the saveCardToFirebase function
-                    console.log('Card saved successfully:', card);
+                    let isDirty = false;
+
+                    const editableFields = document.querySelectorAll('.editable-field');
+                    editableFields.forEach(field => {
+                        const fieldName = field.getAttribute('data-field');
+                        const newValue = field.value;
+
+                        if (card[fieldName] !== newValue) {
+                            card[fieldName] = newValue;
+                            isDirty = true;
+                        }
+                    });
+
+                    if (isDirty) {
+                        await saveCardToFirebase(card);
+                        console.log('Card saved successfully:', card);
+                    } else {
+                        console.log('No changes detected, skipping save.');
+                    }
+
+                    modal.style.display = 'none';
                 } catch (error) {
                     console.error('Error saving card:', error);
                 }
