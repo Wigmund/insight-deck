@@ -238,7 +238,10 @@
 
             modalType.textContent = card.type.toUpperCase();
             modalTitle.textContent = card.title.toUpperCase();
-            modalDescription.value = card.description || ''; // Set the description value
+            modalDescription.value = card.description || '';
+            
+            // Adjust the height of the textarea to fit the content
+            autoResizeTextarea(modalDescription);
 
             let subtitleText = "";
             let contentHTML = ""; // `<p>${card.description}</p>`;
@@ -265,6 +268,15 @@
             modalContent.innerHTML = contentHTML;
             modal.style.display = 'block';
         }
+
+        // Function to adjust the height of a textarea to fit its content
+        function autoResizeTextarea(textarea) {
+            textarea.style.height = 'auto'; // Reset height to calculate the correct height
+            textarea.style.height = `${textarea.scrollHeight}px`; // Set height to fit content
+        }
+
+        // Adjust the height when the modal is displayed
+        modalDescription.addEventListener('input', () => autoResizeTextarea(modalDescription));
 
         // Modal Save button functionality
         saveButton.onclick = async () => {

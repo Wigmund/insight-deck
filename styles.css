@@ -230,7 +230,7 @@ section .suit-title {
 .editable-field {
     width: 100%;
     min-height: 100px;
-    padding: 0px;
+    padding: 2px;
     font-size: 1rem;
     font-family: inherit;
     color: var(--text-color);
@@ -238,6 +238,7 @@ section .suit-title {
     border: none;
     resize: none;
     outline: none;
+    transition: height 0.2s ease; /* Smooth height adjustment */
 }
 
 #card-detail-title {
