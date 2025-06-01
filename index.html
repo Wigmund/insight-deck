@@ -242,7 +242,7 @@
 
             if (card.type === "archetype") {
                 subtitleText = `Inspired by ${card.traditional}`;
-                contentHTML += `<p>${card.essence}</p>`;
+                contentHTML += `<p>${card.description}</p>`;
                 contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
                 contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
             } else if (card.type === "action" || card.type === "hero") {
@@ -274,7 +274,6 @@
             if (card) {
                 try {
                     await saveCardToFirebase(card); // Call the saveCardToFirebase function
-                    console.log('Card saved successfully:', card);
                 } catch (error) {
                     console.error('Error saving card:', error);
                 }
