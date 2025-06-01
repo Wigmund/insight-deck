@@ -109,7 +109,8 @@
                 <span id="save-button" class="modal-button">&#128190;</span>
                 <span id="close-button" class="modal-button">&#10006;</span>
             </div>
-            <h1 id="card-detail-title"></h1>
+            <h1></h1><input id="card-detail-title" class="editable-field" data-field="title" placeholder="Enter title here..." /></h1>
+            <!-- <h1 id="card-detail-title"></h1> -->
             <p id="card-detail-subtitle"></p>
             <textarea id="card-detail-description" class="editable-field" data-field="description"></textarea>
             <div id="card-detail-content">
@@ -237,7 +238,7 @@
             modal.setAttribute('data-suit', card.suit);
 
             modalType.textContent = card.type.toUpperCase();
-            modalTitle.textContent = card.title.toUpperCase();
+            modalTitle.value = card.title.toUpperCase();
             modalDescription.value = card.description || '';
             
             let subtitleText = "";
@@ -295,6 +296,14 @@
                         if (card[fieldName] !== newValue) {
                             card[fieldName] = newValue;
                             isDirty = true;
+
+                            // Update the card preview dynamically if the title changes
+                            if (fieldName === 'title') {
+                                const cardPreview = document.querySelector(`.card-preview[data-id="${cardId}"] .card-title-preview`);
+                                if (cardPreview) {
+                                    cardPreview.textContent = newValue.toUpperCase();
+                                }
+                            }
                         }
                     });
 
