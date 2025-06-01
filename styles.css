@@ -226,6 +226,28 @@ section .suit-title {
     cursor: pointer;
 }
 
+/* Style for editable fields in the modal */
+.editable-field {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: var(--secondary-bg);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    resize: none; /* Prevent resizing */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editable-field:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Accent color glow */
+}
+
 #card-detail-title {
     color: var(--heading-color);
     margin-bottom: 0.2rem;

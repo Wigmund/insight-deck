@@ -112,7 +112,8 @@
             <h1 id="card-detail-title"></h1>
             <p id="card-detail-subtitle"></p>
             <div id="card-detail-content">
-                <!-- Card specific content will be injected here -->
+                <textarea id="card-description" class="editable-field" data-field="description"></textarea>
+                <!-- Other Card specific content will be injected here -->
             </div>
         </div>
     </div>
@@ -237,6 +238,11 @@
             modalType.textContent = card.type.toUpperCase();
             modalTitle.textContent = card.title.toUpperCase();
 
+            // Populate the description field
+            const descriptionField = document.querySelector('#card-description');
+            descriptionField.value = card.description || ''; // Set the description value
+            descriptionField.setAttribute('data-field', 'description'); // Set the field name for saving
+
             let subtitleText = "";
             let contentHTML = `<p>${card.description}</p>`;
 
@@ -271,6 +277,7 @@
             if (card) {
                 try {
                     await saveCardToFirebase(card); // Call the saveCardToFirebase function
+                    console.log('Card saved successfully:', card);
                 } catch (error) {
                     console.error('Error saving card:', error);
                 }
