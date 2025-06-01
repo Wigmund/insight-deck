@@ -239,7 +239,6 @@ section .suit-title {
     resize: none;
     outline: none;
     box-sizing: border-box; /* Include padding in height calculation */
-    line-height: 1.2; /* Match the line height to the font size */
     transition: height 0.2s ease; /* Smooth height adjustment */
 }
 
@@ -250,6 +249,8 @@ section .suit-title {
 
 #card-detail-title {
     color: var(--heading-color);
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-bottom: 0.2rem;
     font-size: 1.8rem;
     line-height: 1.2 !important;
