@@ -18,12 +18,9 @@ const db = getFirestore(app);
 
 // Function to save a card to Firestore
 async function saveCardToFirebase(card) {
-    console.log('Saving card to Firestore:', card.id);
-
     try {
         const cardRef = doc(db, 'cards', card.id); // Reference to the document
         await setDoc(cardRef, card); // Save the card data
-        console.log('Card saved successfully!');
     } catch (error) {
         console.error('Error saving card:', error);
     }
