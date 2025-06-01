@@ -7,155 +7,133 @@ const cardsData = [
         id: "arch01", type: "archetype", title: "THE PIONEER", traditionalReference: "Inspired by The Fool",
         coreEssence: "The embodiment of fearless exploration, embracing new beginnings with optimism and an open heart.",
         strengths: ["Embraces new ventures and uncharted territory.", "Radiates an optimistic and hopeful outlook.", "Naturally adaptable and spontaneous in response to change.", "Unafraid to take calculated risks for potential growth."],
-        shadows: ["Can overlook practical details or potential pitfalls (naivety).", "Impulsiveness may lead to recklessness if not tempered with foresight.", "May struggle with sustained focus or long-term follow-through."],
-        imagePlaceholder: "img/archetype_pioneer.png"
+        shadows: ["Can overlook practical details or potential pitfalls (naivety).", "Impulsiveness may lead to recklessness if not tempered with foresight.", "May struggle with sustained focus or long-term follow-through."]
     },
     {
         id: "arch02", type: "archetype", title: "THE ALCHEMIST", traditionalReference: "Inspired by The Magician",
         coreEssence: "The skillful transformer of ideas into reality, wielding resources with confidence and creativity.",
         strengths: ["Skillful execution, bringing ideas to tangible form.", "Resourceful problem-solver, finding solutions with available tools.", "Transforms abstract concepts into practical reality.", "Confident in abilities and capacity to manifest."],
-        shadows: ["Can appear manipulative or overly controlling of processes.", "Over-reliance on own skills, potentially neglecting collaboration.", "Risk of superficiality if depth of understanding is lacking."],
-        imagePlaceholder: "img/archetype_alchemist.png"
+        shadows: ["Can appear manipulative or overly controlling of processes.", "Over-reliance on own skills, potentially neglecting collaboration.", "Risk of superficiality if depth of understanding is lacking."]
     },
     {
         id: "arch03", type: "archetype", title: "THE SAGE", traditionalReference: "Inspired by The High Priestess",
         coreEssence: "The guardian of inner wisdom, perceiving underlying currents and unspoken truths with profound insight.",
         strengths: ["Deeply insightful, often seeing what others miss.", "Trusts inner wisdom and intuition implicitly.", "Excellent listener, capable of hearing subtle nuances.", "Understands unspoken needs and hidden dynamics."],
-        shadows: ["Can be overly passive or withdrawn, hesitant to share insights.", "May appear mysterious or unapproachable to others.", "Risk of becoming lost in introspection without action."],
-        imagePlaceholder: "img/archetype_sage.png"
+        shadows: ["Can be overly passive or withdrawn, hesitant to share insights.", "May appear mysterious or unapproachable to others.", "Risk of becoming lost in introspection without action."]
     },
     {
         id: "arch04", type: "archetype", title: "THE VISIONARY", traditionalReference: "Inspired by The Empress",
         coreEssence: "The nurturer of growth and abundance, fostering creativity and creating harmonious, supportive environments.",
         strengths: ["Nurturing and supportive of others' potential.", "Fosters growth, creativity, and new life in projects/teams.", "Abundant in ideas, resources, and generative energy.", "Creates harmonious and aesthetically pleasing environments."],
-        shadows: ["Can become overbearing or smothering if not balanced.", "May struggle with setting firm boundaries.", "Potential for possessiveness over creations or relationships."],
-        imagePlaceholder: "img/archetype_visionary_leader.png"
+        shadows: ["Can become overbearing or smothering if not balanced.", "May struggle with setting firm boundaries.", "Potential for possessiveness over creations or relationships."]
     },
     {
         id: "arch05", type: "archetype", title: "THE ARCHITECT", traditionalReference: "Inspired by The Emperor",
         coreEssence: "The master of structure and order, establishing clear foundations and systems for stability and achievement.",
         strengths: ["Establishes clear structures and effective systems.", "Decisive and authoritative in a grounded way.", "Creates order, stability, and predictability.", "Protects and provides for the system or endeavor."],
-        shadows: ["Can become rigid or overly controlling, resistant to new methods.", "May stifle creativity through excessive adherence to rules.", "Authoritarian tendencies if power is unchecked."],
-        imagePlaceholder: "img/archetype_architect.png"
+        shadows: ["Can become rigid or overly controlling, resistant to new methods.", "May stifle creativity through excessive adherence to rules.", "Authoritarian tendencies if power is unchecked."]
     },
     {
         id: "arch06", type: "archetype", title: "THE MENTOR", traditionalReference: "Inspired by The Hierophant",
         coreEssence: "The keeper of wisdom and tradition, guiding others through established knowledge and shared values.",
         strengths: ["Shares wisdom, knowledge, and valuable experience.", "Upholds important traditions, processes, or ethical standards.", "Guides others effectively through teaching and counsel.", "Provides trusted advice and acts as a moral compass."],
-        shadows: ["Can be dogmatic or inflexible, resistant to unconventional ideas.", "May prioritize tradition over necessary innovation or adaptation.", "Risk of becoming preachy or overly prescriptive."],
-        imagePlaceholder: "img/archetype_mentor.png"
+        shadows: ["Can be dogmatic or inflexible, resistant to unconventional ideas.", "May prioritize tradition over necessary innovation or adaptation.", "Risk of becoming preachy or overly prescriptive."]
     },
     {
         id: "arch07", type: "archetype", title: "THE HARMONIZER", traditionalReference: "Inspired by The Lovers",
         coreEssence: "The builder of authentic connections and aligned choices, valuing collaboration and relational integrity.",
         strengths: ["Builds strong, authentic partnerships and alliances.", "Values collaboration and seeks win-win outcomes.", "Makes choices aligned with core values and principles.", "Excellent communicator in fostering understanding."],
-        shadows: ["Indecisiveness when faced with conflicting values or choices.", "Potential for people-pleasing to avoid difficult conversations.", "May struggle with necessary conflict or tough decisions impacting relationships."],
-        imagePlaceholder: "img/archetype_harmonizer.png"
+        shadows: ["Indecisiveness when faced with conflicting values or choices.", "Potential for people-pleasing to avoid difficult conversations.", "May struggle with necessary conflict or tough decisions impacting relationships."]
     },
     {
         id: "arch08", type: "archetype", title: "THE DRIVER", traditionalReference: "Inspired by The Chariot",
         coreEssence: "The focused force of will and determination, overcoming obstacles to achieve ambitious goals with directness.",
         strengths: ["Highly focused and determined in pursuit of goals.", "Overcomes obstacles with willpower and assertive action.", "Achieves ambitious objectives through direct effort.", "Strong sense of direction and ability to mobilize energy."],
-        shadows: ["Can be aggressive, overly forceful, or impatient.", "Prone to tunnel vision, neglecting other important factors.", "May run over others or burn out from relentless drive."],
-        imagePlaceholder: "img/archetype_driver.png"
+        shadows: ["Can be aggressive, overly forceful, or impatient.", "Prone to tunnel vision, neglecting other important factors.", "May run over others or burn out from relentless drive."]
     },
     {
         id: "arch09", type: "archetype", title: "THE WARRIOR", traditionalReference: "Inspired by Strength",
         coreEssence: "The embodiment of courage, resilience, and compassionate influence, taming challenges with inner fortitude.",
         strengths: ["Exhibits courage, resilience, and inner strength.", "Manages challenges with patience and calm persistence.", "Persuades and influences with compassion rather than force.", "Possesses deep inner fortitude and self-control."],
-        shadows: ["Can misapply strength as brute force if not balanced with wisdom.", "Impatience with perceived weakness in self or others.", "May underestimate the power of subtle approaches."],
-        imagePlaceholder: "img/archetype_inner_warrior.png"
+        shadows: ["Can misapply strength as brute force if not balanced with wisdom.", "Impatience with perceived weakness in self or others.", "May underestimate the power of subtle approaches."]
     },
     {
         id: "arch10", type: "archetype", title: "THE THINKER", traditionalReference: "Inspired by The Hermit",
         coreEssence: "The seeker of knowledge and profound understanding, offering insights gleaned from introspection and analysis.",
         strengths: ["Analytical and introspective, capable of deep thought.", "Seeks knowledge, truth, and understanding diligently.", "Offers profound insights and well-considered advice.", "Works effectively independently, valuing solitude for reflection."],
-        shadows: ["Can become isolated, detached, or socially withdrawn.", "Prone to overthinking, leading to inaction or analysis paralysis.", "May appear aloof, critical, or disconnected from practical matters."],
-        imagePlaceholder: "img/archetype_deep_thinker.png"
+        shadows: ["Can become isolated, detached, or socially withdrawn.", "Prone to overthinking, leading to inaction or analysis paralysis.", "May appear aloof, critical, or disconnected from practical matters."]
     },
     {
         id: "arch11", type: "archetype", title: "THE CATALYST", traditionalReference: "Inspired by Wheel of Fortune",
         coreEssence: "The agent of change and adaptation, recognizing and embracing life's cycles and turning points.",
         strengths: ["Adapts to change readily and sees opportunity in flux.", "Understands cycles, patterns, and the nature of impermanence.", "Embraces new directions and can pivot effectively.", "Often brings a sense of timely intervention or luck."],
-        shadows: ["Can feel at the mercy of external forces if not proactive.", "May resist stability or struggle with routine.", "Difficulty grounding during turbulent times if not mindful."],
-        imagePlaceholder: "img/archetype_catalyst.png"
+        shadows: ["Can feel at the mercy of external forces if not proactive.", "May resist stability or struggle with routine.", "Difficulty grounding during turbulent times if not mindful."]
     },
     {
         id: "arch12", type: "archetype", title: "THE ADVOCATE", traditionalReference: "Inspired by Justice",
         coreEssence: "The champion of fairness, truth, and accountability, making balanced decisions based on ethical principles.",
         strengths: ["Upholds fairness, ethics, and moral principles.", "Seeks truth and clarity with impartiality.", "Makes balanced, well-reasoned decisions.", "Champions accountability and responsibility."],
-        shadows: ["Can be overly critical, judgmental, or legalistic.", "Rigidity in applying rules, potentially lacking compassion or nuance.", "Difficulty with forgiveness or accepting ambiguity."],
-        imagePlaceholder: "img/archetype_advocate.png"
+        shadows: ["Can be overly critical, judgmental, or legalistic.", "Rigidity in applying rules, potentially lacking compassion or nuance.", "Difficulty with forgiveness or accepting ambiguity."]
     },
     {
         id: "arch13", type: "archetype", title: "THE TRANSFORMER", traditionalReference: "Inspired by The Hanged Man",
         coreEssence: "The embracer of new perspectives through surrender and pause, willing to see things differently for deeper learning.",
         strengths: ["Gains new perspectives by pausing and shifting viewpoint.", "Willing to make sacrifices for greater understanding or a higher cause.", "Embraces surrender to learn and grow.", "Capacity for innovative thinking and seeing unconventional solutions."],
-        shadows: ["Can get stuck in passivity, indecision, or a martyr complex.", "Prone to feeling like a victim if perspective isn't empowering.", "Resisting necessary action by over-contemplating."],
-        imagePlaceholder: "img/archetype_transformer.png"
+        shadows: ["Can get stuck in passivity, indecision, or a martyr complex.", "Prone to feeling like a victim if perspective isn't empowering.", "Resisting necessary action by over-contemplating."]
     },
     {
         id: "arch14", type: "archetype", title: "THE LIBERATOR", traditionalReference: "Inspired by Death",
         coreEssence: "The facilitator of necessary endings and profound transformations, clearing the way for new beginnings.",
         strengths: ["Facilitates necessary endings and transitions effectively.", "Clears the way for new beginnings by letting go of the old.", "Embraces transformation and the cycle of renewal.", "Helps release what no longer serves individual or system health."],
-        shadows: ["Can be abrupt or insensitive during transitions if not mindful.", "Resistance to the grieving process (own or others').", "Fear of the unknown that follows significant endings."],
-        imagePlaceholder: "img/archetype_liberator.png"
+        shadows: ["Can be abrupt or insensitive during transitions if not mindful.", "Resistance to the grieving process (own or others').", "Fear of the unknown that follows significant endings."]
     },
     {
         id: "arch15", type: "archetype", title: "THE SYNERGIST", traditionalReference: "Inspired by Temperance",
         coreEssence: "The masterful blender of diverse elements, fostering balance, integration, and harmonious solutions.",
         strengths: ["Blends diverse elements, ideas, or people effectively.", "Fosters balance, moderation, and integration.", "Patient and adaptable in finding harmonious solutions.", "Creates synergy where the whole is greater than the sum of parts."],
-        shadows: ["Can be slow to commit to one path, seeking perfect balance.", "Risk of diluting impact if too many elements are over-managed.", "Avoidance of necessary extremes or bold actions."],
-        imagePlaceholder: "img/archetype_synergist.png"
+        shadows: ["Can be slow to commit to one path, seeking perfect balance.", "Risk of diluting impact if too many elements are over-managed.", "Avoidance of necessary extremes or bold actions."]
     },
     {
         id: "arch16", type: "archetype", title: "THE REVEALER", traditionalReference: "Inspired by The Devil",
         coreEssence: "The courageous confronter of limiting beliefs and shadow patterns, empowering through radical honesty.",
         strengths: ["Confronts limiting beliefs, illusions, or unhealthy patterns.", "Exposes hidden dynamics, addictions, or unacknowledged truths.", "Understands deep motivations and the power of shadow work.", "Empowers by facing and integrating challenging aspects."],
-        shadows: ["Can become cynical, fixated on negativity, or overly provocative.", "Risk of misusing insights if not guided by compassion.", "Getting stuck in the problem without moving towards resolution."],
-        imagePlaceholder: "img/archetype_revealer.png"
+        shadows: ["Can become cynical, fixated on negativity, or overly provocative.", "Risk of misusing insights if not guided by compassion.", "Getting stuck in the problem without moving towards resolution."]
     },
     {
         id: "arch17", type: "archetype", title: "THE DISRUPTOR", traditionalReference: "Inspired by The Tower",
         coreEssence: "The catalyst for sudden, necessary upheaval, clearing away false structures to reveal truth and enable rebuilding.",
         strengths: ["Shakes up complacent or dysfunctional structures.", "Reveals foundational flaws, forcing a reassessment for authentic rebuilding.", "Catalyzes sudden, necessary change and breakthroughs.", "Brings liberating clarity after a period of illusion."],
-        shadows: ["Can create chaos or destruction without a clear plan for rebuilding.", "Insensitivity to the impact of disruption on others.", "Change for change's sake, without true systemic need."],
-        imagePlaceholder: "img/archetype_disruptor.png"
+        shadows: ["Can create chaos or destruction without a clear plan for rebuilding.", "Insensitivity to the impact of disruption on others.", "Change for change's sake, without true systemic need."]
     },
     {
         id: "arch18", type: "archetype", title: "THE INSPIRER", traditionalReference: "Inspired by The Star",
         coreEssence: "The beacon of hope, authenticity, and higher purpose, radiating optimism and promoting healing.",
         strengths: ["Radiates hope, optimism, and a sense of possibility.", "Connects to a higher purpose, vision, or guiding ideals.", "Inspires others with authenticity and genuine belief.", "Promotes healing, renewal, and faith in the future."],
-        shadows: ["Can be unrealistic or overly idealistic, detached from practical realities.", "Vulnerability if hope isn't grounded in actionable steps.", "May struggle with disillusionment when faced with harsh truths."],
-        imagePlaceholder: "img/archetype_inspirer.png"
+        shadows: ["Can be unrealistic or overly idealistic, detached from practical realities.", "Vulnerability if hope isn't grounded in actionable steps.", "May struggle with disillusionment when faced with harsh truths."]
     },
     {
         id: "arch19", type: "archetype", title: "THE NAVIGATOR", traditionalReference: "Inspired by The Moon",
         coreEssence: "The intuitive guide through uncertainty and the subconscious, understanding complex emotions and hidden paths.",
         strengths: ["Navigates uncertainty, ambiguity, and the unknown with intuition.", "Trusts subconscious cues, dreams, and subtle energies.", "Understands complex emotions in self and others.", "Creative, imaginative, and attuned to deeper currents."],
-        shadows: ["Prone to anxiety, fear, or confusion in unclear situations.", "Can be misled by illusions, projections, or ungrounded fears.", "Difficulty with clear, rational assessment when emotions are high."],
-        imagePlaceholder: "img/archetype_navigator.png"
+        shadows: ["Prone to anxiety, fear, or confusion in unclear situations.", "Can be misled by illusions, projections, or ungrounded fears.", "Difficulty with clear, rational assessment when emotions are high."]
     },
     {
         id: "arch20", type: "archetype", title: "THE ILLUMINATOR", traditionalReference: "Inspired by The Sun",
         coreEssence: "The bringer of clarity, joy, and vital energy, radiating confidence and fostering success and understanding.",
         strengths: ["Brings clarity, joy, vitality, and vibrant energy.", "Achieves success and recognition through authentic expression.", "Radiates confidence, enthusiasm, and warmth.", "Fosters understanding, enlightenment, and a positive outlook."],
-        shadows: ["Can be overwhelming or blinding in intensity if not modulated.", "Potential for ego inflation or overconfidence.", "Lack of awareness of shadows (own or others') due to constant brightness."],
-        imagePlaceholder: "img/archetype_illuminator.png"
+        shadows: ["Can be overwhelming or blinding in intensity if not modulated.", "Potential for ego inflation or overconfidence.", "Lack of awareness of shadows (own or others') due to constant brightness."]
     },
     {
         id: "arch21", type: "archetype", title: "THE ASSESSOR", traditionalReference: "Inspired by Judgement",
         coreEssence: "The agent of clear evaluation and renewal, learning from the past to embrace a higher calling and new purpose.",
         strengths: ["Makes clear evaluations, discerning judgments, and sound decisions.", "Learns from past experiences to inform future choices.", "Embraces accountability, atonement, and self-renewal.", "Rises to a higher calling or a new level of purpose."],
-        shadows: ["Can be overly self-critical or harshly judgmental of others.", "Difficulty letting go of the past or past mistakes.", "Fear of making the 'wrong' final decision, leading to paralysis."],
-        imagePlaceholder: "img/archetype_assessor.png"
+        shadows: ["Can be overly self-critical or harshly judgmental of others.", "Difficulty letting go of the past or past mistakes.", "Fear of making the 'wrong' final decision, leading to paralysis."]
     },
     {
         id: "arch22", type: "archetype", title: "THE INTEGRATOR", traditionalReference: "Inspired by The World",
         coreEssence: "The embodiment of completion, fulfillment, and successful integration, celebrating wholeness and accomplishment.",
         strengths: ["Achieves completion, fulfillment, and a sense of wholeness.", "Successfully integrates diverse parts into a cohesive unity.", "Celebrates accomplishments and the culmination of efforts.", "Operates with a sense of interconnectedness and worldly wisdom."],
-        shadows: ["Can become stagnant or complacent after major completion.", "Reluctance to start new cycles or embrace new challenges.", "Difficulty recognizing when a new journey or learning is needed."],
-        imagePlaceholder: "img/archetype_integrator.png"
+        shadows: ["Can become stagnant or complacent after major completion.", "Reluctance to start new cycles or embrace new challenges.", "Difficulty recognizing when a new journey or learning is needed."]
     },
 
     // --- Actions (Full Set - 10 per suit) ---
