@@ -300,7 +300,6 @@
 
                     if (isDirty) {
                         await saveCardToFirebase(card);
-                        console.log('Card saved successfully:', card);
                     } else {
                         console.log('No changes detected, skipping save.');
                     }
