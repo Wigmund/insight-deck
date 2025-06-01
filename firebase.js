@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 // Function to save a card to Firebase
-export function saveCardToFirebase(card) {
+function saveCardToFirebase(card) {
     const cardRef = ref(database, 'cards/' + card.id);
     set(cardRef, card)
         .then(() => console.log('Card saved successfully!'))
