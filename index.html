@@ -121,7 +121,9 @@
     import { saveCardToFirebase } from './firebase.js';
 
     document.getElementById('saveCardButton').addEventListener('click', () => {
-        saveCardToFirebase(cardsData[0]); // Example: Save the first card
+        cardsData.forEach(card => {
+            saveCardToFirebase(card); // Save each card to Firebase
+        });
     });
 </script>
 <script>
