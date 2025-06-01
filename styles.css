@@ -204,7 +204,7 @@ section .suit-title {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.model-button {
+.modal-button {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -214,8 +214,8 @@ section .suit-title {
     right: 20px;
 }
 
-.model-button:hover,
-.model-button:focus {
+.modal-button:hover,
+.modal-button:focus {
     color: var(--text-color);
     text-decoration: none;
     cursor: pointer;
