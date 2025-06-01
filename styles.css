@@ -235,14 +235,9 @@ section .suit-title {
     font-family: inherit;
     color: var(--text-color);
     background-color: var(--secondary-bg);
-    border: 0px;
-    resize: none; /* Prevent resizing */
+    border: none;
+    resize: none;
     outline: none;
-}
-
-.editable-field:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Accent color glow */
 }
 
 #card-detail-title {
