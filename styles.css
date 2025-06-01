@@ -229,19 +229,25 @@ section .suit-title {
 /* Style for editable fields in the modal */
 .editable-field {
     width: 100%;
-    min-height: 1rem; /* Force the minimum height to be very small */
+    min-height: 1rem; /* Allow the field to shrink to a single line */
     padding: 0; /* Remove padding to avoid height inflation */
     font-size: 1rem;
     font-family: inherit;
     color: var(--text-color);
     background-color: var(--secondary-bg);
     border: none;
-    resize: none; /* Prevent manual resizing */
     outline: none;
-    box-sizing: content-box; /* Exclude padding and border from height calculation */
+    box-sizing: border-box; /* Include padding in width/height calculations */
     line-height: 1.2; /* Match the line height to the font size */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+    white-space: pre-wrap; /* Preserve line breaks */
     transition: height 0.2s ease; /* Smooth height adjustment */
-    overflow: hidden; /* Prevent scrollbars */
+}
+
+.editable-field:empty:before {
+    content: attr(placeholder); /* Show placeholder text when empty */
+    color: #aaa; /* Placeholder text color */
+    font-style: italic;
 }
 
 .editable-field:focus {

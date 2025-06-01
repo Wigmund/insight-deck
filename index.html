@@ -109,10 +109,9 @@
                 <span id="save-button" class="modal-button">&#128190;</span>
                 <span id="close-button" class="modal-button">&#10006;</span>
             </div>
-            <textarea id="card-detail-title" class="editable-field" data-field="title" placeholder="Enter title here..."></textarea>
-            <!-- <h1 id="card-detail-title"></h1> -->
+            <div id="card-detail-title" class="editable-field" contenteditable="true" data-field="title" placeholder="Enter title here..."></div>
             <p id="card-detail-subtitle"></p>
-            <textarea id="card-detail-description" class="editable-field" data-field="description"></textarea>
+            <div id="card-detail-description" class="editable-field" contenteditable="true" data-field="description" placeholder="Enter description here..."></div>
             <div id="card-detail-content">
                 <!-- Card specific content will be injected here -->
             </div>
@@ -238,11 +237,11 @@
             modal.setAttribute('data-suit', card.suit);
 
             modalType.textContent = card.type.toUpperCase();
-            modalTitle.value = card.title.toUpperCase();
-            modalDescription.value = card.description || '';
+            modalTitle.textContent = card.title.toUpperCase();
+            modalDescription.textContent = card.description || '';
             
             let subtitleText = "";
-            let contentHTML = ""; // `<p>${card.description}</p>`;
+            let contentHTML = "";
 
             if (card.type === "archetype") {
                 subtitleText = `Inspired by ${card.traditional}`;
@@ -265,21 +264,7 @@
             modalSubtitle.textContent = subtitleText;
             modalContent.innerHTML = contentHTML;
             modal.style.display = 'block';
-
-            // Adjust the height of the textarea to fit the content
-            autoResizeTextarea(modalTitle);
-            autoResizeTextarea(modalDescription);
         }
-
-        // Function to adjust the height of a textarea to fit its content
-        function autoResizeTextarea(textarea) {
-            textarea.style.height = 'auto'; // Reset height to calculate the correct height
-            textarea.style.height = `${textarea.scrollHeight}px`; // Set height to fit content
-        }
-
-        // Adjust the height when the modal is displayed
-        modalTitle.addEventListener('input', () => autoResizeTextarea(modalTitle));
-        modalDescription.addEventListener('input', () => autoResizeTextarea(modalDescription));
 
         // Modal Save button functionality
         saveButton.onclick = async () => {
@@ -293,7 +278,7 @@
                     const editableFields = document.querySelectorAll('.editable-field');
                     editableFields.forEach(field => {
                         const fieldName = field.getAttribute('data-field');
-                        const newValue = field.value;
+                        const newValue = field.textContent.trim();
 
                         if (card[fieldName] !== newValue) {
                             card[fieldName] = newValue;
