@@ -229,7 +229,6 @@ section .suit-title {
 /* Style for editable fields in the modal */
 .editable-field {
     width: 100%;
-    min-height: 100px;
     padding: 2px;
     font-size: 1rem;
     font-family: inherit;
@@ -239,6 +238,11 @@ section .suit-title {
     resize: none;
     outline: none;
     transition: height 0.2s ease; /* Smooth height adjustment */
+}
+
+.editable-field:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 #card-detail-title {
