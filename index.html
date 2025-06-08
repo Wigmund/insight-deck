@@ -113,7 +113,12 @@
             <p id="card-detail-subtitle"></p>
             <div id="card-detail-description" class="editable-field" contenteditable="true" data-field="description" placeholder="Enter description here..."></div>
             <div id="card-detail-content">
-                <!-- Card specific content will be injected here -->
+                <div class="tabs">
+                    <!-- Tabs will be dynamically created here -->
+                </div>
+                <div class="tab-content">
+                    <!-- Tab content will be dynamically displayed here -->
+                </div>
             </div>
         </div>
     </div>
@@ -247,26 +252,63 @@
             modalType.textContent = card.type.toUpperCase();
             modalTitle.textContent = card.title.toUpperCase();
             modalDescription.textContent = card.description || '';
-            
+
             let subtitleText = "";
-            let contentHTML = "";
+            const tabs = [];
+            const tabContents = [];
 
             if (card.type === "archetype") {
                 subtitleText = `Inspired by ${card.traditional}`;
-                contentHTML += `<h3>Strengths</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                contentHTML += `<h3>Shadows</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                tabs.push("Strengths", "Shadows");
+                tabContents.push(
+                    `<ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`
+                );
             } else if (card.type === "action") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                contentHTML += `<h3>Underplayed</h3><ul>${card.underplayed.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                contentHTML += `<h3>Overplayed</h3><ul>${card.overplayed.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                tabs.push("Underplayed", "Overplayed");
+                tabContents.push(
+                    `<ul>${card.underplayed.map(s => `<li>${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.overplayed.map(s => `<li>${s}</li>`).join('')}</ul>`
+                );
             } else if (card.type === "hero") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                contentHTML += `<h3>How it Helps</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                contentHTML += `<h3>When to Deploy</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                tabs.push("How it Helps", "When to Deploy");
+                tabContents.push(
+                    `<ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`
+                );
             }
 
             modalSubtitle.textContent = subtitleText;
-            modalContent.innerHTML = contentHTML;
+
+            const tabsContainer = modalContent.querySelector('.tabs');
+            const tabContentContainer = modalContent.querySelector('.tab-content');
+
+            tabsContainer.innerHTML = '';
+            tabContentContainer.innerHTML = '';
+
+            tabs.forEach((tab, index) => {
+                const tabButton = document.createElement('button');
+                tabButton.classList.add('tab-button');
+                tabButton.textContent = tab;
+                tabButton.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
+
+                    tabButton.classList.add('active');
+                    tabContentContainer.querySelector(`#tab-content-${index}`).style.display = 'block';
+                });
+                tabsContainer.appendChild(tabButton);
+
+                const tabContent = document.createElement('div');
+                tabContent.id = `tab-content-${index}`;
+                tabContent.classList.add('tab-content-item');
+                tabContent.style.display = 'none';
+                tabContent.innerHTML = tabContents[index];
+                tabContentContainer.appendChild(tabContent);
+            });
+
             modal.style.display = 'block';
         }
 
