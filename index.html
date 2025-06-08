@@ -261,22 +261,22 @@
                 subtitleText = `Inspired by ${card.traditional}`;
                 tabs.push("Strengths", "Shadows");
                 tabContents.push(
-                    `<ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`
+                    `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.shadows.map(s => `<li class="editable-field" contenteditable="true" data-field="shadows">${s}</li>`).join('')}</ul>`
                 );
             } else if (card.type === "action") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
                 tabs.push("Underplayed", "Overplayed");
                 tabContents.push(
-                    `<ul>${card.underplayed.map(s => `<li>${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.overplayed.map(s => `<li>${s}</li>`).join('')}</ul>`
+                    `<ul>${card.underplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="underplayed">${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.overplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="overplayed">${s}</li>`).join('')}</ul>`
                 );
             } else if (card.type === "hero") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
                 tabs.push("How it Helps", "When to Deploy");
                 tabContents.push(
-                    `<ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`
+                    `<ul>${card.howItHelps.map(s => `<li class="editable-field" contenteditable="true" data-field="howItHelps">${s}</li>`).join('')}</ul>`,
+                    `<ul>${card.whenToDeploy.map(s => `<li class="editable-field" contenteditable="true" data-field="whenToDeploy">${s}</li>`).join('')}</ul>`
                 );
             }
 
@@ -332,7 +332,13 @@
                         const fieldName = field.getAttribute('data-field');
                         const newValue = field.textContent.trim();
 
-                        if (card[fieldName] !== newValue) {
+                        if (Array.isArray(card[fieldName])) {
+                            const index = Array.from(field.parentNode.children).indexOf(field);
+                            if (card[fieldName][index] !== newValue) {
+                                card[fieldName][index] = newValue;
+                                isDirty = true;
+                            }
+                        } else if (card[fieldName] !== newValue) {
                             card[fieldName] = newValue;
                             isDirty = true;
 
