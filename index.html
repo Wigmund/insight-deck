@@ -202,6 +202,18 @@
             cardDiv.style.backgroundPosition = '90% 90%';
             cardDiv.style.backgroundRepeat = 'no-repeat';
 
+            // Add green tick mark if the card is modified
+            if (card.isModified) {
+                const tickMark = document.createElement('div');
+                tickMark.textContent = '✔';
+                tickMark.style.position = 'absolute';
+                tickMark.style.top = '5px';
+                tickMark.style.right = '5px';
+                tickMark.style.color = 'green';
+                tickMark.style.fontSize = '1.5rem';
+                cardDiv.appendChild(tickMark);
+            }
+
             const titleEl = document.createElement('div');
             titleEl.classList.add('card-title-preview');
             titleEl.textContent = card.title.toUpperCase();
@@ -295,7 +307,21 @@
                     });
 
                     if (isDirty) {
+                        card.isModified = true; // Set the isModified flag to true
                         await saveCardToFirebase(card);
+
+                        // Update the green tick mark dynamically
+                        const cardPreview = document.querySelector(`.card-preview[data-id="${cardId}"]`);
+                        if (cardPreview && !cardPreview.querySelector('div[style*="color: green"]')) {
+                            const tickMark = document.createElement('div');
+                            tickMark.textContent = '✔';
+                            tickMark.style.position = 'absolute';
+                            tickMark.style.top = '5px';
+                            tickMark.style.right = '5px';
+                            tickMark.style.color = 'green';
+                            tickMark.style.fontSize = '1.5rem';
+                            cardPreview.appendChild(tickMark);
+                        }
                     } else {
                         console.log('No changes detected, skipping save.');
                     }
