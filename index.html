@@ -214,9 +214,9 @@
 
             // Add green tick mark if the card is modified
             if (card.isModified) {
-                const tickMark = document.createElement('div');
-                tickMark.classList.add('tick-mark');
-                tickMark.textContent = '✔';
+                const tickMark = document.createElement('span');
+                tickMark.classList.add('tick-mark', 'material-icons'); // Add the tick-mark class and Material Icons class
+                tickMark.textContent = 'check'; // Use the 'check' icon from Material Icons
                 cardDiv.appendChild(tickMark);
             }
 

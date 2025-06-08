@@ -218,10 +218,10 @@ section .suit-title {
 .modal-buttons {
     display: flex;
     float: right;
-    gap: 15px;
+    gap: 10px;
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px;
 }
 
 .modal-button {
