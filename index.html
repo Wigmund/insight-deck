@@ -205,12 +205,8 @@
             // Add green tick mark if the card is modified
             if (card.isModified) {
                 const tickMark = document.createElement('div');
+                tickMark.classList.add('tick-mark'); // Use the tick-mark class for styling
                 tickMark.textContent = '✔';
-                tickMark.style.position = 'absolute';
-                tickMark.style.top = '5px';
-                tickMark.style.right = '5px';
-                tickMark.style.color = 'green';
-                tickMark.style.fontSize = '1.5rem';
                 cardDiv.appendChild(tickMark);
             }
 
@@ -312,14 +308,10 @@
 
                         // Update the green tick mark dynamically
                         const cardPreview = document.querySelector(`.card-preview[data-id="${cardId}"]`);
-                        if (cardPreview && !cardPreview.querySelector('div[style*="color: green"]')) {
+                        if (cardPreview && !cardPreview.querySelector('.tick-mark')) {
                             const tickMark = document.createElement('div');
+                            tickMark.classList.add('tick-mark'); // Use the tick-mark class for styling
                             tickMark.textContent = '✔';
-                            tickMark.style.position = 'absolute';
-                            tickMark.style.top = '5px';
-                            tickMark.style.right = '5px';
-                            tickMark.style.color = 'green';
-                            tickMark.style.fontSize = '1.5rem';
                             cardPreview.appendChild(tickMark);
                         }
                     } else {

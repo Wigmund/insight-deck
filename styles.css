@@ -125,6 +125,7 @@ section .suit-title {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative; /* Ensure child elements like the tick mark are positioned relative to this container */
 }
 
 .card-preview:hover {
@@ -145,6 +146,15 @@ section .suit-title {
 .card-preview .card-suit-preview {
     font-size: 0.8rem;
     opacity: 0.7;
+}
+
+.card-preview .tick-mark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: green;
+    font-size: 1.5rem;
+    display: block; /* Ensure the tick mark is always visible */
 }
 
 /* Specific card type styling */
