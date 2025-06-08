@@ -257,8 +257,8 @@
                 contentHTML += `<h3>Shadows</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
             } else if (card.type === "action") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
-                contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
+                contentHTML += `<h3>Underplayed</h3><ul>${card.underplayed.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                contentHTML += `<h3>Overplayed</h3><ul>${card.overplayed.map(s => `<li>${s}</li>`).join('')}</ul>`;
             } else if (card.type === "hero") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
                 contentHTML += `<h3>How it Helps</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
