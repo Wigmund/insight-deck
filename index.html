@@ -21,13 +21,13 @@
         <section id="introduction">
             <h2>Welcome to The Insight Deck Explorer</h2>
             <p>The Insight Deck is a unique 78-card system designed to illuminate individual and team strengths, reveal potential shadows, and spark meaningful conversations for growth. Inspired by the timeless wisdom of Tarot, this deck translates archetypal energies and everyday dynamics into actionable insights.</p>
-            <p>Explore the three core categories of cards:</p>
+            <p>Explore the three core categories of cards:</p></br>
             <ul>
                 <li><strong>The Archetypes:</strong> Powerful personas representing core strengths and their inherent shadows.</li>
                 <li><strong>The Action Cards:</strong> Everyday behaviors and approaches, highlighting the impact of their expression.</li>
                 <li><strong>The Hero Cards:</strong> Actionable tools and mindsets to navigate challenges and leverage strengths.</li>
             </ul>
-            <p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
+            </br><p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
         </section>
 
         <section id="archetypes">
@@ -253,22 +253,18 @@
 
             if (card.type === "archetype") {
                 subtitleText = `Inspired by ${card.traditional}`;
-                contentHTML += `<h3>Strengths:</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                contentHTML += `<h3>Shadows:</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
-            } else if (card.type === "action" || card.type === "hero") {
+                contentHTML += `<h3>Strengths</h3><ul>${card.strengths.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                contentHTML += `<h3>Shadows</h3><ul>${card.shadows.map(s => `<li>${s}</li>`).join('')}</ul>`;
+            } else if (card.type === "action") {
                 subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                if (card.type === "action") {
-                    contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
-                    contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
-                } else if (card.type === "hero") {
-                    if (card.howItHelps && card.howItHelps.length > 0) {
-                        contentHTML += `<h3>How it Helps:</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                    }
-                    if (card.whenToDeploy && card.whenToDeploy.length > 0) {
-                        contentHTML += `<h3>When to Deploy:</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
-                    }
-                }
+                contentHTML += `<h3>Underplayed</h3><p>${card.underplayed}</p>`;
+                contentHTML += `<h3>Overplayed</h3><p>${card.overplayed}</p>`;
+            } else if (card.type === "hero") {
+                subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                contentHTML += `<h3>How it Helps</h3><ul>${card.howItHelps.map(s => `<li>${s}</li>`).join('')}</ul>`;
+                contentHTML += `<h3>When to Deploy</h3><ul>${card.whenToDeploy.map(s => `<li>${s}</li>`).join('')}</ul>`;
             }
+
             modalSubtitle.textContent = subtitleText;
             modalContent.innerHTML = contentHTML;
             modal.style.display = 'block';
