@@ -95,6 +95,10 @@
                 <!-- Earth Hero cards will be populated here -->
             </div>
         </section>
+
+        <section id="admin">
+            <button id="reset-modified-button" class="reset-button">Reset All Modifications</button>
+        </section>
     </main>
 
     <footer>
@@ -396,6 +400,26 @@
         document.addEventListener('keydown', (event) => {
             if (event.key === "Escape" && modal.style.display === 'block') {
                 modal.style.display = 'none';
+            }
+        });
+
+        // Reset all cards' isModified field to false
+        const resetButton = document.getElementById('reset-modified-button');
+        resetButton.addEventListener('click', async () => {
+            try {
+                cardsData.forEach(card => {
+                    card.isModified = false;
+                });
+
+                // Update Firebase
+                await Promise.all(cardsData.map(card => saveCardToFirebase(card)));
+
+                // Remove green tick marks from all card previews
+                document.querySelectorAll('.card-preview .tick-mark').forEach(tickMark => tickMark.remove());
+
+                console.log('All modifications have been reset.');
+            } catch (error) {
+                console.error('Error resetting modifications:', error);
             }
         });
     });
