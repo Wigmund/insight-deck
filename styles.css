@@ -346,3 +346,13 @@ footer {
     border: none;
     background-color: #fff;
 }
+
+/* Styles for admin buttons */
+.reset-button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}

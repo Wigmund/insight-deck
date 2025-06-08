@@ -97,7 +97,7 @@
         </section>
 
         <section id="admin">
-            <button id="reset-modified-button" class="reset-button">Reset All Modifications</button>
+            <button id="reset-modified-button" class="reset-button">Reset Modification Flags</button>
         </section>
     </main>
 
@@ -338,10 +338,7 @@
 
                         if (Array.isArray(card[fieldName])) {
                             const index = Array.from(field.parentNode.children).indexOf(field);
-                            if (newValue === "") {
-                                card[fieldName].splice(index, 1); // Remove the element if empty
-                                isDirty = true;
-                            } else if (card[fieldName][index] !== newValue) {
+                            if (card[fieldName][index] !== newValue) {
                                 card[fieldName][index] = newValue;
                                 isDirty = true;
                             }
