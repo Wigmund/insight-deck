@@ -280,6 +280,12 @@ section .suit-title {
     margin-bottom: 1.25rem;
     font-size: 0.9rem;
 }
+#card-detail-description {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: center  ;
+}
 #card-detail-content h3 {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
