@@ -209,6 +209,11 @@
             }
             if (card.type === 'archetype') {
                 cardDiv.style.backgroundImage = `url('img/card-back-1.png')`;
+                cardDiv.style.justifyContent = 'end';
+                cardDiv.style.minHeight = '388px';
+                cardDiv.style.backgroundSize = '100%';
+                cardDiv.style.backgroundPosition = '100%';
+                cardDiv.style.backgroundRepeat = 'no-repeat';
             } else if (card.type === 'action') {
                 cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
                 cardDiv.style.backgroundSize = '32px 32px';

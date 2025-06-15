@@ -138,8 +138,7 @@ section .suit-title {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    min-height: 100px;
+    margin-bottom: 0.5rem;    
     font-size: 1.25rem;
 }
 
