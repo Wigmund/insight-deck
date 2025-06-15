@@ -262,77 +262,159 @@
             const card = cardsData.find(c => c.id === cardId);
             if (!card) return;
 
-            modal.setAttribute('data-id', card.id);
-            modal.setAttribute('data-type', card.type);
-            modal.setAttribute('data-suit', card.suit);
+            const cardPreview = document.querySelector(`.card-preview[data-id="${cardId}"]`);
+            const modal = document.getElementById('cardModal');
 
-            modalType.textContent = card.type.toUpperCase();
-            modalTitle.textContent = card.title.toUpperCase();
-            modalDescription.textContent = card.description || '';
+            // Use the view-transition API for smooth transition
+            if (document.startViewTransition) {
+                document.startViewTransition(() => {
+                    // Populate modal content
+                    modal.setAttribute('data-id', card.id);
+                    modal.setAttribute('data-type', card.type);
+                    modal.setAttribute('data-suit', card.suit);
+                    modalType.textContent = card.type.toUpperCase();
+                    modalTitle.textContent = card.title.toUpperCase();
+                    modalDescription.textContent = card.description || '';
 
-            let subtitleText = "";
-            const tabs = [];
-            const tabContents = [];
+                    let subtitleText = "";
+                    const tabs = [];
+                    const tabContents = [];
 
-            if (card.type === "archetype") {
-                subtitleText = `Inspired by ${card.traditional}`;
-                tabs.push("Strengths", "Shadows");
-                tabContents.push(
-                    `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.shadows.map(s => `<li class="editable-field" contenteditable="true" data-field="shadows">${s}</li>`).join('')}</ul>`
-                );
-            } else if (card.type === "action") {
-                subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                tabs.push("Underplayed", "Overplayed");
-                tabContents.push(
-                    `<ul>${card.underplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="underplayed">${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.overplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="overplayed">${s}</li>`).join('')}</ul>`
-                );
-            } else if (card.type === "hero") {
-                subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
-                tabs.push("How it Helps", "When to Deploy");
-                tabContents.push(
-                    `<ul>${card.howItHelps.map(s => `<li class="editable-field" contenteditable="true" data-field="howItHelps">${s}</li>`).join('')}</ul>`,
-                    `<ul>${card.whenToDeploy.map(s => `<li class="editable-field" contenteditable="true" data-field="whenToDeploy">${s}</li>`).join('')}</ul>`
-                );
-            }
-
-            modalSubtitle.textContent = subtitleText;
-
-            const tabsContainer = modalContent.querySelector('.tabs');
-            const tabContentContainer = modalContent.querySelector('.tab-content');
-
-            tabsContainer.innerHTML = '';
-            tabContentContainer.innerHTML = '';
-
-            tabs.forEach((tab, index) => {
-                const tabButton = document.createElement('button');
-                tabButton.classList.add('tab-button');
-                tabButton.textContent = tab;
-                tabButton.addEventListener('click', () => {
-                    const isActive = tabButton.classList.contains('active');
-
-                    // Deselect all tabs and hide all content
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
-
-                    // If the clicked tab was not active, activate it and show its content
-                    if (!isActive) {
-                        tabButton.classList.add('active');
-                        tabContentContainer.querySelector(`#tab-content-${index}`).style.display = 'block';
+                    if (card.type === "archetype") {
+                        subtitleText = `Inspired by ${card.traditional}`;
+                        tabs.push("Strengths", "Shadows");
+                        tabContents.push(
+                            `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
+                            `<ul>${card.shadows.map(s => `<li class="editable-field" contenteditable="true" data-field="shadows">${s}</li>`).join('')}</ul>`
+                        );
+                    } else if (card.type === "action") {
+                        subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                        tabs.push("Underplayed", "Overplayed");
+                        tabContents.push(
+                            `<ul>${card.underplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="underplayed">${s}</li>`).join('')}</ul>`,
+                            `<ul>${card.overplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="overplayed">${s}</li>`).join('')}</ul>`
+                        );
+                    } else if (card.type === "hero") {
+                        subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                        tabs.push("How it Helps", "When to Deploy");
+                        tabContents.push(
+                            `<ul>${card.howItHelps.map(s => `<li class="editable-field" contenteditable="true" data-field="howItHelps">${s}</li>`).join('')}</ul>`,
+                            `<ul>${card.whenToDeploy.map(s => `<li class="editable-field" contenteditable="true" data-field="whenToDeploy">${s}</li>`).join('')}</ul>`
+                        );
                     }
+
+                    modalSubtitle.textContent = subtitleText;
+
+                    const tabsContainer = modalContent.querySelector('.tabs');
+                    const tabContentContainer = modalContent.querySelector('.tab-content');
+
+                    tabsContainer.innerHTML = '';
+                    tabContentContainer.innerHTML = '';
+
+                    tabs.forEach((tab, index) => {
+                        const tabButton = document.createElement('button');
+                        tabButton.classList.add('tab-button');
+                        tabButton.textContent = tab;
+                        tabButton.addEventListener('click', () => {
+                            const isActive = tabButton.classList.contains('active');
+
+                            // Deselect all tabs and hide all content
+                            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                            document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
+
+                            // If the clicked tab was not active, activate it and show its content
+                            if (!isActive) {
+                                tabButton.classList.add('active');
+                                tabContentContainer.querySelector(`#tab-content-${index}`).style.display = 'block';
+                            }
+                        });
+                        tabsContainer.appendChild(tabButton);
+
+                        const tabContent = document.createElement('div');
+                        tabContent.id = `tab-content-${index}`;
+                        tabContent.classList.add('tab-content-item');
+                        tabContent.style.display = 'none';
+                        tabContent.innerHTML = tabContents[index];
+                        tabContentContainer.appendChild(tabContent);
+                    });
+
+                    // Show modal
+                    modal.style.display = 'block';
                 });
-                tabsContainer.appendChild(tabButton);
+            } else {
+                // Fallback for browsers without view-transition support
+                modal.setAttribute('data-id', card.id);
+                modal.setAttribute('data-type', card.type);
+                modal.setAttribute('data-suit', card.suit);
+                modalType.textContent = card.type.toUpperCase();
+                modalTitle.textContent = card.title.toUpperCase();
+                modalDescription.textContent = card.description || '';
 
-                const tabContent = document.createElement('div');
-                tabContent.id = `tab-content-${index}`;
-                tabContent.classList.add('tab-content-item');
-                tabContent.style.display = 'none';
-                tabContent.innerHTML = tabContents[index];
-                tabContentContainer.appendChild(tabContent);
-            });
+                let subtitleText = "";
+                const tabs = [];
+                const tabContents = [];
 
-            modal.style.display = 'block';
+                if (card.type === "archetype") {
+                    subtitleText = `Inspired by ${card.traditional}`;
+                    tabs.push("Strengths", "Shadows");
+                    tabContents.push(
+                        `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
+                        `<ul>${card.shadows.map(s => `<li class="editable-field" contenteditable="true" data-field="shadows">${s}</li>`).join('')}</ul>`
+                    );
+                } else if (card.type === "action") {
+                    subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                    tabs.push("Underplayed", "Overplayed");
+                    tabContents.push(
+                        `<ul>${card.underplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="underplayed">${s}</li>`).join('')}</ul>`,
+                        `<ul>${card.overplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="overplayed">${s}</li>`).join('')}</ul>`
+                    );
+                } else if (card.type === "hero") {
+                    subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                    tabs.push("How it Helps", "When to Deploy");
+                    tabContents.push(
+                        `<ul>${card.howItHelps.map(s => `<li class="editable-field" contenteditable="true" data-field="howItHelps">${s}</li>`).join('')}</ul>`,
+                        `<ul>${card.whenToDeploy.map(s => `<li class="editable-field" contenteditable="true" data-field="whenToDeploy">${s}</li>`).join('')}</ul>`
+                    );
+                }
+
+                modalSubtitle.textContent = subtitleText;
+
+                const tabsContainer = modalContent.querySelector('.tabs');
+                const tabContentContainer = modalContent.querySelector('.tab-content');
+
+                tabsContainer.innerHTML = '';
+                tabContentContainer.innerHTML = '';
+
+                tabs.forEach((tab, index) => {
+                    const tabButton = document.createElement('button');
+                    tabButton.classList.add('tab-button');
+                    tabButton.textContent = tab;
+                    tabButton.addEventListener('click', () => {
+                        const isActive = tabButton.classList.contains('active');
+
+                        // Deselect all tabs and hide all content
+                        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                        document.querySelectorAll('.tab-content-item').forEach(content => content.style.display = 'none');
+
+                        // If the clicked tab was not active, activate it and show its content
+                        if (!isActive) {
+                            tabButton.classList.add('active');
+                            tabContentContainer.querySelector(`#tab-content-${index}`).style.display = 'block';
+                        }
+                    });
+                    tabsContainer.appendChild(tabButton);
+
+                    const tabContent = document.createElement('div');
+                    tabContent.id = `tab-content-${index}`;
+                    tabContent.classList.add('tab-content-item');
+                    tabContent.style.display = 'none';
+                    tabContent.innerHTML = tabContents[index];
+                    tabContentContainer.appendChild(tabContent);
+                });
+
+                // Show modal
+                modal.style.display = 'block';
+            }
         }
 
         // Modal Save button functionality
