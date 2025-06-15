@@ -207,7 +207,13 @@
             if (card.suit) {
                 cardDiv.setAttribute('data-suit', card.suit);
             }
-            cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
+            if (card.type === 'archetype') {
+                cardDiv.style.backgroundImage = `url('img/card-back-1.png')`;
+            } else if (card.type === 'action') {
+                cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
+            } else if (card.type === 'hero') {
+                cardDiv.style.backgroundImage = ``;
+            }
             cardDiv.style.backgroundSize = '32px 32px';
             cardDiv.style.backgroundPosition = '90% 90%';
             cardDiv.style.backgroundRepeat = 'no-repeat';
