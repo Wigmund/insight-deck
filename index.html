@@ -258,23 +258,9 @@
             titleEl.textContent = card.title.toUpperCase();
             cardDiv.appendChild(titleEl);
 
-            if (card.type === 'action' || card.type === 'hero') {
-                const infoRow = document.createElement('div');
-                infoRow.style.display = 'flex';
-                infoRow.style.justifyContent = 'space-between';
-                infoRow.style.width = '100%';
-                infoRow.style.fontSize = '1.2rem';
-                infoRow.style.fontWeight = 'bold';
-                infoRow.style.opacity = '0.7';
-
-                const numberEl = document.createElement('div');
-                numberEl.textContent = card.number ? card.number.toUpperCase() : '';
-                infoRow.appendChild(numberEl);
-
-                cardDiv.appendChild(infoRow);
-            }
-
+            // Dsiplay card details on click
             cardDiv.addEventListener('click', () => displayCardDetails(card.id));
+
             return cardDiv;
         }
 
