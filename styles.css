@@ -159,6 +159,15 @@ section .suit-title {
     z-index: 1; /* Ensure it appears above other elements */
 }
 
+.card-preview .suit-mark {
+    position: absolute; /* Position it relative to the card container */
+    top: 5px; /* Place it in the top-right corner */
+    left: 5px;
+    font-size: 1rem;
+    pointer-events: none; /* Ensure it doesn't interfere with user interactions */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
 /* Specific card type styling */
 .card-preview[data-type="archetype"] { border-left: 5px solid var(--archetype-accent); }
 .card-preview[data-suit="fire"] { border-left: 5px solid var(--fire-accent); }
