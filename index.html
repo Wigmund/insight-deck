@@ -181,9 +181,7 @@
             cardDiv.classList.add('card-preview');
             cardDiv.setAttribute('data-id', card.id);
             cardDiv.setAttribute('data-type', card.type);
-            if (card.suit) {
-                cardDiv.setAttribute('data-suit', card.suit);
-            }
+            cardDiv.setAttribute('data-suit', card.suit);
 
             // Add green tick mark if the card is modified
             if (card.isModified) {
@@ -196,23 +194,18 @@
             // Add suit mark
             const suitMark = document.createElement('span');
             suitMark.classList.add('suit-mark', 'material-icons');
-            if (card.suit && suitIcons[card.suit]) {
-                suitMark.textContent = suitIcons[card.suit];
-            }
+            suitMark.textContent = suitIcons[card.suit];
             cardDiv.appendChild(suitMark);
 
             // Add number mark
             const numberMark = document.createElement('span');
             numberMark.classList.add('number-mark');
-            if (card.number) {
-                numberMark.textContent = String(card.number).toUpperCase();
-            }
+            numberMark.textContent = String(card.number).toUpperCase();
             cardDiv.appendChild(numberMark);
 
             // Set background image and styles based on card type
             if (card.type === 'archetype') {
                 cardDiv.style.backgroundImage = `url('img/card-back-1.png')`;
-                cardDiv.style.border = 'none';
                 cardDiv.style.justifyContent = 'end';
                 cardDiv.style.minHeight = '388px';
                 cardDiv.style.backgroundSize = '200px 320px';
