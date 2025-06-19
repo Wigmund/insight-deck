@@ -265,14 +265,14 @@
                             `<ul>${card.shadows.map(s => `<li class="editable-field" contenteditable="true" data-field="shadows">${s}</li>`).join('')}</ul>`
                         );
                     } else if (card.type === "action") {
-                        subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                        subtitleText = `${card.number.toUpperCase()}`;
                         tabs.push("Underplayed", "Overplayed");
                         tabContents.push(
                             `<ul>${card.underplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="underplayed">${s}</li>`).join('')}</ul>`,
                             `<ul>${card.overplayed.map(s => `<li class="editable-field" contenteditable="true" data-field="overplayed">${s}</li>`).join('')}</ul>`
                         );
                     } else if (card.type === "hero") {
-                        subtitleText = `${card.number.toUpperCase()} of ${card.suit.toUpperCase()}`;
+                        subtitleText = `${card.number.toUpperCase()}`;
                         tabs.push("How it Helps", "When to Deploy");
                         tabContents.push(
                             `<ul>${card.howItHelps.map(s => `<li class="editable-field" contenteditable="true" data-field="howItHelps">${s}</li>`).join('')}</ul>`,
