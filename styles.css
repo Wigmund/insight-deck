@@ -154,7 +154,6 @@ section .suit-title {
     top: 5px; /* Place it in the top-right corner */
     right: 5px;
     color: green;
-    font-size: 1rem;
     pointer-events: none; /* Ensure it doesn't interfere with user interactions */
     z-index: 1; /* Ensure it appears above other elements */
 }
@@ -163,7 +162,6 @@ section .suit-title {
     position: absolute; /* Position it relative to the card container */
     top: 5px; /* Place it in the top-right corner */
     left: 5px;
-    font-size: 1rem;
     pointer-events: none; /* Ensure it doesn't interfere with user interactions */
     z-index: 1; /* Ensure it appears above other elements */
 }
