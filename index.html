@@ -215,13 +215,6 @@
                 cardDiv.setAttribute('data-suit', card.suit);
             }
 
-            const suitMark = document.createElement('span');
-            suitMark.classList.add('suit-mark', 'material-icons');
-            if (card.suit && suitIcons[card.suit]) {
-                suitMark.textContent = suitIcons[card.suit];
-            }
-            cardDiv.appendChild(suitMark);
-
             // Add green tick mark if the card is modified
             if (card.isModified) {
                 const tickMark = document.createElement('span');
@@ -229,6 +222,22 @@
                 tickMark.textContent = 'task_alt';
                 cardDiv.appendChild(tickMark);
             }
+
+            // Add suit mark
+            const suitMark = document.createElement('span');
+            suitMark.classList.add('suit-mark', 'material-icons');
+            if (card.suit && suitIcons[card.suit]) {
+                suitMark.textContent = suitIcons[card.suit];
+            }
+            cardDiv.appendChild(suitMark);
+
+            // Add number mark
+            const numberMark = document.createElement('span');
+            numberMark.classList.add('number-mark', 'material-icons');
+            if (card.number) {
+                numberMark.textContent = card.number.toUpperCase();
+            }
+            cardDiv.appendChild(numberMark);
 
             // Set background image and styles based on card type
             if (card.type === 'archetype') {
@@ -239,12 +248,7 @@
                 cardDiv.style.backgroundSize = '200px 350px';
                 cardDiv.style.backgroundPosition = 'center';
                 cardDiv.style.backgroundRepeat = 'no-repeat';
-            } else if (card.type === 'action') {
-                cardDiv.style.backgroundImage = `url('img/${card.suit}.png')`;
-                cardDiv.style.backgroundSize = '32px 32px';
-                cardDiv.style.backgroundPosition = '90% 90%';
-                cardDiv.style.backgroundRepeat = 'no-repeat';
-            } else if (card.type === 'hero') {
+            } else if (card.type === 'action' || card.type === 'hero') {
                 cardDiv.style.backgroundImage = ``;
             }
 
