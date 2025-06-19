@@ -114,7 +114,7 @@ section .suit-title {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
-    padding: 1rem;
+    padding: 0rem;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -140,7 +140,7 @@ section .suit-title {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    margin-bottom: 0.1rem;    
+    margin-bottom: 1.1rem;    
     font-size: 1rem;
 }
 
