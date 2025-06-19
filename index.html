@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Insight Deck Explorer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.1">
+    <link rel="stylesheet" href="styles.css?v=1.2">
 </head>
 <body>
 
@@ -233,7 +233,7 @@
 
             // Add number mark
             const numberMark = document.createElement('span');
-            numberMark.classList.add('number-mark', 'material-icons');
+            numberMark.classList.add('number-mark');
             if (card.number) {
                 numberMark.textContent = card.number.toUpperCase();
             }
