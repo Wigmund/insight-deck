@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Insight Deck Explorer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="stylesheet" href="styles.css?v=1.4">
 </head>
 <body>
 
@@ -249,7 +249,7 @@
                     modal.setAttribute('data-id', card.id);
                     modal.setAttribute('data-type', card.type);
                     modal.setAttribute('data-suit', card.suit);
-                    modalType.textContent = card.type.toUpperCase();
+                    modalType.textContent = `${card.suit.toUpperCase()} ${card.type.toUpperCase()}`;
                     modalTitle.textContent = card.title.toUpperCase();
                     modalDescription.textContent = card.description || '';
 

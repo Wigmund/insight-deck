@@ -5,12 +5,10 @@
     --text-color: #333;
     --heading-color: #2c3e50;
     --accent-color: #3498db;
-    --archetype-accent: #9b59b6; /* Purple */
     --fire-accent: #e74c3c;     /* Red/Orange */
     --water-accent: #3498db;    /* Blue */
     --air-accent: #f1c40f;      /* Yellow */
     --earth-accent: #2ecc71;    /* Green */
-    --hero-accent: #1abc9c;     /* Teal */
     --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
 }
@@ -180,7 +178,6 @@ section .suit-title {
 }
 
 /* Specific card type styling */
-.card-preview[data-type="archetype"] { border-left: 5px solid var(--archetype-accent); }
 .card-preview[data-suit="fire"] { border-left: 5px solid var(--fire-accent); }
 .card-preview[data-suit="water"] { border-left: 5px solid var(--water-accent); }
 .card-preview[data-suit="air"] { border-left: 5px solid var(--air-accent); }
@@ -211,10 +208,6 @@ section .suit-title {
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: fadeInModal 0.3s ease-out;
-}
-
-.modal[data-type="archetype"] .modal-content {
-    border-left: 5px solid var(--archetype-accent);
 }
 
 .modal[data-suit="fire"] .modal-content {
@@ -357,7 +350,6 @@ footer {
 }
 
 /* Specific card type styling */
-.modal[data-type="archetype"] .tab-button.active { background-color: var(--archetype-accent); border-color: var(--archetype-accent); }
 .modal[data-suit="fire"] .tab-button.active { background-color: var(--fire-accent); border-color: var(--fire-accent);}
 .modal[data-suit="water"] .tab-button.active { background-color: var(--water-accent); border-color: var(--water-accent);}
 .modal[data-suit="air"] .tab-button.active { background-color: var(--air-accent); border-color: var(--air-accent);}
