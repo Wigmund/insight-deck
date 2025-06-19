@@ -167,6 +167,11 @@ section .suit-title {
     z-index: 1; /* Ensure it appears above other elements */
 }
 
+.card-preview[data-suit="fire"] .suit-mark { color: var(--fire-accent); }
+.card-preview[data-suit="water"] .suit-mark { color: var(--water-accent); }
+.card-preview[data-suit="air"] .suit-mark { color: var(--air-accent); }
+.card-preview[data-suit="earth"] .suit-mark { color: var(--earth-accent); }
+
 .card-preview .number-mark {
     position: absolute; /* Position it relative to the card container */
     top: 5px; /* Place it in the top-right corner */    
