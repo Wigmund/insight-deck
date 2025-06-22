@@ -351,6 +351,12 @@ footer {
 .modal[data-suit="air"] .tab-button.active { background-color: var(--air-accent); border-color: var(--air-accent);}
 .modal[data-suit="earth"] .tab-button.active { background-color: var(--earth-accent); border-color: var(--earth-accent);}
 
+.modal[data-suit="fire"] .suit-mark { color: var(--fire-accent); }
+.modal[data-suit="water"] .suit-mark { color: var(--water-accent); }
+.modal[data-suit="air"] .suit-mark { color: var(--air-accent); }
+.modal[data-suit="earth"] .suit-mark { color: var(--earth-accent); }
+
+
 .tab-content-item {
     display: none;
     padding: 10px;
