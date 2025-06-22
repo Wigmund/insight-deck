@@ -124,8 +124,6 @@ section .suit-title {
     align-items: center;
     overflow: hidden;
     position: relative; /* Ensure child elements like the tick mark are positioned relative to this container */
-    /* Enable view-transition for card previews */
-    view-transition-name: card-preview;
 }
 
 .card-preview:hover {
@@ -194,8 +192,6 @@ section .suit-title {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.6);
-    /* Enable view-transition for modal */
-    view-transition-name: modal;
 }
 
 .modal-content {
