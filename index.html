@@ -251,7 +251,7 @@
                     const tabContents = [];
 
                     if (card.type === "archetype") {
-                        subtitleText = `Inspired by ${card.traditional}`;
+                        subtitleText = `Inspired by ${card.number}`;
                         tabs.push("Strengths", "Shadows");
                         tabContents.push(
                             `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
@@ -325,7 +325,7 @@
                 const tabContents = [];
 
                 if (card.type === "archetype") {
-                    subtitleText = `Inspired by ${card.traditional}`;
+                    subtitleText = `Inspired by ${card.number}`;
                     tabs.push("Strengths", "Shadows");
                     tabContents.push(
                         `<ul>${card.strengths.map(s => `<li class="editable-field" contenteditable="true" data-field="strengths">${s}</li>`).join('')}</ul>`,
