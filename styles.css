@@ -285,6 +285,30 @@ section .suit-title {
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
+.modal-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header-flex .suit-mark {
+    font-size: 2.5rem; /* Increase icon size as needed */
+    min-width: 2.5rem;
+    text-align: center;
+}
+
+.modal-type-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#card-detail-type, #card-detail-number {
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
 #card-detail-title {
     color: var(--heading-color);
     font-size: 1.8rem;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Insight Deck Explorer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.7">
+    <link rel="stylesheet" href="styles.css?v=1.8">
 </head>
 <body>
 
@@ -129,8 +129,13 @@
     <!-- Modal for Card Details -->
     <div id="cardModal" class="modal">
         <div id="cardContent" class="modal-content">
-            <span id="card-details-suit" class="suit-mark material-icons"></span>
-            <span id="card-detail-type"></span>
+            <div class="modal-header-flex">
+                <span id="card-details-suit" class="suit-mark material-icons"></span>
+                <div class="modal-type-stack">
+                    <span id="card-detail-type"></span>
+                    <span id="card-detail-number"></span>
+                </div>
+            </div>
             <div class="modal-buttons">
                 <span id="save-button" class="modal-button material-icons">save</span>
                 <span id="close-button" class="modal-button material-icons">close</span>
@@ -159,6 +164,7 @@
 
         const modal = document.getElementById('cardModal');
         const modalType = document.getElementById('card-detail-type');
+        const modalNumber = document.getElementById('card-detail-number');
         const modalSuit = document.getElementById('card-details-suit');
         const modalTitle = document.getElementById('card-detail-title');
         const modalDescription = document.getElementById('card-detail-description');
@@ -289,7 +295,8 @@
             modal.setAttribute('data-id', card.id);
             modal.setAttribute('data-type', card.type);
             modal.setAttribute('data-suit', card.suit);
-            modalType.textContent = `${card.type.toUpperCase()} - ${card.number.toUpperCase()}`;
+            modalType.textContent = card.type.toUpperCase();
+            modalNumber.textContent = card.number.toUpperCase();
             modalSuit.textContent = suitIcons[card.suit];
             modalTitle.textContent = card.title.toUpperCase();
             modalDescription.textContent = card.description || 'not defined';
