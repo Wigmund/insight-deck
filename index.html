@@ -87,13 +87,13 @@
     <!-- Modal for Card Details -->
     <div id="cardModal" class="modal">
         <div id="cardContent" class="modal-content">
+            <span id="card-details-suit" class="suit-mark material-icons"></span>
             <p id="card-detail-type"></p>
             <div class="modal-buttons">
                 <span id="save-button" class="modal-button material-icons">save</span>
                 <span id="close-button" class="modal-button material-icons">close</span>
             </div>
             <div id="card-detail-title" class="editable-field" contenteditable="true" data-field="title" placeholder="Enter title here..."></div>
-            <p id="card-detail-subtitle"></p>
             <div id="card-detail-description" class="editable-field" contenteditable="true" data-field="description" placeholder="Enter description here..."></div>
             <div id="card-detail-content">
                 <div class="tabs">
@@ -117,6 +117,7 @@
 
         const modal = document.getElementById('cardModal');
         const modalType = document.getElementById('card-detail-type');
+        const modalSuit = document.getElementById('card-details-suit');
         const modalTitle = document.getElementById('card-detail-title');
         const modalDescription = document.getElementById('card-detail-description');
         const modalContent = document.getElementById('card-detail-content');
@@ -239,8 +240,9 @@
             modal.setAttribute('data-type', card.type);
             modal.setAttribute('data-suit', card.suit);
             modalType.textContent = `${card.suit.toUpperCase()} ${card.type.toUpperCase()} - ${card.number.toUpperCase()}`;
+            modalSuit.textContent = suitIcons[card.suit];
             modalTitle.textContent = card.title.toUpperCase();
-            modalDescription.textContent = card.description || '';
+            modalDescription.textContent = card.description || 'not defined';
 
             let subtitleText = "";
             const tabs = [];
