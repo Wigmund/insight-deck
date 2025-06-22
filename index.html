@@ -239,7 +239,7 @@
             modal.setAttribute('data-id', card.id);
             modal.setAttribute('data-type', card.type);
             modal.setAttribute('data-suit', card.suit);
-            modalType.textContent = `${card.suit.toUpperCase()} ${card.type.toUpperCase()} - ${card.number.toUpperCase()}`;
+            modalType.textContent = `${card.type.toUpperCase()} - ${card.number.toUpperCase()}`;
             modalSuit.textContent = suitIcons[card.suit];
             modalTitle.textContent = card.title.toUpperCase();
             modalDescription.textContent = card.description || 'not defined';
