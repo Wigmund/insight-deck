@@ -20,7 +20,7 @@
 
     <main class="container">
         <section id="introduction">
-            <h2>Welcome to The Insight Deck Explorer</h2>
+            <h2>Welcome to The Insight Deck</h2>
             <p>The Insight Deck is a unique 78-card system designed to illuminate individual and team strengths, reveal potential shadows, and spark meaningful conversations for growth. Inspired by the timeless wisdom of Tarot, this deck translates archetypal energies and everyday dynamics into actionable insights.</p>
             </br><p>Explore the three core categories of cards:</p>
             <ul>
@@ -189,6 +189,36 @@
         // Load Cards from Firebase
         loadCards();
 
+        const modal = document.getElementById('cardModal');
+        const modalType = document.getElementById('card-detail-type');
+        const modalNumber = document.getElementById('card-detail-number');
+        const modalSuit = document.getElementById('card-details-suit');
+        const modalTitle = document.getElementById('card-detail-title');
+        const modalDescription = document.getElementById('card-detail-description');
+        const modalContent = document.getElementById('card-detail-content');
+        const saveButton = document.getElementById('save-button');
+        const closeButton = document.getElementById('close-button');
+
+        // Add suit mark using a dictionary for icon mapping
+        const suitIcons = {
+            fire: 'local_fire_department',
+            water: 'water_drop',
+            air: 'air',
+            earth: 'public'
+        };
+        
+        // Function to load cards from Firebase
+        async function loadCards() {
+            try {
+                cardsData = await getCardsFromFirebase();
+                populateGalleries();
+                // Render carousel after cards are loaded
+                renderCarousel(cardsData);
+            } catch (error) {
+                console.error('Error loading cards from Firebase:', error);
+            }
+        }
+
         // Load Themes from Firebase and populate dropdown
         loadThemes();
 
@@ -226,18 +256,6 @@
                 cardDiv.textContent = card.title;
                 carousel.appendChild(cardDiv);
             });
-        }
-
-        // Function to load cards from Firebase
-        async function loadCards() {
-            try {
-                cardsData = await getCardsFromFirebase();
-                populateGalleries();
-                // Render carousel after cards are loaded
-                renderCarousel(cardsData);
-            } catch (error) {
-                console.error('Error loading cards from Firebase:', error);
-            }
         }
 
         // Function to populate galleries with card previews
