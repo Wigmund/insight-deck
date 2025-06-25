@@ -44,7 +44,7 @@
             <p>
                 Personalize your Insight Deck experience by selecting a theme. Themes allow you to tailor the look and feel of your cards, making the deck uniquely yours or aligned with your team's culture. Choose a theme from the dropdown below to see how your cards can be transformed!
             </p>
-            <label for="theme-select"><strong>Select Theme:</strong></label>
+            </br><label for="theme-select"><strong>Select Theme:</strong></label>
             <select id="theme-select">
                 <option value="">Loading themes...</option>
             </select>
@@ -178,8 +178,6 @@
 
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
-
-    // --- Add theme fetching ---
     import { getThemesFromFirebase } from './firebase.js';
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -211,8 +209,8 @@
         async function loadCards() {
             try {
                 cardsData = await getCardsFromFirebase();
+
                 populateGalleries();
-                // Render carousel after cards are loaded
                 renderCarousel(cardsData);
             } catch (error) {
                 console.error('Error loading cards from Firebase:', error);

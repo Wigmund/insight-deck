@@ -37,7 +37,7 @@ async function getCardsFromFirebase() {
 async function getThemesFromFirebase() {
     const themesCollection = collection(db, 'themes');
     const snapshot = await getDocs(themesCollection);
-    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return snapshot.docs.map(doc => doc.data());
 }
 
 // Ensure this file uses named exports for clarity
