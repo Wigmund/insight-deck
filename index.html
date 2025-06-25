@@ -38,6 +38,21 @@
             </br><p>Whether you're an individual seeking self-understanding, a coach facilitating growth, or a team aiming for greater synergy, The Insight Deck offers a creative and engaging way to unlock deeper awareness and foster positive change.</p>
         </section>
 
+        <!-- Deck Theme Section -->
+        <section id="deck-theme">
+            <h2>Deck Theme</h2>
+            <p>
+                Personalize your Insight Deck experience by selecting a theme. Themes allow you to tailor the look and feel of your cards, making the deck uniquely yours or aligned with your team's culture. Choose a theme from the dropdown below to see how your cards can be transformed!
+            </p>
+            <label for="theme-select"><strong>Select Theme:</strong></label>
+            <select id="theme-select">
+                <option value="">Loading themes...</option>
+            </select>
+            <div id="deck-carousel" class="deck-carousel">
+                <!-- Carousel cards will be rendered here -->
+            </div>
+        </section>
+
         <section id="actions">
             <h2>The Action Cards</h2>
             <p>The 40 Action cards focus on practical behaviors, skills, and methods that individuals and teams use to navigate everyday work situations.</p>
@@ -164,35 +179,62 @@
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
 
+    // --- Add theme fetching ---
+    import { getThemesFromFirebase } from './firebase.js';
+
     document.addEventListener('DOMContentLoaded', () => {
         let cardsData = [];
+        let themesData = [];
 
         // Load Cards from Firebase
         loadCards();
 
-        const modal = document.getElementById('cardModal');
-        const modalType = document.getElementById('card-detail-type');
-        const modalNumber = document.getElementById('card-detail-number');
-        const modalSuit = document.getElementById('card-details-suit');
-        const modalTitle = document.getElementById('card-detail-title');
-        const modalDescription = document.getElementById('card-detail-description');
-        const modalContent = document.getElementById('card-detail-content');
-        const saveButton = document.getElementById('save-button');
-        const closeButton = document.getElementById('close-button');
+        // Load Themes from Firebase and populate dropdown
+        loadThemes();
 
-        // Add suit mark using a dictionary for icon mapping
-        const suitIcons = {
-            fire: 'local_fire_department',
-            water: 'water_drop',
-            air: 'air',
-            earth: 'public'
-        };
+        // Carousel DOM references
+        const carousel = document.getElementById('deck-carousel');
+        const themeSelect = document.getElementById('theme-select');
+
+        async function loadThemes() {
+            try {
+                // getThemesFromFirebase should return an array of { id, name }
+                themesData = await getThemesFromFirebase();
+                themeSelect.innerHTML = '';
+                if (themesData.length === 0) {
+                    themeSelect.innerHTML = '<option value="">No themes found</option>';
+                } else {
+                    themesData.forEach(theme => {
+                        const opt = document.createElement('option');
+                        opt.value = theme.id;
+                        opt.textContent = theme.name;
+                        themeSelect.appendChild(opt);
+                    });
+                }
+            } catch (error) {
+                themeSelect.innerHTML = '<option value="">Error loading themes</option>';
+                console.error('Error loading themes:', error);
+            }
+        }
+
+        // Render carousel cards
+        function renderCarousel(cards) {
+            carousel.innerHTML = '';
+            cards.forEach(card => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'carousel-card';
+                cardDiv.textContent = card.title;
+                carousel.appendChild(cardDiv);
+            });
+        }
 
         // Function to load cards from Firebase
         async function loadCards() {
             try {
                 cardsData = await getCardsFromFirebase();
                 populateGalleries();
+                // Render carousel after cards are loaded
+                renderCarousel(cardsData);
             } catch (error) {
                 console.error('Error loading cards from Firebase:', error);
             }

@@ -33,5 +33,12 @@ async function getCardsFromFirebase() {
     return snapshot.docs.map(doc => doc.data());
 }
 
+// Function to fetch themes from Firebase
+async function getThemesFromFirebase() {
+    const themesCollection = collection(db, 'themes');
+    const snapshot = await getDocs(themesCollection);
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+}
+
 // Ensure this file uses named exports for clarity
-export { saveCardToFirebase, getCardsFromFirebase };
+export { saveCardToFirebase, getCardsFromFirebase, getThemesFromFirebase };
