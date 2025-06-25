@@ -99,6 +99,11 @@ section .suit-title {
 .suit-title.air { border-bottom-color: var(--air-accent); }
 .suit-title.earth { border-bottom-color: var(--earth-accent); }
 
+#introduction ul {
+    margin-left: 2rem;   /* Indent the whole list */
+    padding-left: 1.5rem; /* Indent bullets further if needed */
+}
+
 /* --- Card Gallery Styles --- */
 .card-group-subtitle {
     font-style: italic;
