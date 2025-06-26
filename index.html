@@ -236,6 +236,22 @@
         const carouselModalClose = document.getElementById('carousel-modal-close');
         const carouselModalBackdrop = document.getElementById('carousel-modal-backdrop');
 
+        // Dynamically load theme CSS
+        let currentThemeLink = null;
+        function loadThemeCss(theme) {
+            if (!theme || !theme.url) return;
+            if (currentThemeLink) {
+                currentThemeLink.remove();
+            }
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = theme.url;
+            link.id = 'theme-css';
+            document.head.appendChild(link);
+            currentThemeLink = link;
+        }
+
         async function loadThemes() {
             try {
                 themesData = await getThemesFromFirebase();
@@ -254,6 +270,7 @@
                 if (themesData.length > 0) {
                     selectedTheme = themesData[0];
                     themeSelect.selectedIndex = 0;
+                    loadThemeCss(selectedTheme);
                     renderCarousel(cardsData); // Ensure carousel uses the theme on load
                 }
             } catch (error) {
@@ -266,6 +283,7 @@
         themeSelect.addEventListener('change', () => {
             const idx = themeSelect.value;
             selectedTheme = themesData[idx] || null;
+            loadThemeCss(selectedTheme);
             renderCarousel(cardsData);
         });
 
@@ -276,10 +294,9 @@
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'carousel-card';
                 cardDiv.setAttribute('data-idx', idx);
-                // Set background color based on selected theme and card suit
-                if (selectedTheme && selectedTheme.background_color && card.suit) {
-                    const bg = selectedTheme.background_color[card.suit];
-                    if (bg) cardDiv.style.background = bg;
+                // Add suit class for background styling
+                if (card.suit) {
+                    cardDiv.classList.add('suit-' + card.suit);
                 }
                 cardDiv.textContent = card.title;
                 // Click to expand
@@ -459,6 +476,10 @@
             cardDiv.setAttribute('data-id', card.id);
             cardDiv.setAttribute('data-type', card.type);
             cardDiv.setAttribute('data-suit', card.suit);
+            // Add suit class for background styling
+            if (card.suit) {
+                cardDiv.classList.add('suit-' + card.suit);
+            }
 
             // Add green tick mark if the card is modified
             if (card.isModified) {

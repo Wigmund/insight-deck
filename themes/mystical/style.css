@@ -1,0 +1,16 @@
+.suit-fire {
+    background: linear-gradient(135deg, #d72660 60%, #f46036 100%);
+    color: #fff;
+}
+.suit-water {
+    background: linear-gradient(135deg, #1b6ca8 60%, #4fc3f7 100%);
+    color: #fff;
+}
+.suit-air {
+    background: linear-gradient(135deg, #b388ff 60%, #e0c3fc 100%);
+    color: #222;
+}
+.suit-earth {
+    background: linear-gradient(135deg, #43aa8b 60%, #254441 100%);
+    color: #fff;
+}
