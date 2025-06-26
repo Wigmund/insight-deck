@@ -448,7 +448,6 @@ footer {
 .carousel-card {
     width: 100px;
     height: 180px;
-    border: 2px solid #bbb;
     border-radius: 8px;
     background: #fff;
     display: flex;
@@ -457,7 +456,7 @@ footer {
     font-size: 0.8rem;
     margin-right: 0.5rem;
     flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1.5px 4px rgba(0,0,0,0.10);
     text-align: center;
     padding: 0.5rem;
     word-break: break-word;

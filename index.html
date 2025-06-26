@@ -240,6 +240,7 @@
                 if (themesData.length > 0) {
                     selectedTheme = themesData[0];
                     themeSelect.selectedIndex = 0;
+                    renderCarousel(cardsData); // Ensure carousel uses the theme on load
                 }
             } catch (error) {
                 themeSelect.innerHTML = '<option value="">Error loading themes</option>';
@@ -251,7 +252,6 @@
         themeSelect.addEventListener('change', () => {
             const idx = themeSelect.value;
             selectedTheme = themesData[idx] || null;
-            console.log('Selected theme:', selectedTheme);
             renderCarousel(cardsData);
         });
 
@@ -264,7 +264,6 @@
                 // Set background color based on selected theme and card suit
                 if (selectedTheme && selectedTheme.background_color && card.suit) {
                     const bg = selectedTheme.background_color[card.suit];
-                    console.log(`Setting background for ${card.title} (${card.suit}):`, bg);
                     if (bg) cardDiv.style.background = bg;
                 }
                 cardDiv.textContent = card.title;
