@@ -16,12 +16,11 @@
 }
 .carousel-card .card-title {
     position: absolute;
-    bottom: 12px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Arial';
+    font-size: 0.5rem;
     font-weight: bold;
     letter-spacing: 0.08em;
     color: #fff;
