@@ -14,3 +14,18 @@
     background: linear-gradient(135deg, #8bc34a 60%, #795548 100%);
     color: #fff;
 }
+.card-title-preview {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.18);
+    color: #fff;
+    padding: 0 8px;
+    z-index: 2;
+}
