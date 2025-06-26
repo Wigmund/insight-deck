@@ -173,6 +173,14 @@
         </div>
     </div>
 
+<div id="carousel-modal" style="display:none;">
+    <div id="carousel-modal-backdrop" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30,30,30,0.7);z-index:2000;"></div>
+    <div id="carousel-modal-content" style="position:fixed;z-index:2001;display:flex;align-items:center;justify-content:center;top:0;left:0;width:100vw;height:100vh;">
+        <!-- Card will be injected here -->
+        <button id="carousel-modal-close" aria-label="Close" style="position:absolute;top:24px;right:36px;font-size:2.2rem;background:rgba(255,255,255,0.8);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;z-index:10;">&times;</button>
+    </div>
+</div>
+
 <script type="module">
     import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
     import { getThemesFromFirebase } from './firebase.js';
@@ -222,6 +230,12 @@
         const carousel = document.getElementById('deck-carousel');
         const themeSelect = document.getElementById('theme-select');
 
+        // Carousel modal elements
+        const carouselModal = document.getElementById('carousel-modal');
+        const carouselModalContent = document.getElementById('carousel-modal-content');
+        const carouselModalClose = document.getElementById('carousel-modal-close');
+        const carouselModalBackdrop = document.getElementById('carousel-modal-backdrop');
+
         async function loadThemes() {
             try {
                 themesData = await getThemesFromFirebase();
@@ -258,17 +272,72 @@
         // Render carousel cards
         function renderCarousel(cards) {
             carousel.innerHTML = '';
-            cards.forEach(card => {
+            cards.forEach((card, idx) => {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'carousel-card';
+                cardDiv.setAttribute('data-idx', idx);
                 // Set background color based on selected theme and card suit
                 if (selectedTheme && selectedTheme.background_color && card.suit) {
                     const bg = selectedTheme.background_color[card.suit];
                     if (bg) cardDiv.style.background = bg;
                 }
                 cardDiv.textContent = card.title;
+                // Click to expand
+                cardDiv.addEventListener('click', () => openCarouselModal(card, cardDiv));
                 carousel.appendChild(cardDiv);
             });
+        }
+
+        // Open carousel card in fullscreen modal, scaling to fit with margin and keeping aspect ratio
+        function openCarouselModal(card, cardDiv) {
+            // Remove any previous card
+            const prev = carouselModalContent.querySelector('.carousel-card');
+            if (prev) prev.remove();
+
+            // Clone the card for modal
+            const modalCard = cardDiv.cloneNode(true);
+            modalCard.style.margin = '0';
+            modalCard.style.width = 'min(90vw, 350px)';
+            modalCard.style.height = 'min(80vh, 630px)';
+            modalCard.style.maxWidth = '350px';
+            modalCard.style.maxHeight = '630px';
+            modalCard.style.borderRadius = '16px';
+            modalCard.style.fontSize = '1.5rem';
+            modalCard.style.boxShadow = '0 8px 32px rgba(0,0,0,0.25)';
+            modalCard.style.background = cardDiv.style.background;
+            modalCard.style.display = 'flex';
+            modalCard.style.alignItems = 'center';
+            modalCard.style.justifyContent = 'center';
+            modalCard.style.transition = 'transform 0.35s cubic-bezier(.4,2,.3,1)';
+            modalCard.style.cursor = 'default';
+
+            // Center in modal content
+            carouselModalContent.appendChild(modalCard);
+
+            // Show modal
+            carouselModal.style.display = 'block';
+
+            // Animate scale up from original card position
+            const rect = cardDiv.getBoundingClientRect();
+            const modalRect = modalCard.getBoundingClientRect();
+            const scaleX = rect.width / modalRect.width;
+            const scaleY = rect.height / modalRect.height;
+            const translateX = rect.left + rect.width / 2 - (window.innerWidth / 2);
+            const translateY = rect.top + rect.height / 2 - (window.innerHeight / 2);
+
+            modalCard.animate([
+                {
+                    transform: `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`
+                },
+                {
+                    transform: 'translate(0,0) scale(1,1)'
+                }
+            ], {
+                duration: 350,
+                easing: 'cubic-bezier(.4,2,.3,1)'
+            });
+
+            document.body.style.overflow = 'hidden';
         }
 
         // Function to populate galleries with card previews
@@ -530,7 +599,7 @@
                 });
 
                 // Update Firebase
-                await Promise.all(cardsData.map(card => saveCardToFirebase(card)));
+                await Promise.all(cardsData.map card => saveCardToFirebase(card)));
 
                 // Remove green tick marks from all card previews
                 document.querySelectorAll('.card-preview .tick-mark').forEach(tickMark => tickMark.remove());
