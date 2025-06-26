@@ -441,8 +441,7 @@ footer {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 0.8rem;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
 }
 
 .carousel-card {
