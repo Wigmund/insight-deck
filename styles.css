@@ -470,6 +470,30 @@ footer {
     box-shadow: 0 8px 24px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.13);
 }
 
+/* Modal Backdrop */
+#carousel-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30,30,30,0.7);
+    z-index: 2000;
+}
+
+/* Modal Content */
+#carousel-modal-content {
+    position: fixed;
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 /* Carousel Modal Close Button */
 #carousel-modal-close {
     position: absolute;
