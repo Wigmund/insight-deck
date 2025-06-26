@@ -445,6 +445,7 @@ footer {
 }
 
 .carousel-card {
+    position: relative;
     width: 100px;
     height: 180px;
     border-radius: 8px;
