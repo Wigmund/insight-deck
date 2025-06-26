@@ -476,10 +476,6 @@
             cardDiv.setAttribute('data-id', card.id);
             cardDiv.setAttribute('data-type', card.type);
             cardDiv.setAttribute('data-suit', card.suit);
-            // Add suit class for background styling
-            if (card.suit) {
-                cardDiv.classList.add('suit-' + card.suit);
-            }
 
             // Add green tick mark if the card is modified
             if (card.isModified) {
