@@ -14,7 +14,7 @@
     background: linear-gradient(135deg, #43aa8b 60%, #254441 100%);
     color: #fff;
 }
-.card-title-preview {
+.carousel-card .card-title-preview {
     position: absolute;
     top: 18px;
     left: 50%;
