@@ -497,6 +497,7 @@ footer {
 /* Carousel Modal Close Button */
 #carousel-modal-close {
     position: absolute;
+    z-index: 2002;
     top: 24px;
     right: 36px;
     font-size: 2.2rem;
@@ -506,7 +507,6 @@ footer {
     width: 44px;
     height: 44px;
     cursor: pointer;
-    z-index: 10;
     color: #222;
     transition: background 0.2s, color 0.2s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
