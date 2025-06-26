@@ -311,11 +311,13 @@
             cardDiv.onclick = null;
             cardDiv.style.pointerEvents = 'none';
 
+            // Get original position and size BEFORE moving
+            const rect = cardDiv.getBoundingClientRect();
+            const originalWidth = rect.width;
+            const originalHeight = rect.height;
+
             // Move the cardDiv into the modal content
             carouselModalContent.appendChild(cardDiv);
-
-            // Get original position and size
-            const rect = cardDiv.getBoundingClientRect();
 
             // Show modal (so modalCard gets correct size)
             carouselModal.style.display = 'block';
@@ -323,11 +325,17 @@
             // Calculate scale to fit modal (max 90vw x 80vh)
             const maxWidth = Math.min(window.innerWidth * 0.9, 350);
             const maxHeight = Math.min(window.innerHeight * 0.8, 630);
-            const scaleX = maxWidth / rect.width;
-            const scaleY = maxHeight / rect.height;
+            const scaleX = maxWidth / originalWidth;
+            const scaleY = maxHeight / originalHeight;
             const scale = Math.min(scaleX, scaleY);
 
-            // Center the card in the modal
+            // Set fixed size and prevent flexbox stretching
+            cardDiv.style.width = originalWidth + 'px';
+            cardDiv.style.height = originalHeight + 'px';
+            cardDiv.style.minWidth = '0';
+            cardDiv.style.minHeight = '0';
+            cardDiv.style.maxWidth = 'none';
+            cardDiv.style.maxHeight = 'none';
             cardDiv.style.position = 'relative';
             cardDiv.style.zIndex = '10';
             cardDiv.style.left = '0';
@@ -336,11 +344,11 @@
             cardDiv.style.transition = 'transform 0.35s cubic-bezier(.4,2,.3,1)';
             cardDiv.style.transformOrigin = 'center center';
 
-            // Animate scale up from original position
-            cardDiv.style.transform = `scale(1)`;
+            // Start at scale(1), then scale up
+            cardDiv.style.transform = 'scale(1)';
             setTimeout(() => {
                 cardDiv.style.transform = `scale(${scale})`;
-            }, 10); // Animate immediately
+            }, 10);
 
             document.body.style.overflow = 'hidden';
         }
@@ -360,6 +368,12 @@
                 cardDiv.style.margin = '';
                 cardDiv.style.transformOrigin = '';
                 cardDiv.style.pointerEvents = '';
+                cardDiv.style.width = '';
+                cardDiv.style.height = '';
+                cardDiv.style.minWidth = '';
+                cardDiv.style.minHeight = '';
+                cardDiv.style.maxWidth = '';
+                cardDiv.style.maxHeight = '';
                 // Restore click handler if needed
                 if (cardDiv._originalClickHandler) {
                     cardDiv.onclick = cardDiv._originalClickHandler;
@@ -642,7 +656,7 @@
                 });
 
                 // Update Firebase
-                await Promise.all(cardsData.map(card => saveCardToFirebase(card)));
+                await Promise.all(cardsData.map((card) => saveCardToFirebase(card)));
 
                 // Remove green tick marks from all card previews
                 document.querySelectorAll('.card-preview .tick-mark').forEach(tickMark => tickMark.remove());
