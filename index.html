@@ -599,7 +599,7 @@
                 });
 
                 // Update Firebase
-                await Promise.all(cardsData.map card => saveCardToFirebase(card)));
+                await Promise.all(cardsData.map(card => saveCardToFirebase(card)));
 
                 // Remove green tick marks from all card previews
                 document.querySelectorAll('.card-preview .tick-mark').forEach(tickMark => tickMark.remove());
