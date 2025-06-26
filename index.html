@@ -290,8 +290,14 @@
 
         let originalCardParent = null;
         let originalCardNextSibling = null;
+        let isCarouselModalOpen = false; // Prevent double open
+        let currentModalCardDiv = null; // Track the card in modal
 
         function openCarouselModal(card, cardDiv) {
+            if (isCarouselModalOpen) return; // Prevent re-entry
+            isCarouselModalOpen = true;
+            currentModalCardDiv = cardDiv;
+
             // Remove any previous card from modal
             const prev = carouselModalContent.querySelector('.carousel-card');
             if (prev) prev.remove();
@@ -299,6 +305,11 @@
             // Save original parent and next sibling for restoration
             originalCardParent = cardDiv.parentNode;
             originalCardNextSibling = cardDiv.nextSibling;
+
+            // Remove click handler while in modal
+            cardDiv._originalClickHandler = cardDiv.onclick;
+            cardDiv.onclick = null;
+            cardDiv.style.pointerEvents = 'none';
 
             // Move the cardDiv into the modal content
             carouselModalContent.appendChild(cardDiv);
@@ -308,9 +319,6 @@
 
             // Show modal (so modalCard gets correct size)
             carouselModal.style.display = 'block';
-
-            // Get modal center position
-            const modalRect = carouselModalContent.getBoundingClientRect();
 
             // Calculate scale to fit modal (max 90vw x 80vh)
             const maxWidth = Math.min(window.innerWidth * 0.9, 350);
@@ -329,29 +337,18 @@
             cardDiv.style.transformOrigin = 'center center';
 
             // Animate scale up from original position
-            cardDiv.animate([
-                {
-                    transform: `scale(1)`
-                },
-                {
-                    transform: `scale(${scale})`
-                }
-            ], {
-                duration: 350,
-                easing: 'cubic-bezier(.4,2,.3,1)',
-                fill: 'forwards'
-            });
-
-            // Set final transform after animation
+            cardDiv.style.transform = `scale(1)`;
             setTimeout(() => {
                 cardDiv.style.transform = `scale(${scale})`;
-            }, 350);
+            }, 10); // Animate immediately
 
             document.body.style.overflow = 'hidden';
         }
 
         function closeCarouselModal() {
-            const cardDiv = carouselModalContent.querySelector('.carousel-card');
+            if (!isCarouselModalOpen) return;
+            isCarouselModalOpen = false;
+            const cardDiv = currentModalCardDiv || carouselModalContent.querySelector('.carousel-card');
             if (cardDiv && originalCardParent) {
                 // Remove transform and transition
                 cardDiv.style.transform = '';
@@ -362,7 +359,12 @@
                 cardDiv.style.top = '';
                 cardDiv.style.margin = '';
                 cardDiv.style.transformOrigin = '';
-
+                cardDiv.style.pointerEvents = '';
+                // Restore click handler if needed
+                if (cardDiv._originalClickHandler) {
+                    cardDiv.onclick = cardDiv._originalClickHandler;
+                    delete cardDiv._originalClickHandler;
+                }
                 // Move card back to its original parent and position
                 if (originalCardNextSibling) {
                     originalCardParent.insertBefore(cardDiv, originalCardNextSibling);
@@ -374,6 +376,7 @@
             document.body.style.overflow = '';
             originalCardParent = null;
             originalCardNextSibling = null;
+            currentModalCardDiv = null;
         }
 
         // Attach close handlers for carousel modal
