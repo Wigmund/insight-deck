@@ -22,11 +22,14 @@
     width: 90%;
     text-align: center;
     font-family: 'Caveat', 'Comic Sans MS', cursive;
-    font-size: 1.35rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: #ffeedd;
     text-shadow: 2px 2px 8px #3a1c4b;
     z-index: 2;
     padding: 0 6px;
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }

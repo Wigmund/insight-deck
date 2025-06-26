@@ -21,11 +21,13 @@
     width: auto;
     text-align: right;
     font-family: 'Roboto Slab', 'Times New Roman', serif;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     color: #e0e0e0;
-    text-shadow: 1px 1px 2px #222;
     z-index: 2;
     padding: 0 4px;
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
