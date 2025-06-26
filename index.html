@@ -346,9 +346,11 @@
 
             // Start at scale(1), then scale up
             cardDiv.style.transform = 'scale(1)';
-            setTimeout(() => {
-                cardDiv.style.transform = `scale(${scale})`;
-            }, 10);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    cardDiv.style.transform = `scale(${scale})`;
+                });
+            });
 
             document.body.style.overflow = 'hidden';
         }
