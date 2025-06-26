@@ -261,8 +261,8 @@
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'carousel-card';
                 // Set background color based on selected theme and card suit
-                if (selectedTheme && selectedTheme.map && selectedTheme.map.background_color && card.suit) {
-                    const bg = selectedTheme.map.background_color[card.suit];
+                if (selectedTheme && selectedTheme && selectedTheme.background_color && card.suit) {
+                    const bg = selectedTheme.background_color[card.suit];
                     if (bg) cardDiv.style.background = bg;
                 }
                 cardDiv.textContent = card.title;
