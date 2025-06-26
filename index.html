@@ -180,6 +180,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         let cardsData = [];
         let themesData = [];
+        let selectedTheme = null;
 
         // Load Cards from Firebase
         loadCards();
@@ -223,18 +224,22 @@
 
         async function loadThemes() {
             try {
-                // getThemesFromFirebase should return an array of { id, name }
                 themesData = await getThemesFromFirebase();
                 themeSelect.innerHTML = '';
                 if (themesData.length === 0) {
                     themeSelect.innerHTML = '<option value="">No themes found</option>';
                 } else {
-                    themesData.forEach(theme => {
+                    themesData.forEach((theme, idx) => {
                         const opt = document.createElement('option');
-                        opt.value = theme.id;
+                        opt.value = idx; // Use index for easy lookup
                         opt.textContent = theme.name;
                         themeSelect.appendChild(opt);
                     });
+                }
+                // Set selectedTheme to the first theme by default if available
+                if (themesData.length > 0) {
+                    selectedTheme = themesData[0];
+                    themeSelect.selectedIndex = 0;
                 }
             } catch (error) {
                 themeSelect.innerHTML = '<option value="">Error loading themes</option>';
@@ -242,12 +247,24 @@
             }
         }
 
+        // Listen for theme selection changes
+        themeSelect.addEventListener('change', () => {
+            const idx = themeSelect.value;
+            selectedTheme = themesData[idx] || null;
+            renderCarousel(cardsData);
+        });
+
         // Render carousel cards
         function renderCarousel(cards) {
             carousel.innerHTML = '';
             cards.forEach(card => {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'carousel-card';
+                // Set background color based on selected theme and card suit
+                if (selectedTheme && selectedTheme.map && selectedTheme.map.background_color && card.suit) {
+                    const bg = selectedTheme.map.background_color[card.suit];
+                    if (bg) cardDiv.style.background = bg;
+                }
                 cardDiv.textContent = card.title;
                 carousel.appendChild(cardDiv);
             });
