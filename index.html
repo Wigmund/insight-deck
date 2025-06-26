@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Insight Deck Explorer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.16">
+    <link rel="stylesheet" href="styles.css?v=1.17">
 </head>
 <body>
 
@@ -293,14 +293,15 @@
             cards.forEach((card, idx) => {
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'carousel-card';
+                cardDiv.classList.add('suit-' + card.suit);
                 cardDiv.setAttribute('data-idx', idx);
-                // Add suit class for background styling
-                if (card.suit) {
-                    cardDiv.classList.add('suit-' + card.suit);
-                }
-                cardDiv.textContent = card.title;
-                // Click to expand
                 cardDiv.addEventListener('click', () => openCarouselModal(card, cardDiv));
+
+                const cardTitle = document.createElement('span');
+                cardTitle.className = 'card-title';
+                cardTitle.textContent = card.title;
+                cardDiv.appendChild(cardTitle);
+
                 carousel.appendChild(cardDiv);
             });
         }
