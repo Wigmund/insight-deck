@@ -16,12 +16,11 @@
     width: 176px;
     height: 292px;
     backface-visibility: hidden; /* Hides the back of the element when facing away */
-    border-radius: 18px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
 }
