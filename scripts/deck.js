@@ -110,11 +110,16 @@ function initSwipers() {
         effect: 'slide',
         slidePerView: 'auto',
         spaceBetween: 16,
+        centeredSlides: true,
         mousewheel: true,
         loop: true,
         cardsEffect: {
             slideShadows: false 
         },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }
     });
 
     // Hero Cards Swiper
@@ -122,11 +127,16 @@ function initSwipers() {
         effect: 'slide',
         slidePerView: 'auto',
         spaceBetween: 16,
+        centeredSlides: true,
         mousewheel: true,
         loop: true,
         cardsEffect: {
             slideShadows: false,
         },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }
     });
 
     // Archetype Cards Swiper
@@ -134,11 +144,16 @@ function initSwipers() {
         effect: 'slide',
         slidePerView: 'auto',
         spaceBetween: 16,
+        centeredSlides: true,
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            slideShadows: true,
+            slideShadows: false,
         },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }
     });
 }
 
