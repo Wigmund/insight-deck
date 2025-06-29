@@ -87,6 +87,18 @@ function renderCards() {
     renderSwiperCards(cardsData, 'hero', 'hero-swiper-wrapper');
     renderSwiperCards(cardsData, 'archetype', 'archetype-swiper-wrapper');
     initSwipers();
+
+    // Card Flip Logic
+    document.querySelectorAll('.flip-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Stop the click from bubbling up to other elements
+            event.stopPropagation();
+            
+            // Find the parent .card element and toggle the 'flipped' class
+            const card = this.closest('.card');
+            card.classList.toggle('flipped');
+        });
+    });
 }
 
 async function loadCards() {
