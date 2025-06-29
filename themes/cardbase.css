@@ -24,3 +24,7 @@
     padding: 20px;
     box-sizing: border-box;
 }
+
+.card-back {
+    transform: rotateY(180deg);
+}
