@@ -5,86 +5,67 @@ let cardsData = [];
 let themesData = [];
 let selectedTheme = null;
 
-// Carousel DOM references
-const carousel = document.getElementById('deck-carousel');
-const themeSelect = document.getElementById('theme-select');
+// Theme select logic (if needed)
+// ...existing theme logic can be added here if you want theme switching...
 
-// Dynamically load theme CSS
-let currentThemeLink = null;
-function loadThemeCss(theme) {
-    if (!theme || !theme.url) return;
-    if (currentThemeLink) {
-        currentThemeLink.remove();
-    }
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = theme.url;
-    link.id = 'theme-css';
-    document.head.appendChild(link);
-    currentThemeLink = link;
-}
-
-async function loadThemes() {
-    try {
-        themesData = await getThemesFromFirebase();
-        themeSelect.innerHTML = '';
-        if (themesData.length === 0) {
-            themeSelect.innerHTML = '<option value="">No themes found</option>';
-        } else {
-            themesData.forEach((theme, idx) => {
-                const opt = document.createElement('option');
-                opt.value = idx; // Use index for easy lookup
-                opt.textContent = theme.name;
-                themeSelect.appendChild(opt);
-            });
-        }
-        // Set selectedTheme to the first theme by default if available
-        if (themesData.length > 0) {
-            selectedTheme = themesData[0];
-            themeSelect.selectedIndex = 0;
-            loadThemeCss(selectedTheme);
-            renderCarousel(cardsData); // Ensure carousel uses the theme on load
-        }
-    } catch (error) {
-        themeSelect.innerHTML = '<option value="">Error loading themes</option>';
-        console.error('Error loading themes:', error);
-    }
-}
-
-themeSelect.addEventListener('change', () => {
-    const idx = themeSelect.value;
-    selectedTheme = themesData[idx] || null;
-    loadThemeCss(selectedTheme);
-    renderCarousel(cardsData);
-});
-
-function renderCarousel(cards) {
-    carousel.innerHTML = '';
-    cards.forEach((card, idx) => {
-        const cardDiv = document.createElement('div');
-        cardDiv.className = 'carousel-card';
-        cardDiv.classList.add('suit-' + card.suit);
-        cardDiv.setAttribute('data-idx', idx);
-        // Add card title
-        const cardTitle = document.createElement('span');
-        cardTitle.className = 'card-title';
-        cardTitle.textContent = card.title;
-        cardDiv.appendChild(cardTitle);
-        carousel.appendChild(cardDiv);
+function renderSwiperCards(cards, type, wrapperId) {
+    const wrapper = document.getElementById(wrapperId);
+    wrapper.innerHTML = '';
+    cards.filter(card => card.type === type).forEach(card => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        // Card content
+        slide.innerHTML = `
+            <div class="carousel-card suit-${card.suit}">
+                <span class="card-title">${card.title}</span>
+            </div>
+        `;
+        wrapper.appendChild(slide);
     });
 }
 
 async function loadCards() {
     try {
         cardsData = await getCardsFromFirebase();
-        renderCarousel(cardsData);
+        renderSwiperCards(cardsData, 'action', 'action-swiper-wrapper');
+        renderSwiperCards(cardsData, 'hero', 'hero-swiper-wrapper');
+        renderSwiperCards(cardsData, 'archetype', 'archetype-swiper-wrapper');
+        initSwipers();
     } catch (error) {
         console.error('Error loading cards from Firebase:', error);
     }
 }
 
+function initSwipers() {
+    // Action Cards Swiper
+    new Swiper('.action-swiper', {
+        effect: 'cards',
+        grabCursor: true,
+        autoplay: { delay: 2000, disableOnInteraction: false },
+        mousewheel: true,
+        loop: true,
+        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+    });
+    // Hero Cards Swiper
+    new Swiper('.hero-swiper', {
+        effect: 'cards',
+        grabCursor: true,
+        autoplay: { delay: 2000, disableOnInteraction: false },
+        mousewheel: true,
+        loop: true,
+        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+    });
+    // Archetype Cards Swiper
+    new Swiper('.archetype-swiper', {
+        effect: 'cards',
+        grabCursor: true,
+        autoplay: { delay: 2000, disableOnInteraction: false },
+        mousewheel: true,
+        loop: true,
+        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCards();
-    loadThemes();
 });

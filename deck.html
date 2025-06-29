@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deck - The Insight Deck</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css?v=1.21">
 </head>
 <body>
@@ -20,9 +21,28 @@
                 <!-- Carousel cards will be rendered here -->
             </div>
         </section>
+        <section>
+            <h2>Action Cards</h2>
+            <div class="swiper action-swiper">
+                <div class="swiper-wrapper" id="action-swiper-wrapper"></div>
+            </div>
+        </section>
+        <section>
+            <h2>Hero Cards</h2>
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper" id="hero-swiper-wrapper"></div>
+            </div>
+        </section>
+        <section>
+            <h2>Archetype Cards</h2>
+            <div class="swiper archetype-swiper">
+                <div class="swiper-wrapper" id="archetype-swiper-wrapper"></div>
+            </div>
+        </section>
     </main>
     <div id="footer-include"></div>
     <script src="scripts/include.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="scripts/deck.js"></script>
 </body>
 </html>
