@@ -120,31 +120,31 @@ function initSwipers() {
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
-        effect: 'cards',
+        effect: 'flip',
         slidePerView: 3,
         grabCursor: true,
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
-        effect: 'cards',
+        effect: 'coverflow',
         slidePerView: 3,
         grabCursor: true,
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 }
