@@ -75,7 +75,6 @@ function renderSwiperCards(cards, type, wrapperId) {
                 <div class="card-back">
                     <span>BACK</span>
                 </div>
-                <button class="flip-btn" onclick="flipCard(event)">Flip</button>
             </div>
         `;
         wrapper.appendChild(slide);
@@ -87,13 +86,6 @@ function renderCards() {
     renderSwiperCards(cardsData, 'hero', 'hero-swiper-wrapper');
     renderSwiperCards(cardsData, 'archetype', 'archetype-swiper-wrapper');
     initSwipers();
-}
-
-function flipCard(event) {
-    event.stopPropagation();
-    const button = event.currentTarget;
-    const card = button.closest('.card');
-    card.classList.toggle('flipped');
 }
 
 async function loadCards() {
