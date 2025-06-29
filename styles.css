@@ -437,17 +437,12 @@ footer {
 }
 
 .swiper-slide {
-    width: 180px;
-    height: 300px;
+    text-align: center;
+    font-size: 18px;
+    background: #444;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 18px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    perspective: 1000px; /* Needed for the 3D flip effect */
-    pointer-events: auto;
+    align-items: center;
 }
 
 
