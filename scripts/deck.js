@@ -100,7 +100,7 @@ function initSwipers() {
     // Action Cards Swiper
     new Swiper('.action-swiper', {
         slidesPerView: "auto",
-        spaceBetween: 30,
+        spaceBetween: 20,
         mousewheel: true,
         loop: true,
         pagination: {
@@ -112,7 +112,7 @@ function initSwipers() {
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
         slidesPerView: "auto",
-        spaceBetween: 30,
+        spaceBetween: 20,
         mousewheel: true,
         loop: true,
         pagination: {
@@ -124,7 +124,7 @@ function initSwipers() {
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
         slidesPerView: "auto",
-        spaceBetween: 30,
+        spaceBetween: 20,
         mousewheel: true,
         loop: true,
         pagination: {
