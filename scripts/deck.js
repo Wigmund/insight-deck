@@ -105,7 +105,7 @@ function initSwipers() {
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 
@@ -117,7 +117,7 @@ function initSwipers() {
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 
@@ -129,7 +129,7 @@ function initSwipers() {
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            slideShadows: true 
+            slideShadows: false 
         },
     });
 }

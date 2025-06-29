@@ -1,0 +1,26 @@
+.card {
+    width: 176px;
+    height: 292px;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 176px;
+    height: 292px;
+    backface-visibility: hidden; /* Hides the back of the element when facing away */
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
