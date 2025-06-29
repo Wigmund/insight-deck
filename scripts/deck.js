@@ -107,9 +107,9 @@ async function loadCards() {
 function initSwipers() {
     // Action Cards Swiper
     new Swiper('.action-swiper', {
-        effect: 'cards',
-        slidePerView: 3,
-        grabCursor: false,
+        effect: 'slide',
+        slidePerView: 'auto',
+        spaceBetween: 16,
         mousewheel: true,
         loop: true,
         cardsEffect: {
@@ -120,32 +120,24 @@ function initSwipers() {
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
         effect: 'slide',
-        slidePerView: 3,
-        grabCursor: true,
+        slidePerView: 'auto',
+        spaceBetween: 16,
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            rotate: 30,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
             slideShadows: false,
         },
     });
 
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
-        effect: 'coverflow',
-        slidePerView: 3,
-        grabCursor: true,
+        effect: 'slide',
+        slidePerView: 'auto',
+        spaceBetween: 16,
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            rotate: 30,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
+            slideShadows: true,
         },
     });
 }

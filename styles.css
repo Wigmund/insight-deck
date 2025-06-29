@@ -432,11 +432,13 @@ footer {
 
 /* Swiper container styling */
 .swiper {
-    width: 250px;
-    height: 350px;
+    width: 100%;
+    height: 320px;
 }
 
 .swiper-slide {
+    width: 180px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
