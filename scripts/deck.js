@@ -75,6 +75,7 @@ function renderSwiperCards(cards, type, wrapperId) {
                 <div class="card-back">
                     <span>BACK</span>
                 </div>
+                <button class="flip-btn">Flip</button>
             </div>
         `;
         wrapper.appendChild(slide);
@@ -100,6 +101,7 @@ function initSwipers() {
     // Action Cards Swiper
     new Swiper('.action-swiper', {
         effect: 'cards',
+        slidePerView: 3,
         grabCursor: true,
         autoplay: { delay: 5000, disableOnInteraction: true },
         mousewheel: true,
@@ -112,6 +114,7 @@ function initSwipers() {
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
         effect: 'cards',
+        slidePerView: 3,
         grabCursor: true,
         autoplay: { delay: 5000, disableOnInteraction: true },
         mousewheel: true,
@@ -124,6 +127,7 @@ function initSwipers() {
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
         effect: 'cards',
+        slidePerView: 3,
         grabCursor: true,
         autoplay: { delay: 5000, disableOnInteraction: true },
         mousewheel: true,
