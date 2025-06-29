@@ -75,7 +75,7 @@ function renderSwiperCards(cards, type, wrapperId) {
                 <div class="card-back">
                     <span>BACK</span>
                 </div>
-                <button class="flip-btn">Flip</button>
+                <button class="flip-btn" click="flipCard(event)">Flip</button>
             </div>
         `;
         wrapper.appendChild(slide);
@@ -87,20 +87,13 @@ function renderCards() {
     renderSwiperCards(cardsData, 'hero', 'hero-swiper-wrapper');
     renderSwiperCards(cardsData, 'archetype', 'archetype-swiper-wrapper');
     initSwipers();
+}
 
-    // Card Flip Logic
-    document.querySelectorAll('.flip-btn').forEach(button => {
-        button.addEventListener('click', function(event) {
-            console.log('Flip button clicked');
-
-            // Stop the click from bubbling up to other elements
-            event.stopPropagation();
-            
-            // Find the parent .card element and toggle the 'flipped' class
-            const card = this.closest('.card');
-            card.classList.toggle('flipped');
-        });
-    });
+function flipCard(event) {
+    event.stopPropagation();
+    const button = event.currentTarget;
+    const card = button.closest('.card');
+    card.classList.toggle('flipped');
 }
 
 async function loadCards() {
@@ -126,13 +119,17 @@ function initSwipers() {
 
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
-        effect: 'flip',
+        effect: 'slide',
         slidePerView: 3,
         grabCursor: true,
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: false 
+            rotate: 30,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
         },
     });
 
@@ -144,7 +141,11 @@ function initSwipers() {
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            slideShadows: false 
+            rotate: 30,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
         },
     });
 }
