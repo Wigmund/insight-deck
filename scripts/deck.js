@@ -75,7 +75,7 @@ function renderSwiperCards(cards, type, wrapperId) {
                 <div class="card-back">
                     <span>BACK</span>
                 </div>
-                <button class="flip-btn" click="flipCard(event)">Flip</button>
+                <button class="flip-btn" onclick="flipCard(event)">Flip</button>
             </div>
         `;
         wrapper.appendChild(slide);
