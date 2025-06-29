@@ -101,6 +101,34 @@
             <button id="reset-modified-button" class="reset-button">Reset Modification Flags</button>
         </section>
     </main>
+
+    <!-- Modal for Card Editing -->
+    <div id="cardModal" class="modal">
+        <div id="cardContent" class="modal-content">
+            <div class="modal-header-flex">
+                <span id="card-details-suit" class="suit-mark material-icons"></span>
+                <div class="modal-type-stack">
+                    <span id="card-detail-type"></span>
+                    <span id="card-detail-number"></span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <span id="save-button" class="modal-button material-icons">save</span>
+                <span id="close-button" class="modal-button material-icons">close</span>
+            </div>
+            <div id="card-detail-title" class="editable-field" contenteditable="true" data-field="title" placeholder="Enter title here..."></div>
+            <div id="card-detail-description" class="editable-field" contenteditable="true" data-field="description" placeholder="Enter description here..."></div>
+            <div id="card-detail-content">
+                <div class="tabs">
+                    <!-- Tabs will be dynamically created here -->
+                </div>
+                <div class="tab-content">
+                    <!-- Tab content will be dynamically displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="footer-include"></div>
     <script src="scripts/include.js"></script>
     <script type="module" src="scripts/edit.js"></script>
