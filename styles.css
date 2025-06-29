@@ -445,6 +445,7 @@ footer {
     font-weight: bold;
     color: #fff;
     perspective: 1000px; /* Needed for the 3D flip effect */
+    pointer-events: auto;
 }
 
 

@@ -1,3 +1,9 @@
+.flip-btn {
+    position: relative; /* or absolute if you want to place it */
+    z-index: 10;
+    pointer-events: auto;
+}
+
 .card {
     width: 176px;
     height: 292px;
@@ -6,6 +12,7 @@
     transition: transform 0.8s;
     transform-style: preserve-3d;
     cursor: pointer;
+    pointer-events: auto;
 }
 
 .card.flipped {
@@ -24,6 +31,7 @@
     align-items: center;
     box-sizing: border-box;
     overflow: hidden;
+    pointer-events: auto;
 }
 
 .card-back {
