@@ -2,6 +2,24 @@ import { saveCardToFirebase, getCardsFromFirebase } from './firebase.js';
 
 let cardsData = [];
 
+const modal = document.getElementById('cardModal');
+const modalType = document.getElementById('card-detail-type');
+const modalNumber = document.getElementById('card-detail-number');
+const modalSuit = document.getElementById('card-details-suit');
+const modalTitle = document.getElementById('card-detail-title');
+const modalDescription = document.getElementById('card-detail-description');
+const modalContent = document.getElementById('card-detail-content');
+const saveButton = document.getElementById('save-button');
+const closeButton = document.getElementById('close-button');
+
+// Add suit mark using a dictionary for icon mapping
+const suitIcons = {
+    fire: 'local_fire_department',
+    water: 'water_drop',
+    air: 'air',
+    earth: 'public'
+};
+
 function populateGalleries() {
     const fireActionGallery = document.getElementById('fire-action-gallery');
     const waterActionGallery = document.getElementById('water-action-gallery');
@@ -282,5 +300,4 @@ async function loadCards() {
 
 document.addEventListener('DOMContentLoaded', () => {
     loadCards();
-    // ...add event listeners for save, reset, etc. as needed...
 });
