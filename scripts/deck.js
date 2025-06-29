@@ -107,52 +107,31 @@ async function loadCards() {
 function initSwipers() {
     // Action Cards Swiper
     new Swiper('.action-swiper', {
-        effect: 'slide',
-        slidePerView: 'auto',
-        spaceBetween: 16,
-        centeredSlides: true,
-        mousewheel: true,
-        loop: true,
-        cardsEffect: {
-            slideShadows: false 
-        },
+        slidesPerView: "auto",
+        spaceBetween: 30,
         pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+          el: ".swiper-pagination",
+          clickable: true,
         }
     });
 
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
-        effect: 'slide',
-        slidePerView: 'auto',
-        spaceBetween: 16,
-        centeredSlides: true,
-        mousewheel: true,
-        loop: true,
-        cardsEffect: {
-            slideShadows: false,
-        },
+        slidesPerView: "auto",
+        spaceBetween: 30,
         pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+          el: ".swiper-pagination",
+          clickable: true,
         }
     });
 
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
-        effect: 'slide',
-        slidePerView: 'auto',
-        spaceBetween: 16,
-        centeredSlides: true,
-        mousewheel: true,
-        loop: true,
-        cardsEffect: { 
-            slideShadows: false,
-        },
+        slidesPerView: "auto",
+        spaceBetween: 30,
         pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
+          el: ".swiper-pagination",
+          clickable: true,
         }
     });
 }
