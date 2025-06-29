@@ -105,6 +105,7 @@ function initSwipers() {
         loop: true,
         pagination: {
           el: ".swiper-pagination",
+          type: "fraction",
           clickable: true,
         }
     });
@@ -117,6 +118,7 @@ function initSwipers() {
         loop: true,
         pagination: {
           el: ".swiper-pagination",
+          type: "fraction",
           clickable: true,
         }
     });
@@ -129,6 +131,7 @@ function initSwipers() {
         loop: true,
         pagination: {
           el: ".swiper-pagination",
+          type: "fraction",
           clickable: true,
         }
     });
