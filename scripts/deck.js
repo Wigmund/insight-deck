@@ -91,6 +91,8 @@ function renderCards() {
     // Card Flip Logic
     document.querySelectorAll('.flip-btn').forEach(button => {
         button.addEventListener('click', function(event) {
+            console.log('Flip button clicked');
+
             // Stop the click from bubbling up to other elements
             event.stopPropagation();
             
@@ -114,12 +116,11 @@ function initSwipers() {
     new Swiper('.action-swiper', {
         effect: 'cards',
         slidePerView: 3,
-        grabCursor: true,
-        autoplay: { delay: 5000, disableOnInteraction: true },
+        grabCursor: false,
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: false 
+            slideShadows: true 
         },
     });
 
@@ -128,11 +129,10 @@ function initSwipers() {
         effect: 'cards',
         slidePerView: 3,
         grabCursor: true,
-        autoplay: { delay: 5000, disableOnInteraction: true },
         mousewheel: true,
         loop: true,
         cardsEffect: {
-            slideShadows: false 
+            slideShadows: true 
         },
     });
 
@@ -141,11 +141,10 @@ function initSwipers() {
         effect: 'cards',
         slidePerView: 3,
         grabCursor: true,
-        autoplay: { delay: 5000, disableOnInteraction: true },
         mousewheel: true,
         loop: true,
         cardsEffect: { 
-            slideShadows: false 
+            slideShadows: true 
         },
     });
 }
