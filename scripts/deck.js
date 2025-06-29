@@ -41,28 +41,28 @@ function initSwipers() {
     new Swiper('.action-swiper', {
         effect: 'cards',
         grabCursor: true,
-        autoplay: { delay: 2000, disableOnInteraction: false },
+        autoplay: { delay: 10000, disableOnInteraction: false },
         mousewheel: true,
         loop: true,
-        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+        //cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
     });
     // Hero Cards Swiper
     new Swiper('.hero-swiper', {
         effect: 'cards',
         grabCursor: true,
-        autoplay: { delay: 2000, disableOnInteraction: false },
+        autoplay: { delay: 10000, disableOnInteraction: false },
         mousewheel: true,
         loop: true,
-        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+        //cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
     });
     // Archetype Cards Swiper
     new Swiper('.archetype-swiper', {
         effect: 'cards',
         grabCursor: true,
-        autoplay: { delay: 2000, disableOnInteraction: false },
+        autoplay: { delay: 10000, disableOnInteraction: false },
         mousewheel: true,
         loop: true,
-        cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
+        //cardsEffect: { perSlideOffset: 8, perSlideRotate: 2, slideShadows: true },
     });
 }
 
