@@ -146,18 +146,19 @@ function enableCardInteractions() {
 
         // Add click event to scale card to full screen
         card.addEventListener('click', () => {
-            modalContent.innerHTML = card.outerHTML; // Clone card content
-            const modalCard = modalContent.querySelector('.card');
-            modalCard.addEventListener('click', () => {
-                modalCard.classList.toggle('flipped'); // Toggle flip animation
+            modalContent.innerHTML = ''; // Clear previous content
+            const clonedCard = card.cloneNode(true); // Clone the card
+            clonedCard.addEventListener('click', () => {
+                clonedCard.classList.toggle('flipped'); // Toggle flip animation
             });
+            modalContent.appendChild(clonedCard); // Add cloned card to modal
             modalOverlay.classList.add('visible');
         });
     });
 
     // Close modal when clicking outside the card
     modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay || e.target === modalContent) {
+        if (e.target === modalOverlay) {
             modalOverlay.classList.remove('visible');
         }
     });

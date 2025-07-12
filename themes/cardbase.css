@@ -8,20 +8,19 @@
     width: 176px;
     height: 292px;
     position: relative;
-    transition: transform 0.8s;
+    transition: transform 0.8s ease; /* Smooth flip animation */
     transform-style: preserve-3d;
     cursor: pointer;
     pointer-events: auto;
 }
 
 .card.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Flip the card */
 }
 
 .card-front, .card-back {
     position: absolute;
-    width: 176px;
-    height: 292px;
+    inset: 0; /* Ensures the front and back cover the entire card without distorting aspect ratio */
     backface-visibility: hidden; /* Hides the back of the element when facing away */
     border-radius: 8px;
     display: flex;
@@ -34,5 +33,5 @@
 }
 
 .card-back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Back face rotation */
 }
