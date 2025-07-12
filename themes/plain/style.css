@@ -41,7 +41,7 @@
 
 /* Action card title styling */
 .type-action .card-title {
-    top: 15px;
+    top: 20px;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -50,8 +50,8 @@
 
 /* Hero card title styling */
 .type-hero .card-title {
-    top: 25px;
-    font-size: 1.1rem;
+    top: 20px;
+    font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0.03em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -60,8 +60,8 @@
 
 /* Archetype card title styling */
 .type-archetype .card-title {
-    top: 30px;
-    font-size: 1.2rem;
+    top: 20px;
+    font-size: 1rem;
     font-weight: 900;
     letter-spacing: 0.08em;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);

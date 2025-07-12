@@ -15,6 +15,39 @@
     color: #fff;
 }
 
+/* Action card background images by suit */
+.type-action.suit-fire {
+    background-color: #D2CDAE;
+    background-image: url('fire-border.png');
+    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.type-action.suit-water {
+    background-color: #D2CDAE;
+    background-image: url('water-border.png');
+    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.type-action.suit-air {
+    background-color: #D2CDAE;
+    background-image: url('air-border.png');
+    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.type-action.suit-earth {
+    background-color: #D2CDAE;
+    background-image: url('earth-border.png');
+    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* Default card title styling */
 .card-title {
     position: absolute;
