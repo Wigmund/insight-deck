@@ -86,6 +86,7 @@ function renderCards() {
     renderSwiperCards(cardsData, 'hero', 'hero-swiper-wrapper');
     renderSwiperCards(cardsData, 'archetype', 'archetype-swiper-wrapper');
     initSwipers();
+    enableCardInteractions(); // Add this line
 }
 
 async function loadCards() {
@@ -130,6 +131,30 @@ function initSwipers() {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+        }
+    });
+}
+
+function enableCardInteractions() {
+    const cards = document.querySelectorAll('.swiper-slide .card');
+    const modalOverlay = document.querySelector('.swiper-modal-overlay');
+    const modalContent = document.querySelector('#modal-content');
+
+    cards.forEach(card => {
+        // Add hover effect
+        card.style.cursor = 'pointer';
+
+        // Add click event to scale card to full screen
+        card.addEventListener('click', () => {
+            modalContent.innerHTML = card.outerHTML; // Clone card content
+            modalOverlay.classList.add('visible');
+        });
+    });
+
+    // Close modal when clicking outside the card
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('visible');
         }
     });
 }
