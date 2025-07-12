@@ -19,7 +19,7 @@
 .type-action.suit-fire {
     background-color: #D2CDAE;
     background-image: url('fire-border.png');
-    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-size: calc(100% - 20px) calc(100% - 20px);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -27,7 +27,7 @@
 .type-action.suit-water {
     background-color: #D2CDAE;
     background-image: url('water-border.png');
-    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-size: calc(100% - 20px) calc(100% - 20px);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -35,7 +35,7 @@
 .type-action.suit-air {
     background-color: #D2CDAE;
     background-image: url('air-border.png');
-    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-size: calc(100% - 20px) calc(100% - 20px);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -43,7 +43,7 @@
 .type-action.suit-earth {
     background-color: #D2CDAE;
     background-image: url('earth-border.png');
-    background-size: calc(100% - 40px) calc(100% - 40px);
+    background-size: calc(100% - 20px) calc(100% - 20px);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -51,7 +51,6 @@
 /* Default card title styling */
 .card-title {
     position: absolute;
-    top: 38px;
     left: 50%;
     transform: translateX(-50%) rotate(-3deg);
     width: 90%;
@@ -60,7 +59,6 @@
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: #ffeedd;
     text-shadow: 2px 2px 8px #3a1c4b;
     z-index: 2;
     padding: 0 6px;
@@ -71,12 +69,14 @@
 
 /* Action card title - smaller, less rotation */
 .type-action .card-title {
-    top: 30px;
-    font-size: 0.9rem;
+    bottom: 44px;
+    font-size: 0.8rem;
     font-weight: 500;
     transform: translateX(-50%) rotate(-1deg);
     letter-spacing: 0.08em;
     text-shadow: 1px 1px 4px #3a1c4b;
+    color: #1d1d27;
+    line-height: normal;
 }
 
 /* Hero card title - bold, dramatic rotation */
@@ -104,10 +104,8 @@
 /* Default card description styling */
 .card-description {
     position: absolute;
-    bottom: 40px;
     left: 50%;
     transform: translateX(-50%) rotate(1deg);
-    width: 85%;
     text-align: center;
     font-family: 'Garamond';
     font-size: 0.6rem;
@@ -117,14 +115,14 @@
     text-shadow: 1px 1px 4px #2a1a2e;
     z-index: 2;
     padding: 0 6px;
-    display: block;
     opacity: 1;
     visibility: visible;
 }
 
 /* Action card description - practical, clean */
 .type-action .card-description {
-    bottom: 35px;
+    bottom: 50px;
+    width: 65%;
     font-size: 0.55rem;
     font-weight: 300;
     transform: translateX(-50%) rotate(0deg);
@@ -140,7 +138,11 @@
     transform: translateX(-50%) rotate(2deg);
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 6px #2a1a2e;
-    color: #f0e6d2;
+    color: #1d1d27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
 }
 
 /* Archetype card description - mysterious, flowing */
