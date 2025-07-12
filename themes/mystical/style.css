@@ -15,6 +15,7 @@
     color: #fff;
 }
 
+/* Default card title styling */
 .card-title {
     position: absolute;
     top: 38px;
@@ -35,6 +36,39 @@
     visibility: visible;
 }
 
+/* Action card title - smaller, less rotation */
+.type-action .card-title {
+    top: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transform: translateX(-50%) rotate(-1deg);
+    letter-spacing: 0.08em;
+    text-shadow: 1px 1px 4px #3a1c4b;
+}
+
+/* Hero card title - bold, dramatic rotation */
+.type-hero .card-title {
+    top: 35px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transform: translateX(-50%) rotate(-5deg);
+    letter-spacing: 0.15em;
+    text-shadow: 3px 3px 10px #3a1c4b;
+    color: #fff8dc;
+}
+
+/* Archetype card title - largest, most dramatic */
+.type-archetype .card-title {
+    top: 40px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    transform: translateX(-50%) rotate(-7deg);
+    letter-spacing: 0.2em;
+    text-shadow: 4px 4px 12px #3a1c4b;
+    color: #fffacd;
+}
+
+/* Default card description styling */
 .card-description {
     position: absolute;
     bottom: 40px;
@@ -53,4 +87,36 @@
     display: block;
     opacity: 1;
     visibility: visible;
+}
+
+/* Action card description - practical, clean */
+.type-action .card-description {
+    bottom: 35px;
+    font-size: 0.55rem;
+    font-weight: 300;
+    transform: translateX(-50%) rotate(0deg);
+    letter-spacing: 0.06em;
+    opacity: 0.9;
+}
+
+/* Hero card description - inspiring, flowing */
+.type-hero .card-description {
+    bottom: 42px;
+    font-size: 0.65rem;
+    font-weight: 450;
+    transform: translateX(-50%) rotate(2deg);
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 6px #2a1a2e;
+    color: #f0e6d2;
+}
+
+/* Archetype card description - mysterious, flowing */
+.type-archetype .card-description {
+    bottom: 45px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    transform: translateX(-50%) rotate(3deg);
+    letter-spacing: 0.12em;
+    text-shadow: 3px 3px 8px #2a1a2e;
+    color: #f5f0e1;
 }

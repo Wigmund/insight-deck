@@ -15,7 +15,7 @@
     color: #fff;
 }
 
-
+/* Default card title styling */
 .card-title {
     position: absolute;
     bottom: 10px;
@@ -35,6 +35,39 @@
     text-transform: uppercase;
 }
 
+/* Action card title - compact, efficient */
+.type-action .card-title {
+    bottom: 8px;
+    right: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #d0d0d0;
+}
+
+/* Hero card title - prominent, bold */
+.type-hero .card-title {
+    bottom: 12px;
+    right: 20px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Archetype card title - commanding presence */
+.type-archetype .card-title {
+    bottom: 15px;
+    right: 24px;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Default card description styling */
 .card-description {
     position: absolute;
     top: 40%;
@@ -52,4 +85,39 @@
     display: block;
     opacity: 1;
     visibility: visible;
+}
+
+/* Action card description - concise, focused */
+.type-action .card-description {
+    top: 35%;
+    width: 80%;
+    font-size: 0.55rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: #e8e8e8;
+    line-height: 1.2;
+}
+
+/* Hero card description - inspiring, clear */
+.type-hero .card-description {
+    top: 42%;
+    width: 88%;
+    font-size: 0.65rem;
+    font-weight: 450;
+    letter-spacing: 0.025em;
+    color: #f5f5f5;
+    line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Archetype card description - authoritative, comprehensive */
+.type-archetype .card-description {
+    top: 45%;
+    width: 90%;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    line-height: 1.4;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
