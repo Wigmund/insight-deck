@@ -21,22 +21,17 @@
 .card-front, .card-back {
     position: absolute;
     inset: 0; /* Ensures the front and back cover the entire card without distorting aspect ratio */
-    backface-visibility: hidden; /* Hides the back of the element when facing away */
     border-radius: 8px;
-    display: flex; /* Default display for toggling */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     overflow: hidden;
     pointer-events: auto;
-    color: inherit; /* Ensure text color is inherited */
-    font-size: 1rem; /* Ensure text is visible */
-    text-align: center; /* Center-align text */
 }
 
 .card-back {
-    transform: rotateY(180deg); /* Back face rotation */
     display: none; /* Initially hide the back */
     background-color: var(--secondary-bg); /* Ensure the back has a visible background */
     color: var(--text-color); /* Ensure the text color is visible */
