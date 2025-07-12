@@ -471,6 +471,12 @@ footer {
     opacity: 1;
 }
 
+/* Ensure the modal preserves 3D space */
+.swiper-modal-content {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
 /* Hover effect for cards */
 .swiper-slide .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;

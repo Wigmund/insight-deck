@@ -142,27 +142,21 @@ function enableCardInteractions() {
     const modalContent = document.querySelector('#modal-content');
 
     cards.forEach(card => {
-        // Add hover effect
         card.style.cursor = 'pointer';
-
-        // Add click event to scale card to full screen
         card.addEventListener('click', () => {
-            modalContent.innerHTML = ''; // Clear previous content
-            const clonedCard = card.cloneNode(true); // Clone the card
-            clonedCard.style.pointerEvents = 'auto'; // Ensure the cloned card can receive click events
-
-            // Initialize display states for front and back
-            const front = clonedCard.querySelector('.card-front');
-            const back = clonedCard.querySelector('.card-back');
-
+            modalContent.innerHTML = '';
+            const clonedCard = card.cloneNode(true);
+            clonedCard.style.pointerEvents = 'auto';
+            
+            // Add click handler for flipping
             clonedCard.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent modal close when clicking on the card
-                toggleCardFlip(clonedCard); // Toggle visibility of card-front and card-back
+                e.stopPropagation();
+                clonedCard.classList.toggle('flipped');
             });
 
-            modalContent.appendChild(clonedCard); // Add cloned card to modal
+            modalContent.appendChild(clonedCard);
             modalOverlay.classList.add('visible');
-            document.body.style.overflow = 'hidden'; // Disable page scrolling
+            document.body.style.overflow = 'hidden';
         });
     });
 
@@ -173,10 +167,6 @@ function enableCardInteractions() {
             document.body.style.overflow = ''; // Re-enable page scrolling
         }
     });
-}
-
-function toggleCardFlip(card) {
-    card.classList.toggle('flipped');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
