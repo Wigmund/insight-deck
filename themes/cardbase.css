@@ -8,20 +8,21 @@
     width: 176px;
     height: 292px;
     position: relative;
-    transition: transform 0.8s ease; /* Smooth flip animation */
-    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Required for 3D transforms */
     cursor: pointer;
     pointer-events: auto;
 }
 
 .card.flipped {
-    transform: rotateY(180deg); /* Flip the card */
+    transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
-    inset: 0; /* Ensures the front and back cover the entire card without distorting aspect ratio */
-    backface-visibility: hidden; /* Hides the back of the element when facing away */
+    inset: 0;
+    backface-visibility: hidden;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -30,9 +31,13 @@
     box-sizing: border-box;
     overflow: hidden;
     pointer-events: auto;
+    color: inherit;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .card-back {
+    transform: rotateY(180deg);
     display: none; /* Initially hide the back */
     background-color: var(--secondary-bg); /* Ensure the back has a visible background */
     color: var(--text-color); /* Ensure the text color is visible */
