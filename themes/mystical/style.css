@@ -14,7 +14,8 @@
     background: linear-gradient(135deg, #43aa8b 60%, #254441 100%);
     color: #fff;
 }
-.carousel-card .card-title {
+
+.card-title {
     position: absolute;
     top: 18px;
     left: 50%;
@@ -27,6 +28,26 @@
     letter-spacing: 0.12em;
     color: #ffeedd;
     text-shadow: 2px 2px 8px #3a1c4b;
+    z-index: 2;
+    padding: 0 6px;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.card-description {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+    width: 85%;
+    text-align: center;
+    font-family: 'Garamond';
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #e6d3c7;
+    text-shadow: 1px 1px 4px #2a1a2e;
     z-index: 2;
     padding: 0 6px;
     display: block;

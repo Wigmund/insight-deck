@@ -14,7 +14,8 @@
     background: linear-gradient(135deg, #a1887f 60%, #4e342e 100%);
     color: #fff;
 }
-.carousel-card .card-title {
+
+.card-title {
     position: absolute;
     bottom: 10px;
     right: 16px;
@@ -27,6 +28,25 @@
     color: #e0e0e0;
     z-index: 2;
     padding: 2px 4px;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.card-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    text-align: center;
+    font-family: 'Courier New';
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #f0f0f0;
+    z-index: 2;
+    padding: 0 8px;
     display: block;
     opacity: 1;
     visibility: visible;
