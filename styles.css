@@ -448,7 +448,7 @@ footer {
     overflow: hidden;
 }
 
-/* Swiper Model overlay styling */
+/* Swiper Modal overlay styling */
 .swiper-modal-overlay {
     position: fixed;
     top: 0;
@@ -456,7 +456,7 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    display: none; 
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -502,9 +502,9 @@ footer {
     padding: 20px; /* Add padding to ensure card margin is visible */
 }
 
-.carousel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.13);
+/* Prevent scrolling of the page behind the modal */
+body.modal-open {
+    overflow: hidden;
 }
 
 /* Modal Backdrop */

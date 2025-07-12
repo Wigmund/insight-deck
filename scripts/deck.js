@@ -154,6 +154,7 @@ function enableCardInteractions() {
             });
             modalContent.appendChild(clonedCard); // Add cloned card to modal
             modalOverlay.classList.add('visible');
+            document.body.style.overflow = 'hidden'; // Disable page scrolling
         });
     });
 
@@ -161,6 +162,7 @@ function enableCardInteractions() {
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
             modalOverlay.classList.remove('visible');
+            document.body.style.overflow = ''; // Re-enable page scrolling
         }
     });
 }
