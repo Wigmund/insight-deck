@@ -21,6 +21,7 @@
 .card-front, .card-back {
     position: absolute;
     inset: 0; /* Ensures the front and back cover the entire card without distorting aspect ratio */
+    backface-visibility: hidden; /* Hides the back of the element when facing away */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
