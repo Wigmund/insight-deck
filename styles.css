@@ -440,13 +440,13 @@ footer {
 .swiper-slide {
     width: 176px;
     height: 292px;
-    border-radius: 8px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    margin: 8px;
+    overflow: visible; /* Allow shadow and lift effects to show */
+    margin: 20px 8px; /* Increase top/bottom margin for hover space */
+    padding: 10px 0; /* Add padding for hover lift space */
 }
 
 /* Swiper Modal overlay styling */
@@ -482,6 +482,7 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform-origin: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Ensure the card itself has rounded corners */
 }
 
 .swiper-slide .card:hover {

@@ -106,7 +106,7 @@ function initSwipers() {
     new Swiper('.action-swiper', {
         slidesPerView: "auto",
         spaceBetween: 20,
-        mousewheel: true,
+        mousewheel: false,
         loop: true,
         pagination: {
           el: ".swiper-pagination",
@@ -118,7 +118,7 @@ function initSwipers() {
     new Swiper('.hero-swiper', {
         slidesPerView: "auto",
         spaceBetween: 20,
-        mousewheel: true,
+        mousewheel: false,
         loop: true,
         pagination: {
           el: ".swiper-pagination",
@@ -130,7 +130,7 @@ function initSwipers() {
     new Swiper('.archetype-swiper', {
         slidesPerView: "auto",
         spaceBetween: 20,
-        mousewheel: true,
+        mousewheel: false,
         loop: true,
         pagination: {
           el: ".swiper-pagination",
