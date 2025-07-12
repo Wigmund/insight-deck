@@ -38,7 +38,4 @@
 
 .card-back {
     transform: rotateY(180deg);
-    display: none; /* Initially hide the back */
-    background-color: var(--secondary-bg); /* Ensure the back has a visible background */
-    color: var(--text-color); /* Ensure the text color is visible */
 }

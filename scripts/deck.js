@@ -154,8 +154,6 @@ function enableCardInteractions() {
             // Initialize display states for front and back
             const front = clonedCard.querySelector('.card-front');
             const back = clonedCard.querySelector('.card-back');
-            front.style.display = 'flex';
-            back.style.display = 'none';
 
             clonedCard.addEventListener('click', (e) => {
                 e.stopPropagation(); // Prevent modal close when clicking on the card
@@ -178,11 +176,13 @@ function enableCardInteractions() {
 }
 
 function toggleCardFlip(card) {
-    const front = card.querySelector('.card-front');
-    const back = card.querySelector('.card-back');
-    if (front && back) {
-        // Toggle visibility with a class for animation
-        card.classList.toggle('flipped');
+    card.classList.toggle('flipped');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadCards();
+    loadThemes();
+});
     }
 }
 
