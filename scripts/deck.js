@@ -148,7 +148,8 @@ function enableCardInteractions() {
         card.addEventListener('click', () => {
             modalContent.innerHTML = ''; // Clear previous content
             const clonedCard = card.cloneNode(true); // Clone the card
-            clonedCard.addEventListener('click', () => {
+            clonedCard.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent modal close when clicking on the card
                 clonedCard.classList.toggle('flipped'); // Toggle flip animation
             });
             modalContent.appendChild(clonedCard); // Add cloned card to modal
