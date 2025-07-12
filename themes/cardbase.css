@@ -33,9 +33,9 @@
 
 .card-face {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 0.8rem;
+    top: 4px;
+    right: 6px;
+    font-size: 0.4rem;
     opacity: 0.6;
     text-transform: uppercase;
 }
