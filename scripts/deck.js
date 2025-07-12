@@ -70,11 +70,12 @@ function renderSwiperCards(cards, type, wrapperId) {
         slide.innerHTML = `
             <div class="card type-${card.type} suit-${card.suit}">
                 <div class="card-front">
-                    <span style='top: 0px'>FRONT</span>
+                    <span class="card-face">FRONT</span>
                     <span class="card-title">${card.title}</span>
+                    <span class="card-description">${card.description}</span>
                 </div>
                 <div class="card-back">
-                    <span style='top: 0px'>BACK</span>
+                    <span class="card-face">BACK</span>
                 </div>
             </div>
         `;
