@@ -473,19 +473,21 @@ footer {
 /* Hover effect for cards */
 .swiper-slide .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: center; /* Ensure scaling happens from the center */
 }
 
 .swiper-slide .card:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05); /* Slightly scale up the card */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 /* Full-screen modal scaling */
 .swiper-modal-overlay.visible .swiper-modal-content .card {
-    transform: scale(1.5);
+    transform: scale(2); /* Proportionally scale the card */
     transition: transform 0.3s ease;
     z-index: 1001;
+    border-radius: var(--border-radius); /* Ensure rounded corners remain */
 }
 
 /* Ensure modal content is centered */
@@ -495,6 +497,7 @@ footer {
     align-items: center;
     width: 100%;
     height: 100%;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .carousel-card:hover {
