@@ -62,14 +62,13 @@
     text-shadow: 2px 2px 8px #3a1c4b;
     z-index: 2;
     padding: 0 6px;
-    display: block;
     opacity: 1;
     visibility: visible;
 }
 
 /* Action card title - smaller, less rotation */
 .type-action .card-title {
-    bottom: 44px;
+    bottom: 28px;
     font-size: 0.8rem;
     font-weight: 500;
     transform: translateX(-50%) rotate(-1deg);
@@ -77,6 +76,10 @@
     text-shadow: 1px 1px 4px #3a1c4b;
     color: #1d1d27;
     line-height: normal;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 45px;
 }
 
 /* Hero card title - bold, dramatic rotation */
@@ -122,12 +125,17 @@
 /* Action card description - practical, clean */
 .type-action .card-description {
     bottom: 50px;
-    width: 65%;
+    width: 60%;
     font-size: 0.55rem;
     font-weight: 300;
     transform: translateX(-50%) rotate(0deg);
     letter-spacing: 0.06em;
     opacity: 0.9;
+    color: #1d1d27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
 }
 
 /* Hero card description - inspiring, flowing */
@@ -138,11 +146,6 @@
     transform: translateX(-50%) rotate(2deg);
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 6px #2a1a2e;
-    color: #1d1d27;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 140px;
 }
 
 /* Archetype card description - mysterious, flowing */
