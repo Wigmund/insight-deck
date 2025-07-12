@@ -147,6 +147,10 @@ function enableCardInteractions() {
         // Add click event to scale card to full screen
         card.addEventListener('click', () => {
             modalContent.innerHTML = card.outerHTML; // Clone card content
+            const modalCard = modalContent.querySelector('.card');
+            modalCard.addEventListener('click', () => {
+                modalCard.classList.toggle('flipped'); // Toggle flip animation
+            });
             modalOverlay.classList.add('visible');
         });
     });
