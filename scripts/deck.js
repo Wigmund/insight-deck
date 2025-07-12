@@ -151,7 +151,6 @@ function enableCardInteractions() {
             clonedCard.addEventListener('click', (e) => {
                 e.stopPropagation();
                 clonedCard.classList.toggle('flipped');
-                console.log('Card clicked, flipped:', clonedCard.classList.contains('flipped')); // Debug
             });
 
             modalContent.appendChild(clonedCard);

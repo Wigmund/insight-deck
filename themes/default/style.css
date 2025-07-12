@@ -15,7 +15,7 @@
     color: #fff;
 }
 
-.card-title {
+.card-front.card-title {
     position: absolute;
     top: 10px;
     left: 0;
@@ -34,7 +34,7 @@
     text-transform: uppercase;
 }
 
-.card-description {
+.card-front.card-description {
     position: absolute;
     left: 0;
     width: 100%;
