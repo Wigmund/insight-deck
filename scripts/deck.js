@@ -183,10 +183,3 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCards();
     loadThemes();
 });
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadCards();
-    loadThemes();
-});
