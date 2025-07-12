@@ -30,9 +30,14 @@
     box-sizing: border-box;
     overflow: hidden;
     pointer-events: auto;
+    color: inherit; /* Ensure text color is inherited */
+    font-size: 1rem; /* Ensure text is visible */
+    text-align: center; /* Center-align text */
 }
 
 .card-back {
     transform: rotateY(180deg); /* Back face rotation */
     display: none; /* Initially hide the back */
+    background-color: var(--secondary-bg); /* Ensure the back has a visible background */
+    color: var(--text-color); /* Ensure the text color is visible */
 }
