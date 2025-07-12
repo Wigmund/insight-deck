@@ -53,7 +53,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%) rotate(-3deg);
-    width: 90%;
+    width: 85%;
     text-align: center;
     font-family: 'Garamond';
     font-size: 1rem;
@@ -68,16 +68,15 @@
 
 /* Action card title - smaller, less rotation */
 .type-action .card-title {
-    bottom: 28px;
+    bottom: 44px;
     font-size: 0.8rem;
     font-weight: 500;
-    transform: translateX(-50%) rotate(-1deg);
     letter-spacing: 0.08em;
     text-shadow: 1px 1px 4px #3a1c4b;
     color: #1d1d27;
     line-height: normal;
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
     height: 45px;
 }
@@ -108,13 +107,11 @@
 .card-description {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) rotate(1deg);
     text-align: center;
     font-family: 'Garamond';
     font-size: 0.6rem;
     font-weight: 400;
     letter-spacing: 0.08em;
-    color: #e6d3c7;
     text-shadow: 1px 1px 4px #2a1a2e;
     z-index: 2;
     padding: 0 6px;
@@ -125,10 +122,9 @@
 /* Action card description - practical, clean */
 .type-action .card-description {
     bottom: 50px;
-    width: 60%;
+    width: 65%;
     font-size: 0.55rem;
     font-weight: 300;
-    transform: translateX(-50%) rotate(0deg);
     letter-spacing: 0.06em;
     opacity: 0.9;
     color: #1d1d27;
@@ -146,6 +142,7 @@
     transform: translateX(-50%) rotate(2deg);
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 6px #2a1a2e;
+    color: #f5f0e1;
 }
 
 /* Archetype card description - mysterious, flowing */
