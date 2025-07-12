@@ -498,11 +498,19 @@ footer {
     margin: 20px; /* Default margin for larger displays */
 }
 
+.swiper-modal-overlay.visible .swiper-modal-content .card.flipped {
+    transform: scale(2) rotateY(180deg);
+}
+
 /* Responsive styles for smaller displays */
 @media (max-width: 768px) {
     .swiper-modal-overlay.visible .swiper-modal-content .card {
         transform: scale(1.5); /* Slightly smaller scaling for mobile */
         margin: 10px; /* Smaller margin for mobile */
+    }
+
+    .swiper-modal-overlay.visible .swiper-modal-content .card.flipped {
+        transform: scale(1.5) rotateY(180deg);
     }
 }
 

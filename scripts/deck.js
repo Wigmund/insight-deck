@@ -146,12 +146,11 @@ function enableCardInteractions() {
         card.addEventListener('click', () => {
             modalContent.innerHTML = '';
             const clonedCard = card.cloneNode(true);
-            clonedCard.style.pointerEvents = 'auto';
             
-            // Add click handler for flipping
             clonedCard.addEventListener('click', (e) => {
                 e.stopPropagation();
                 clonedCard.classList.toggle('flipped');
+                console.log('Card clicked, flipped:', clonedCard.classList.contains('flipped')); // Debug
             });
 
             modalContent.appendChild(clonedCard);

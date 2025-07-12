@@ -8,14 +8,14 @@
     width: 176px;
     height: 292px;
     position: relative;
-    transition: transform 0.6s;
+    transition: transform 0.8s;
     transform-style: preserve-3d;
     cursor: pointer;
     perspective: 1000px;
 }
 
 .card.flipped {
-    transform: rotateY(180deg); /* Flip the card */
+    transform: rotateY(180deg);
 }
 
 .card-front,
@@ -29,10 +29,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
     border-radius: 8px;
+    /* Remove background here to allow theme backgrounds to show */
 }
 
 .card-back {
-    transform: rotateY(180deg); /* Back face rotation */
+    transform: rotateY(180deg);
 }
