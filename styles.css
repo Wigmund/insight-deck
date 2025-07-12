@@ -479,14 +479,16 @@ footer {
 
 /* Hover effect for cards */
 .swiper-slide .card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    transform-origin: center; /* Ensure scaling happens from the center */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .swiper-slide .card:hover {
-    transform: scale(1.05); /* Slightly scale up the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.05); /* Lift up and slightly scale */
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    z-index: 10; /* Bring the card forward */
 }
 
 /* Full-screen modal scaling */
