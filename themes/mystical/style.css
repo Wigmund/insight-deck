@@ -17,13 +17,13 @@
 
 .card-title {
     position: absolute;
-    top: 18px;
+    top: 38px;
     left: 50%;
     transform: translateX(-50%) rotate(-3deg);
     width: 90%;
     text-align: center;
     font-family: 'Garamond';
-    font-size: 0.6rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: #ffeedd;
@@ -37,7 +37,7 @@
 
 .card-description {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%) rotate(1deg);
     width: 85%;
