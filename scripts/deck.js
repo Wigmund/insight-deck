@@ -39,10 +39,12 @@ async function loadThemes() {
                 themeSelect.appendChild(opt);
             });
         }
-        // Set selectedTheme to the first theme by default if available
+        // Set selectedTheme to the 'plain' theme by default if available, otherwise use the first theme
         if (themesData.length > 0) {
-            selectedTheme = themesData[0];
-            themeSelect.selectedIndex = 0;
+            const plainThemeIndex = themesData.findIndex(theme => theme.name.toLowerCase() === 'plain');
+            const defaultIndex = plainThemeIndex !== -1 ? plainThemeIndex : 0;
+            selectedTheme = themesData[defaultIndex];
+            themeSelect.selectedIndex = defaultIndex;
             loadThemeCss(selectedTheme);
             renderCards(); // Ensure carousel uses the theme on load
         }
