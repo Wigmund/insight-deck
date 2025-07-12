@@ -488,6 +488,7 @@ footer {
     transition: transform 0.3s ease;
     z-index: 1001;
     border-radius: var(--border-radius); /* Ensure rounded corners remain */
+    margin: 20px; /* Add slight margin around the card */
 }
 
 /* Ensure modal content is centered */
@@ -498,6 +499,7 @@ footer {
     width: 100%;
     height: 100%;
     overflow: hidden; /* Prevent content overflow */
+    padding: 20px; /* Add padding to ensure card margin is visible */
 }
 
 .carousel-card:hover {

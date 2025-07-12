@@ -153,7 +153,7 @@ function enableCardInteractions() {
 
     // Close modal when clicking outside the card
     modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
+        if (e.target === modalOverlay || e.target === modalContent) {
             modalOverlay.classList.remove('visible');
         }
     });
