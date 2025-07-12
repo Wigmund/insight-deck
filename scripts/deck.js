@@ -147,8 +147,21 @@ function enableCardInteractions() {
     cards.forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
+            // Get card position before modal opens
+            const rect = card.getBoundingClientRect();
+            
             modalContent.innerHTML = '';
             const clonedCard = card.cloneNode(true);
+            
+            // Set initial position to match original card
+            clonedCard.style.position = 'fixed';
+            clonedCard.style.left = `${rect.left}px`;
+            clonedCard.style.top = `${rect.top}px`;
+            clonedCard.style.width = `${rect.width}px`;
+            clonedCard.style.height = `${rect.height}px`;
+            clonedCard.style.transform = 'scale(1)';
+            clonedCard.style.transition = 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            clonedCard.style.zIndex = '1002';
             
             clonedCard.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -157,6 +170,18 @@ function enableCardInteractions() {
 
             modalContent.appendChild(clonedCard);
             modalOverlay.classList.add('visible');
+            
+            // Animate to center after a brief delay
+            setTimeout(() => {
+                const isMobile = window.innerWidth <= 768;
+                const targetScale = isMobile ? 1.5 : 2;
+                clonedCard.style.left = '50%';
+                clonedCard.style.top = '50%';
+                clonedCard.style.transform = `translate(-50%, -50%) scale(${targetScale})`;
+                clonedCard.style.width = 'auto';
+                clonedCard.style.height = 'auto';
+            }, 50);
+            
             document.body.style.overflow = 'hidden';
         });
     });
