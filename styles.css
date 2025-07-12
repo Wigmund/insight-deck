@@ -488,7 +488,15 @@ footer {
     transition: transform 0.3s ease;
     z-index: 1001;
     border-radius: var(--border-radius); /* Ensure rounded corners remain */
-    margin: 20px; /* Add slight margin around the card */
+    margin: 20px; /* Default margin for larger displays */
+}
+
+/* Responsive styles for smaller displays */
+@media (max-width: 768px) {
+    .swiper-modal-overlay.visible .swiper-modal-content .card {
+        transform: scale(1.5); /* Slightly smaller scaling for mobile */
+        margin: 10px; /* Smaller margin for mobile */
+    }
 }
 
 /* Ensure modal content is centered */
@@ -500,6 +508,11 @@ footer {
     height: 100%;
     overflow: hidden; /* Prevent content overflow */
     padding: 20px; /* Add padding to ensure card margin is visible */
+    pointer-events: none; /* Prevent modal content from blocking clicks */
+}
+
+.swiper-modal-content .card {
+    pointer-events: auto; /* Allow the card to receive click events */
 }
 
 /* Prevent scrolling of the page behind the modal */
