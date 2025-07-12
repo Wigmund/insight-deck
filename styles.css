@@ -434,7 +434,7 @@ footer {
 .swiper {
     width: 100%;
     height: 100%;
-    padding: 0 0 60px;
+    padding: 0 0 80px;
 }
 
 .swiper-slide {
@@ -446,6 +446,7 @@ footer {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin: 8px;
 }
 
 /* Swiper Modal overlay styling */
@@ -513,6 +514,7 @@ footer {
 
 .swiper-modal-content .card {
     pointer-events: auto; /* Allow the card to receive click events */
+    user-select: none; /* Prevent text selection and caret display */
 }
 
 /* Prevent scrolling of the page behind the modal */
@@ -564,4 +566,15 @@ body.modal-open {
 #carousel-modal-close:hover {
     background: rgba(255,255,255,0.85);
     color: #000;
+}
+
+/* Suppress caret display in full-screen view */
+.swiper-modal-content .card {
+    user-select: none; /* Prevent text selection and caret display */
+    pointer-events: auto; /* Ensure the card remains interactive */
+}
+
+.swiper-modal-content .card * {
+    user-select: none; /* Apply to all child elements of the card */
+    pointer-events: auto; /* Ensure child elements remain interactive */
 }
