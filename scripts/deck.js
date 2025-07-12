@@ -150,6 +150,7 @@ function enableCardInteractions() {
             const clonedCard = card.cloneNode(true); // Clone the card
             clonedCard.style.pointerEvents = 'auto'; // Ensure the cloned card can receive click events
             clonedCard.addEventListener('click', (e) => {
+                console.log('Card clicked:', clonedCard);
                 e.stopPropagation(); // Prevent modal close when clicking on the card
                 clonedCard.classList.toggle('flipped'); // Toggle flip animation
             });
